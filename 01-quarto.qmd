@@ -78,3 +78,12 @@ componer un documento. La figura X.X presenta un esquema con el proceso de creac
 documento y los elementos y herramientas que entran en juego para conseguirlo.
 
 <!-- FIXME: INSERT FIGURE HERE -->
+
+- **Quarto engine**
+- **Markdown** (contenido formateado):
+- **Programming engine**: R, Python, Julia (lenguajes de programación que se pueden ejecutar
+en un entorno [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)).
+- **Pandoc** (traductor universal de formatos documentales):
+    - Primero se crea una salida en formato Markdown.
+    - Después, usamos Pandoc para convertir el contenido Markdown en el tipo de salida seleccionado.
+    - Opciones disponibles: HTML, PDF, Word.

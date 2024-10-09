@@ -1,21 +1,83 @@
 # Tipos de documentos
 
+En este capítulo, presentamos los principales tipos de documentos y
+colecciones de contenidos científicos que podemos generar con Quarto.
+
 ## Documentos individuales
 
+La forma más sencilla de trabajar con Quarto es crear un documento
+individual. Dicho documento podrá utilizar las secciones o *chunks*
+de código para leer datos de entrada o descargarlos de alguna fuente,
+procesarlos, analizarlos y mostrar los resultados. Se pueden añadir gráficos,
+tablas, ecuaciones, referencias bibliográficas y muchos otros elementos.
+
+Los documentos tienen siempre una estructura estándar:
+
+- *Preámbulo*: en el que se especifican opciones de configuración para la
+creación del documento con Quarto y sus herramientas asociadas.
+- *Cuerpo*: la sección que alberga el contenido principal del documento,
+incluyendo secciones de texto formateado en Markdown y secciones de código
+ejecutable. El código software se podrá mostrar, si resulta de utilidad, o
+quedar oculto en el resultado final.
+- *Referencias*: Al final del documento se incluyen las referencias
+bibliográficas, como es habitual en los textos científicos.
 
 ## Libros
+
+La evolución natural del caso anterior es reunir una colección de documentos
+individuales en un solo libro. *Quarto books* permite crear este tipo de
+documentos, estructurados en partes, capítulos y secciones. Las opciones de
+configuración permitirán confeccionar una portada de introducción para el sito
+web que contiene los capítulos (un documento por capítulo) o bien los elementos
+necesarios para crear un libro en PDF, semejante a los publicados por una
+editorial.
 
 
 ## Artículos y publicaciones
 
+Uno de los resultados clave en todo proceso científico es la producción de artículos
+y publicaciones (informes técnicos, etc.) que recojan los resultados y avances
+científicos conseguidos. En este caso, Quarto también nos podrá ayudar, con la
+colaboración de otros elementos indispensables como el paquete R `rticles`, que
+proporciona plantillas para generar artículos según las especificaciones de las
+principales publicaciones y editoriales científicas en multitud de campos de
+conocimiento.
+
 
 ## Presentaciones
+
+También es posible generar presentaciones (normalmente, en formato HTML) con diapositivas
+mediante Quarto. En este caso, tendríamos el soporte de varios paquetes y entornos
+de creación de presentaciones web a nuestra disposición, como `reveal.js` (HTML),
+Beamer (para LaTeX/PDF) o formato PPTX de MS Office.
+
+Este caso no lo trataremos en este taller, pero se puede obtener más información en la
+guía online, disponible en <https://quarto.org/docs/presentations/>.
 
 
 ## Sitios web
 
+Otra opción que puede resultar interesante es crear sitios web personales (por ejemplo, para
+mostrar nuestro CV y una selección de trabajos destacados, publicaciones, etc.), blogs e incluso
+sitios web corporativos (organización, grupo de investigación) de forma rápida mediante Quarto.
+Existen numerosas plantillas gratuitas y de pago ya disponibles para crear sitios web con un aspecto 
+armonizado, aunque necesitaremos aprender un poco de HTML y CSS para poder personalizar aún más
+nuestra web.
+
+Aquí tenemos un ejemplo de sitio web de un investigador en tecnología medioambiental creado con
+Quarto: <https://www.mm218.dev/>. Más ejemplos de diferentes tipos de sitios web generados con
+Quarto: <https://drganghe.github.io/quarto-academic-site-examples.html>.
+
+Se puede conseguir más información y tutoriales para crear sitios web con Quarto en
+<https://quarto.org/docs/websites/>.
 
 ## *Dashboards*
 
+Por último, es posible crear cuadros de mandos o *dashboards* personalizados para monitorización
+de datos, análisis de modelos y resultados o bien para ejemplos y aplicaciones docentes utilizando
+Quarto, tal y como se describen en la guía <https://quarto.org/docs/dashboards/>.
 
+En este caso podemos incluir entre las herramientas [Shiny](https://shiny.posit.co/), un paquete
+software para R (también disponible para Python) con el que crear aplicaciones interactivas basadas
+en datos de forma rápida y sencilla.
 
