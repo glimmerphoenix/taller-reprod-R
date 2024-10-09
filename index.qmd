@@ -1,0 +1,41 @@
+# Preface {.unnumbered}
+
+Este taller explica cómo utilizar [Quarto](https://quarto.org/), un software
+de creación de documentación científica, para crear publicaciones de calidad
+que integren contenido de texto formateado, gráficos, tablas, así como
+resultados de ejecución de código software en varios lenguajes, todo ello
+integrado en el propio documento.
+
+Quarto se ha convertido en una herramienta muy versátil y potente en el
+conjunto de herramientas de los programadores científicos, en especial
+por proporcionar soporte para implementar buenas prácticas de
+**investigación reproducible**, incluyendo los 
+[principios FAIR](https://www.go-fair.org/fair-principles/). El intenso
+movimiento iniciado desde hace años por la comunidad científica para
+garantizar acceso en abierto no solo al producto final (e.g. una publicación)
+sino también a materiales adicionales (códig fuente, conjuntos de datos,
+figuras, procesos de trabajo, archivos de configuración, etc.) se ha
+convertido en un objetivo insoslayable para académicos y especialistas
+en muchos campos diferentes. Muchas publicaciones científicas de prestigio
+exigen ahora a los autores enviar estos materiales auxiliares junto con
+los borradores de sus manuscritos, para permitir que otros colegas
+reproduzcan y validen los resultados, repliquen sus estudios sobre nuevas
+cohortes de individuos o elementos o para contribuir a la interpretación
+de los resultados obtenidos.
+
+Con la herramienta Quarto se puede combinar texto formateado (escrito en
+Markdown) junto con secciones de código ejecutable, todo integrado en un mismo
+documento. Estas secciones o *chunks* de código ejecutable pueden estar escritas
+en varios lenguajes: R, Python, Julia u Observable. Es incluso posible combinar
+en un mismo documento o colección de documentos secciones de código escritas en
+diferentes lenguajes de programación.
+
+Este es un **taller práctico** que presenta ejemplos reales y comandos para
+crear paso a paso tus propios documentos con Quarto en poco tiempo. Además,
+junto a la explicación de los conceptos clave para entender este proceso también
+se ofrecen recomendaciones sobre buenas prácticas de trabajo, para guiar a los
+aprendices de Quarto en la dirección correcta.
+
+Puedes aprender muchos más detalles sobre cuarto en la guía en línea
+<https://quarto.org/docs/guide/>. En particular, en <https://quarto.org/docs/books>
+se documenta en detalle cómo crear libros como este utilizando Quarto.

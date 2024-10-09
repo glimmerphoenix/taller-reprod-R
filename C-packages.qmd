@@ -1,0 +1,11 @@
+# Paquetes R de interés
+
+## `rticles`
+
+Shiny
+
+IOSlides, otras...
+
+Otros
+
+

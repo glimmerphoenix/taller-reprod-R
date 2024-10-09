@@ -1,0 +1,21 @@
+# Documentos individuales
+
+## El preámbulo
+
+### Listado de opciones 
+
+
+## Creación del documento (*output*)
+
+### Previsualización
+
+
+### Seleccionar el tipo de documento
+
+
+### Opciones básicas de configuración
+
+
+
+
+

@@ -1,0 +1,25 @@
+# Principios FAIR
+
+## Visión general
+
+
+## Publicación del código fuente
+
+
+## Publicación de conjuntos de datos
+
+
+## Gestión de referencias
+
+DOI
+
+Figshare
+
+Zenodo
+
+arXiv
+
+etc.
+
+
+

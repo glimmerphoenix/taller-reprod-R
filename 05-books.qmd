@@ -1,0 +1,25 @@
+# Libros
+
+## Herramientas de redacción
+
+### Figuras
+
+### Tablas
+
+### Ecuaciones
+
+### *Callouts*
+
+
+## Gestión de referencias
+
+### Referencias cruzadas en el documento
+
+
+### Referencias bibliográficas
+
+
+## Plantillas y personalización
+
+
+

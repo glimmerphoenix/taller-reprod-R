@@ -1,0 +1,80 @@
+# Documentos científicos 
+
+En su actividad diaria, los estudiantes, académicos y especialistas
+científicos producen gran cantidad de documentación de todo tipo:
+notas de laboratorio, apuntes, memorandos, informes técnicos y,
+sobre todo, artículos científicos para publicar sus descubrimientos
+y avances en un área de conocimiento. Normalmente, la creación de
+este tipo de documentos científicos conlleva una gran cantidad
+de tareas que involucran diferentes herramientas y posibles puntos
+de fallos.
+
+La *figura X.X* muestra una descripción general esquemática de un
+proceso de trabajo clásico para la creación de documentos científicos.
+Con frecuencia, el elemento principal es un archivo maestro de
+procesador de textos (Word, OpenOffice/LibreOffice, etc.), una página
+web o un fichero LaTeX (si vamos a crear un documento PDF) que recoge
+todo el contenido. 
+
+
+<!-- FIXME: INSERT FIGURE HERE -->
+
+Este archivo maestro se va llenando de contenido que procede de
+diversas fuentes, como por ejemplo:
+
+- figuras y esquemas generados manualmente o mediante código software
+(como gráficos de visualización de datos);
+- tablas y resúmenes que describen conjuntos de datos y resultados;
+- resultados y evaluación del rendimiento de modelos o algoritmos;
+estadísticos o de aprendizaje automático;
+- fórmulas y ecuaciones matemáticas;
+- tablas de datos y otra información de utilidad;
+- referencias bibliográficas (normalmente generadas con ayuda de algún
+programa de gestión de información bibliográfica).
+
+Muchos de estos elementos fuerzan a los usuarios a ejecutar una y otra
+vez herramientas y programas externos, procedimientos y otras tareas para
+incorporar luego los nuevos resultados al fichero maestro. Debemos admitir
+que este proceso, en su mayor parte manual, además de tedioso puede ser
+muy propenso a que cometamos errores o descuidos. "¡Espera! He olvidado
+actualizar la figura 1". "¿SEguro que estos son los últimos resultados
+de evaluación del modelo M?" "¿Has comprobado que hemos cargado la última
+versión del ficher de datos D?" Estas son preguntas comunes que surgen
+en el día a día de los equipos científicos.
+
+Sin embargo, sería genial si no fuese necesario realizar todo ese proceso
+manual y, en ocasiones, muy frustrante de forma manual. ¿Tenemos alguna
+alternativa para evitarlo? Sí, la tenemos. La respuesta a nuestras
+necesidades nos la brinda un concepto muy poderoso: la **programación literaria.
+
+
+## Programación literaria
+
+El concepto de programación literaria fue acuñado por el profesor Donald E. Knuth
+ya en 1984 @knuth84. Sí, no has leído mal, hace más de 40 años. Este concepto
+establece que debería ser posible integrar, en un solo documento científico,
+texto formateado y resultados de la ejecución de código software para componer
+dicho documento de forma dinámica. Entonces, ¿por qué hemos tardado tanto en poner
+en práctica esta idea? La visión de Knuth, aunque muy adelantada a su tiempo, era
+correcta, pero la tecnología de la época no permitía ponerla en práctica.
+
+Sin embargo, hoy día contamos con todos los elementos indispensables para llevar esta
+idea a la práctica. Es más, contamos con una herramienta, Quarto, que nos va a permitir
+automatizar y gestionar todo el proceso de creación de documentos de programación
+literaria de forma rápida y fiable.
+
+
+## Investigación reproducible
+
+<!-- FIXME: ADD INFO FROM SLIDES ABOUT REPRODUCIBLE RESEARCH AND BIBLIO REFERENCES -->
+
+
+## Quarto para publicaciones científicas
+
+Ahora que ya conocemos el concepto fundamental sobre el que se asienta el funcionamiento de Quarto
+y su aplicación para conseguir un mayor nivel de reproducibilidad y transparencia en nuestro
+proceso científico, vamos a explicar con más detalle el proceso que sigue Quarto para
+componer un documento. La figura X.X presenta un esquema con el proceso de creación del
+documento y los elementos y herramientas que entran en juego para conseguirlo.
+
+<!-- FIXME: INSERT FIGURE HERE -->

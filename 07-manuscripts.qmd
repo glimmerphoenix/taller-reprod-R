@@ -1,0 +1,17 @@
+# Artículos y publicaciones científicas
+
+
+## Replicabilidad en publicaciones científicas
+
+
+
+## Figuras y gráficos para publicación
+
+
+## EL paquete `rticles`
+
+
+## Ejemplos y recomendaciones
+
+
+
