@@ -1,0 +1,516 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Investigación reproducible con Quarto y R",
+    "section": "",
+    "text": "Preface\nEste taller explica cómo utilizar Quarto, un software de creación de documentación científica, para crear publicaciones de calidad que integren contenido de texto formateado, gráficos, tablas, así como resultados de ejecución de código software en varios lenguajes, todo ello integrado en el propio documento.\nQuarto se ha convertido en una herramienta muy versátil y potente en el conjunto de herramientas de los programadores científicos, en especial por proporcionar soporte para implementar buenas prácticas de investigación reproducible, incluyendo los principios FAIR. El intenso movimiento iniciado desde hace años por la comunidad científica para garantizar acceso en abierto no solo al producto final (e.g. una publicación) sino también a materiales adicionales (códig fuente, conjuntos de datos, figuras, procesos de trabajo, archivos de configuración, etc.) se ha convertido en un objetivo insoslayable para académicos y especialistas en muchos campos diferentes. Muchas publicaciones científicas de prestigio exigen ahora a los autores enviar estos materiales auxiliares junto con los borradores de sus manuscritos, para permitir que otros colegas reproduzcan y validen los resultados, repliquen sus estudios sobre nuevas cohortes de individuos o elementos o para contribuir a la interpretación de los resultados obtenidos.\nCon la herramienta Quarto se puede combinar texto formateado (escrito en Markdown) junto con secciones de código ejecutable, todo integrado en un mismo documento. Estas secciones o chunks de código ejecutable pueden estar escritas en varios lenguajes: R, Python, Julia u Observable. Es incluso posible combinar en un mismo documento o colección de documentos secciones de código escritas en diferentes lenguajes de programación.\nEste es un taller práctico que presenta ejemplos reales y comandos para crear paso a paso tus propios documentos con Quarto en poco tiempo. Además, junto a la explicación de los conceptos clave para entender este proceso también se ofrecen recomendaciones sobre buenas prácticas de trabajo, para guiar a los aprendices de Quarto en la dirección correcta.\nPuedes aprender muchos más detalles sobre cuarto en la guía en línea https://quarto.org/docs/guide/. En particular, en https://quarto.org/docs/books se documenta en detalle cómo crear libros como este utilizando Quarto.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "01-quarto.html",
+    "href": "01-quarto.html",
+    "title": "1  Documentos científicos",
+    "section": "",
+    "text": "1.1 Programación literaria\nEl concepto de programación literaria fue acuñado por el profesor Donald E. Knuth ya en 1984 Knuth (1984). Sí, no has leído mal, hace más de 40 años. Este concepto establece que debería ser posible integrar, en un solo documento científico, texto formateado y resultados de la ejecución de código software para componer dicho documento de forma dinámica. Entonces, ¿por qué hemos tardado tanto en poner en práctica esta idea? La visión de Knuth, aunque muy adelantada a su tiempo, era correcta, pero la tecnología de la época no permitía ponerla en práctica.\nSin embargo, hoy día contamos con todos los elementos indispensables para llevar esta idea a la práctica. Es más, contamos con una herramienta, Quarto, que nos va a permitir automatizar y gestionar todo el proceso de creación de documentos de programación literaria de forma rápida y fiable.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Documentos científicos</span>"
+    ]
+  },
+  {
+    "objectID": "01-quarto.html#investigación-reproducible",
+    "href": "01-quarto.html#investigación-reproducible",
+    "title": "1  Documentos científicos",
+    "section": "1.2 Investigación reproducible",
+    "text": "1.2 Investigación reproducible",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Documentos científicos</span>"
+    ]
+  },
+  {
+    "objectID": "01-quarto.html#quarto-para-publicaciones-científicas",
+    "href": "01-quarto.html#quarto-para-publicaciones-científicas",
+    "title": "1  Documentos científicos",
+    "section": "1.3 Quarto para publicaciones científicas",
+    "text": "1.3 Quarto para publicaciones científicas\nAhora que ya conocemos el concepto fundamental sobre el que se asienta el funcionamiento de Quarto y su aplicación para conseguir un mayor nivel de reproducibilidad y transparencia en nuestro proceso científico, vamos a explicar con más detalle el proceso que sigue Quarto para componer un documento. La figura X.X presenta un esquema con el proceso de creación del documento y los elementos y herramientas que entran en juego para conseguirlo.\n\n\nQuarto engine\nMarkdown (contenido formateado):\nProgramming engine: R, Python, Julia (lenguajes de programación que se pueden ejecutar en un entorno REPL).\nPandoc (traductor universal de formatos documentales):\n\nPrimero se crea una salida en formato Markdown.\nDespués, usamos Pandoc para convertir el contenido Markdown en el tipo de salida seleccionado.\nOpciones disponibles: HTML, PDF, Word.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Documentos científicos</span>"
+    ]
+  },
+  {
+    "objectID": "01-quarto.html#sec-quarto-install",
+    "href": "01-quarto.html#sec-quarto-install",
+    "title": "1  Documentos científicos",
+    "section": "1.4 Instalación de Quarto",
+    "text": "1.4 Instalación de Quarto\nhttps://quarto.org/docs/get-started/\nÚltima versión disponible: 1.5.57.\n\n\n\n\nKnuth, D. E. (1984). Literate Programming. Comput. J., 27(2), 97-111. https://doi.org/10.1093/comjnl/27.2.97",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Documentos científicos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html",
+    "href": "02-doctypes.html",
+    "title": "2  Tipos de documentos",
+    "section": "",
+    "text": "2.1 Documentos individuales\nLa forma más sencilla de trabajar con Quarto es crear un documento individual. Dicho documento podrá utilizar las secciones o chunks de código para leer datos de entrada o descargarlos de alguna fuente, procesarlos, analizarlos y mostrar los resultados. Se pueden añadir gráficos, tablas, ecuaciones, referencias bibliográficas y muchos otros elementos.\nLos documentos tienen siempre una estructura estándar:",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#documentos-individuales",
+    "href": "02-doctypes.html#documentos-individuales",
+    "title": "2  Tipos de documentos",
+    "section": "",
+    "text": "Preámbulo: en el que se especifican opciones de configuración para la creación del documento con Quarto y sus herramientas asociadas.\nCuerpo: la sección que alberga el contenido principal del documento, incluyendo secciones de texto formateado en Markdown y secciones de código ejecutable. El código software se podrá mostrar, si resulta de utilidad, o quedar oculto en el resultado final.\nReferencias: Al final del documento se incluyen las referencias bibliográficas, como es habitual en los textos científicos.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#libros",
+    "href": "02-doctypes.html#libros",
+    "title": "2  Tipos de documentos",
+    "section": "2.2 Libros",
+    "text": "2.2 Libros\nLa evolución natural del caso anterior es reunir una colección de documentos individuales en un solo libro. Quarto books permite crear este tipo de documentos, estructurados en partes, capítulos y secciones. Las opciones de configuración permitirán confeccionar una portada de introducción para el sito web que contiene los capítulos (un documento por capítulo) o bien los elementos necesarios para crear un libro en PDF, semejante a los publicados por una editorial.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#artículos-y-publicaciones",
+    "href": "02-doctypes.html#artículos-y-publicaciones",
+    "title": "2  Tipos de documentos",
+    "section": "2.3 Artículos y publicaciones",
+    "text": "2.3 Artículos y publicaciones\nUno de los resultados clave en todo proceso científico es la producción de artículos y publicaciones (informes técnicos, etc.) que recojan los resultados y avances científicos conseguidos. En este caso, Quarto también nos podrá ayudar, con la colaboración de otros elementos indispensables como el paquete R rticles, que proporciona plantillas para generar artículos según las especificaciones de las principales publicaciones y editoriales científicas en multitud de campos de conocimiento.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#presentaciones",
+    "href": "02-doctypes.html#presentaciones",
+    "title": "2  Tipos de documentos",
+    "section": "2.4 Presentaciones",
+    "text": "2.4 Presentaciones\nTambién es posible generar presentaciones (normalmente, en formato HTML) con diapositivas mediante Quarto. En este caso, tendríamos el soporte de varios paquetes y entornos de creación de presentaciones web a nuestra disposición, como reveal.js (HTML), Beamer (para LaTeX/PDF) o formato PPTX de MS Office.\nEste caso no lo trataremos en este taller, pero se puede obtener más información en la guía online, disponible en https://quarto.org/docs/presentations/.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#sitios-web",
+    "href": "02-doctypes.html#sitios-web",
+    "title": "2  Tipos de documentos",
+    "section": "2.5 Sitios web",
+    "text": "2.5 Sitios web\nOtra opción que puede resultar interesante es crear sitios web personales (por ejemplo, para mostrar nuestro CV y una selección de trabajos destacados, publicaciones, etc.), blogs e incluso sitios web corporativos (organización, grupo de investigación) de forma rápida mediante Quarto. Existen numerosas plantillas gratuitas y de pago ya disponibles para crear sitios web con un aspecto armonizado, aunque necesitaremos aprender un poco de HTML y CSS para poder personalizar aún más nuestra web.\nAquí tenemos un ejemplo de sitio web de un investigador en tecnología medioambiental creado con Quarto: https://www.mm218.dev/. Más ejemplos de diferentes tipos de sitios web generados con Quarto: https://drganghe.github.io/quarto-academic-site-examples.html.\nSe puede conseguir más información y tutoriales para crear sitios web con Quarto en https://quarto.org/docs/websites/.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "02-doctypes.html#dashboards",
+    "href": "02-doctypes.html#dashboards",
+    "title": "2  Tipos de documentos",
+    "section": "2.6 Dashboards",
+    "text": "2.6 Dashboards\nPor último, es posible crear cuadros de mandos o dashboards personalizados para monitorización de datos, análisis de modelos y resultados o bien para ejemplos y aplicaciones docentes utilizando Quarto, tal y como se describen en la guía https://quarto.org/docs/dashboards/.\nEn este caso podemos incluir entre las herramientas Shiny, un paquete software para R (también disponible para Python) con el que crear aplicaciones interactivas basadas en datos de forma rápida y sencilla.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Tipos de documentos</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html",
+    "href": "03-workflow.html",
+    "title": "3  Proceso de trabajo",
+    "section": "",
+    "text": "3.1 Conjunto de herramientas\nSe necesitan programas para cargar los documentos de salida, según el formato: navegador web (HTML), MS Word (archivos DOC), visor PDF (archivos PDF).",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Proceso de trabajo</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html#conjunto-de-herramientas",
+    "href": "03-workflow.html#conjunto-de-herramientas",
+    "title": "3  Proceso de trabajo",
+    "section": "",
+    "text": "Quarto\nKnitr\nMarkdown\nPandoc",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Proceso de trabajo</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html#producir-html",
+    "href": "03-workflow.html#producir-html",
+    "title": "3  Proceso de trabajo",
+    "section": "3.2 Producir HTML",
+    "text": "3.2 Producir HTML",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Proceso de trabajo</span>"
+    ]
+  },
+  {
+    "objectID": "03-workflow.html#producir-pdf",
+    "href": "03-workflow.html#producir-pdf",
+    "title": "3  Proceso de trabajo",
+    "section": "3.3 Producir PDF",
+    "text": "3.3 Producir PDF\n\n3.3.1 Personalizar documentos PDF\nSe pueden utilizar plantillas de documentos LaTeX predefinidas. Por defecto, Quarto utiliza varias plantillas de la colección de paquetes LaTeX koma-script.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Proceso de trabajo</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html",
+    "href": "04-singledoc.html",
+    "title": "4  Documentos individuales",
+    "section": "",
+    "text": "4.1 Creación del documento con RStudio\nAntes de empezar, comprueba que has instalado el software Quarto en tu máquina. Es un programa software independiente, que tiene que estar instalado para que el resto del proceso funcione (consulta la sección Sección 1.4).\nSi ya tenemos instalada una versión reciente de RStudio, necesitaremos instalar los siguientes paquetes para el ejemplo:\ninstall.packages(\"tidyverse\")\ninstall.packages(\"palmerpenguins\")\ninstall.packages(\"quarto\")\nAhora, en RStudio creamos un nuevo proyecto eligiendo la opción Quarto project, tal y como aparece en la Figura 4.1.\nPodemos nombrar el directorio de nuestro proyecto como primer-ejemplo y pulsamos Create Project.\nComo resultado, nos debe aparecer un nuevo proyecto abierto en pantalla, con el aspecto que se muestra en la Figura 4.2.\nEn concreto, en el panel superior izquierdo podemos comprobar que, por defecto se ha abierto el editor Visual, que permite crear documentos Quarto de forma más intuitiva. Sin embargo, para empezar a familiarizarnos desde el principio con la estructura de un documento en quarto vamos a cambiar al editor Source para ver el código fuente, pulsando en el botón que se muestra en la figura Figura 4.3.",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#creación-del-documento-con-rstudio",
+    "href": "04-singledoc.html#creación-del-documento-con-rstudio",
+    "title": "4  Documentos individuales",
+    "section": "",
+    "text": "Figura 4.1: New Quarto project\n\n\n\n\n\n\n\n\n\n\n\nFigura 4.2: First example\n\n\n\n\n\n\n\n\n\n\nFigura 4.3: Source editor",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#estructura-del-documento",
+    "href": "04-singledoc.html#estructura-del-documento",
+    "title": "4  Documentos individuales",
+    "section": "4.2 Estructura del documento",
+    "text": "4.2 Estructura del documento\nLa estructura de un documento individual en Quarto es esta.\n---\ntitle: \"Mi primer documento\"\nauthor: John Doe\ndate: 2024-10-24\n---\n\nAquí tenemos algo de contenido en formato **Markdown**.\n\n```{r}\n#| label: Etiqueta\n\n1 + 1\n```\n\nContenido *adicional* en Markdown.\nEl contenido del archivo consta de dos partes:\n\nPreámbulo: está delimitado por dos marcas ---. Dentro de esta área podemos asignar valores a opciones de configuración para maquetar y crear el documento, tales como el título, autor/es, fecha, etc. También podemos configurar diversas opciones relacionadas con el formato de salida de los documentos.\nCuerpo del documento: se compone de párrafos de texto formateados utilizando la sintaxis de marcado Markdown, que veremos después. Además, también se pueden intercalar en el texto secciones de código ejecutable o chunks, que se marcan siguiendo una sintaxis especial (como vemos en el ejemplo anterior).\n\nCada chunk de código ejecutable está delimitado de la siguiente manera\n```{r}\n# Código en R\n```\n\n\n\n\n\n\nSoporte para otros lenguajes de programación\n\n\n\nAunque en este taller nos centramos en el lenguaje R, debemos sabes que Quarto también soporta otros lenguajes de programación como Python, Julia u Observable.\nPodemos cambiar el lenguaje de programación de cada chunk indicando su nombre al comienzo, como por ejemplo:\n```{pyton}\n# Código en Python\n```\nSin embargo, para que pueda funcionar necesitaremos realizar algunas tareas adicionales de configuración.\n\n\n\n4.2.1 El preámbulo\n\n\n4.2.2 Listado de opciones\n\n\n4.2.3 Sintaxis Markdown básica",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#creación-del-documento-output",
+    "href": "04-singledoc.html#creación-del-documento-output",
+    "title": "4  Documentos individuales",
+    "section": "4.3 Creación del documento (output)",
+    "text": "4.3 Creación del documento (output)\n\n4.3.1 Previsualización\n\n\n4.3.2 Seleccionar el tipo de documento\n\n\n4.3.3 Opciones básicas de configuración",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#chunks-de-código-ejecutable",
+    "href": "04-singledoc.html#chunks-de-código-ejecutable",
+    "title": "4  Documentos individuales",
+    "section": "4.4 Chunks de código ejecutable",
+    "text": "4.4 Chunks de código ejecutable\nhttps://quarto.org/docs/get-started/computations/",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
+    ]
+  },
+  {
+    "objectID": "04-singledoc.html#herramientas-para-el-autor",
+    "href": "04-singledoc.html#herramientas-para-el-autor",
+    "title": "4  Documentos individuales",
+    "section": "4.5 Herramientas para el autor",
+    "text": "4.5 Herramientas para el autor\nhttps://quarto.org/docs/get-started/authoring/",
+    "crumbs": [
+      "Quarto",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html",
+    "href": "05-books.html",
+    "title": "5  Libros",
+    "section": "",
+    "text": "5.1 Herramientas de redacción",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libros</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html#herramientas-de-redacción",
+    "href": "05-books.html#herramientas-de-redacción",
+    "title": "5  Libros",
+    "section": "",
+    "text": "5.1.1 Figuras\n\n\n5.1.2 Tablas\n\n\n5.1.3 Ecuaciones\n\n\n5.1.4 Callouts",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libros</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html#gestión-de-referencias",
+    "href": "05-books.html#gestión-de-referencias",
+    "title": "5  Libros",
+    "section": "5.2 Gestión de referencias",
+    "text": "5.2 Gestión de referencias\n\n5.2.1 Referencias cruzadas en el documento\n\n\n5.2.2 Referencias bibliográficas",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libros</span>"
+    ]
+  },
+  {
+    "objectID": "05-books.html#plantillas-y-personalización",
+    "href": "05-books.html#plantillas-y-personalización",
+    "title": "5  Libros",
+    "section": "5.3 Plantillas y personalización",
+    "text": "5.3 Plantillas y personalización",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libros</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html",
+    "href": "06-class-notes.html",
+    "title": "6  Taller: colección de apuntes",
+    "section": "",
+    "text": "6.1 Plantillas y herramientas",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html#gestión-del-proyecto",
+    "href": "06-class-notes.html#gestión-del-proyecto",
+    "title": "6  Taller: colección de apuntes",
+    "section": "6.2 Gestión del proyecto",
+    "text": "6.2 Gestión del proyecto",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html#publicación",
+    "href": "06-class-notes.html#publicación",
+    "title": "6  Taller: colección de apuntes",
+    "section": "6.3 Publicación",
+    "text": "6.3 Publicación",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html",
+    "href": "07-manuscripts.html",
+    "title": "7  Artículos y publicaciones científicas",
+    "section": "",
+    "text": "7.1 Replicabilidad en publicaciones científicas",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
+    "href": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
+    "title": "7  Artículos y publicaciones científicas",
+    "section": "7.2 Figuras y gráficos para publicación",
+    "text": "7.2 Figuras y gráficos para publicación",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#el-paquete-rticles",
+    "href": "07-manuscripts.html#el-paquete-rticles",
+    "title": "7  Artículos y publicaciones científicas",
+    "section": "7.3 EL paquete rticles",
+    "text": "7.3 EL paquete rticles",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#ejemplos-y-recomendaciones",
+    "href": "07-manuscripts.html#ejemplos-y-recomendaciones",
+    "title": "7  Artículos y publicaciones científicas",
+    "section": "7.4 Ejemplos y recomendaciones",
+    "text": "7.4 Ejemplos y recomendaciones",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html",
+    "href": "08-FAIR.html",
+    "title": "8  Principios FAIR",
+    "section": "",
+    "text": "8.1 Visión general",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#publicación-del-código-fuente",
+    "href": "08-FAIR.html#publicación-del-código-fuente",
+    "title": "8  Principios FAIR",
+    "section": "8.2 Publicación del código fuente",
+    "text": "8.2 Publicación del código fuente",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#publicación-de-conjuntos-de-datos",
+    "href": "08-FAIR.html#publicación-de-conjuntos-de-datos",
+    "title": "8  Principios FAIR",
+    "section": "8.3 Publicación de conjuntos de datos",
+    "text": "8.3 Publicación de conjuntos de datos",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#gestión-de-referencias",
+    "href": "08-FAIR.html#gestión-de-referencias",
+    "title": "8  Principios FAIR",
+    "section": "8.4 Gestión de referencias",
+    "text": "8.4 Gestión de referencias\nDOI\nFigshare\nZenodo\narXiv\netc.",
+    "crumbs": [
+      "Publicaciones",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
+    ]
+  },
+  {
+    "objectID": "09-add-resources.html",
+    "href": "09-add-resources.html",
+    "title": "9  Recursos adicionales",
+    "section": "",
+    "text": "Listado de recursos adicionales de interés.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, D. E. (1984). Literate Programming. Comput. J., 27(2), 97-111. https://doi.org/10.1093/comjnl/27.2.97",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Recursos adicionales</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Referencias",
+    "section": "",
+    "text": "Knuth, D. E. (1984). Literate programming. Comput. J.,\n27(2), 97–111. https://doi.org/10.1093/comjnl/27.2.97",
+    "crumbs": [
+      "Referencias"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html",
+    "href": "A-command-ref.html",
+    "title": "Apéndice A — Comandos de utilidad",
+    "section": "",
+    "text": "A.1 Comandos Quarto",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos de utilidad</span>"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html#celdas-de-código-en-r",
+    "href": "A-command-ref.html#celdas-de-código-en-r",
+    "title": "Apéndice A — Comandos de utilidad",
+    "section": "A.2 Celdas de código en R",
+    "text": "A.2 Celdas de código en R",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos de utilidad</span>"
+    ]
+  },
+  {
+    "objectID": "B-IDEs.html",
+    "href": "B-IDEs.html",
+    "title": "Apéndice B — Entornos de desarrollo para Quarto",
+    "section": "",
+    "text": "B.1 R Studio",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Entornos de desarrollo para Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "B-IDEs.html#visual-studio",
+    "href": "B-IDEs.html#visual-studio",
+    "title": "Apéndice B — Entornos de desarrollo para Quarto",
+    "section": "B.2 Visual Studio",
+    "text": "B.2 Visual Studio",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Entornos de desarrollo para Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html",
+    "href": "C-packages.html",
+    "title": "Apéndice C — Paquetes R de interés",
+    "section": "",
+    "text": "C.1 rticles\nShiny\nIOSlides, otras…\nOtros",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R de interés</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html",
+    "href": "D-pdf-latex.html",
+    "title": "Apéndice D — Documentos PDF con LaTeX",
+    "section": "",
+    "text": "D.1 Salida en formato PDF",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html#acerca-de-latex",
+    "href": "D-pdf-latex.html#acerca-de-latex",
+    "title": "Apéndice D — Documentos PDF con LaTeX",
+    "section": "D.2 Acerca de LaTeX",
+    "text": "D.2 Acerca de LaTeX",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html#ejemplos-prácticos",
+    "href": "D-pdf-latex.html#ejemplos-prácticos",
+    "title": "Apéndice D — Documentos PDF con LaTeX",
+    "section": "D.3 Ejemplos prácticos",
+    "text": "D.3 Ejemplos prácticos",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
+    ]
+  }
+]
