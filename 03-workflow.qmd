@@ -1,6 +1,17 @@
 # Proceso de trabajo
 
+![How it works. Fuente: [RStudio](https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works).](img/rstudio-qmd-how-it-works.png){#fig-how-it-works}
+
 ## Conjunto de herramientas
+
+- Quarto
+- Knitr
+- Markdown
+- Pandoc
+
+Se necesitan programas para cargar los documentos de salida, según el formato: navegador
+web (HTML), MS Word (archivos DOC), visor PDF (archivos PDF).
+
 
 ## Producir HTML
 
@@ -8,6 +19,9 @@
 
 
 ### Personalizar documentos PDF
+
+Se pueden utilizar plantillas de documentos LaTeX predefinidas. Por defecto, Quarto utiliza
+varias plantillas de la colección de paquetes LaTeX [koma-script](https://ctan.org/pkg/koma-script).
 
 
 

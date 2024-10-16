@@ -1,8 +1,115 @@
 # Documentos individuales
 
-## El preámbulo
+La manera más sencilla de comenzar a utilizar Quarto es crear documentos
+individuales. Se trata de documentos autocontenidos, que incorporan texto
+formateado y código ejecutable en un único archivo.
+
+Para crear un documento nuevo con Quarto, simplemente podemos usar
+las opciones del menu de RStudio o MS Visual Code, o bien crear un archivo
+con extensión `.qmd`.
+
+## Creación del documento con RStudio
+
+Antes de empezar, comprueba que has instalado el software Quarto en tu máquina.
+Es un programa software independiente, que tiene que estar instalado para que el
+resto del proceso funcione (consulta la sección @sec-quarto-install).
+
+Si ya tenemos instalada una versión reciente de RStudio, necesitaremos instalar
+los siguientes paquetes para el ejemplo:
+
+```{r}
+#| label: first-example-pkgs
+#| eval: false
+
+install.packages("tidyverse")
+install.packages("palmerpenguins")
+install.packages("quarto")
+```
+
+
+Ahora, en RStudio creamos un nuevo proyecto eligiendo la opción *Quarto project*, tal y
+como aparece en la @fig-new-quarto-project.
+
+![New Quarto project](img/new-quarto-project.png){#fig-new-quarto-project width=80%}
+
+Podemos nombrar el directorio de nuestro proyecto como `primer-ejemplo`
+y pulsamos `Create Project`.
+
+Como resultado, nos debe aparecer un nuevo proyecto abierto en pantalla, con el aspecto
+que se muestra en la @fig-first-example.
+
+![First example](img/first-example.png){#fig-first-example width=80%}
+
+En concreto, en el panel superior izquierdo podemos comprobar que, por defecto se ha abierto el
+editor *Visual*, que permite crear documentos Quarto de forma más intuitiva. Sin embargo, para
+empezar a familiarizarnos desde el principio con la estructura de un documento en quarto vamos
+a cambiar al editor *Source* para ver el código fuente, pulsando en el botón que se muestra en
+la figura @fig-source-editor.
+
+![Source editor](img/source-editor.png){#fig-source-editor width=80%}
+
+## Estructura del documento
+
+La estructura de un documento individual en Quarto es esta.
+
+````
+---
+title: "Mi primer documento"
+author: John Doe
+date: 2024-10-24
+---
+
+Aquí tenemos algo de contenido en formato **Markdown**.
+
+```{{r}}
+#| label: Etiqueta
+
+1 + 1
+```
+
+Contenido *adicional* en Markdown.
+
+````
+
+El contenido del archivo consta de dos partes:
+
+- **Preámbulo**: está delimitado por dos marcas `---`. Dentro
+de esta área podemos asignar valores a opciones de configuración
+para maquetar y crear el documento, tales como el título, autor/es, fecha, etc.
+También podemos configurar diversas opciones relacionadas con el
+formato de salida de los documentos.
+
+- **Cuerpo del documento**: se compone de párrafos de texto formateados
+utilizando la sintaxis de marcado Markdown, que veremos después. Además,
+también se pueden intercalar en el texto secciones de código ejecutable o
+*chunks*, que se marcan siguiendo una sintaxis especial (como vemos en el
+ejemplo anterior).
+
+Cada *chunk* de código ejecutable está delimitado de la siguiente manera
+````{{r}}
+# Código en R
+````
+
+::: {.callout-tip}
+## Soporte para otros lenguajes de programación
+
+Aunque en este taller nos centramos en el lenguaje R, debemos sabes que Quarto
+también soporta otros lenguajes de programación como Python, Julia u Observable.
+
+Podemos cambiar el lenguaje de programación de cada *chunk* indicando su nombre
+al comienzo, como por ejemplo:
+
+````{{pyton}}
+# Código en Python
+````
+Sin embargo, para que pueda funcionar necesitaremos realizar algunas tareas adicionales de configuración.
+:::
+
+### El preámbulo
 
 ### Listado de opciones 
+
+### Sintaxis Markdown básica
 
 
 ## Creación del documento (*output*)
@@ -15,7 +122,12 @@
 
 ### Opciones básicas de configuración
 
+## *Chunks* de código ejecutable
 
+<https://quarto.org/docs/get-started/computations/>
 
+## Herramientas para el autor
+
+<https://quarto.org/docs/get-started/authoring/>
 
 

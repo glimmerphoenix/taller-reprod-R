@@ -87,3 +87,9 @@ en un entorno [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93pri
     - Primero se crea una salida en formato Markdown.
     - Después, usamos Pandoc para convertir el contenido Markdown en el tipo de salida seleccionado.
     - Opciones disponibles: HTML, PDF, Word.
+
+## Instalación de Quarto {#sec-quarto-install}
+
+<https://quarto.org/docs/get-started/>
+
+Última versión disponible: `1.5.57`.
