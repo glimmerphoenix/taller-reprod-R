@@ -302,10 +302,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#previsualización" id="toc-previsualización" class="nav-link" data-scroll-target="#previsualización"><span class="header-section-number">4.3.1</span> Previsualización</a></li>
   <li><a href="#seleccionar-el-tipo-de-documento" id="toc-seleccionar-el-tipo-de-documento" class="nav-link" data-scroll-target="#seleccionar-el-tipo-de-documento"><span class="header-section-number">4.3.2</span> Seleccionar el tipo de documento</a></li>
-  <li><a href="#opciones-básicas-de-configuración" id="toc-opciones-básicas-de-configuración" class="nav-link" data-scroll-target="#opciones-básicas-de-configuración"><span class="header-section-number">4.3.3</span> Opciones básicas de configuración</a></li>
+  <li><a href="#sec-basic-ops" id="toc-sec-basic-ops" class="nav-link" data-scroll-target="#sec-basic-ops"><span class="header-section-number">4.3.3</span> Opciones básicas de configuración</a></li>
   </ul></li>
   <li><a href="#chunks-de-código-ejecutable" id="toc-chunks-de-código-ejecutable" class="nav-link" data-scroll-target="#chunks-de-código-ejecutable"><span class="header-section-number">4.4</span> <em>Chunks</em> de código ejecutable</a></li>
-  <li><a href="#herramientas-para-el-autor" id="toc-herramientas-para-el-autor" class="nav-link" data-scroll-target="#herramientas-para-el-autor"><span class="header-section-number">4.5</span> Herramientas para el autor</a></li>
+  <li><a href="#herramientas-para-el-autor" id="toc-herramientas-para-el-autor" class="nav-link" data-scroll-target="#herramientas-para-el-autor"><span class="header-section-number">4.5</span> Herramientas para el autor</a>
+  <ul class="collapse">
+  <li><a href="#secciones-del-documento" id="toc-secciones-del-documento" class="nav-link" data-scroll-target="#secciones-del-documento"><span class="header-section-number">4.5.1</span> Secciones del documento</a></li>
+  <li><a href="#ecuaciones" id="toc-ecuaciones" class="nav-link" data-scroll-target="#ecuaciones"><span class="header-section-number">4.5.2</span> Ecuaciones</a></li>
+  <li><a href="#tablas" id="toc-tablas" class="nav-link" data-scroll-target="#tablas"><span class="header-section-number">4.5.3</span> Tablas</a></li>
+  <li><a href="#llamadas" id="toc-llamadas" class="nav-link" data-scroll-target="#llamadas"><span class="header-section-number">4.5.4</span> Llamadas</a></li>
+  <li><a href="#citas-bibliográficas" id="toc-citas-bibliográficas" class="nav-link" data-scroll-target="#citas-bibliográficas"><span class="header-section-number">4.5.5</span> Citas bibliográficas</a></li>
+  <li><a href="#maquetación-del-documento" id="toc-maquetación-del-documento" class="nav-link" data-scroll-target="#maquetación-del-documento"><span class="header-section-number">4.5.6</span> Maquetación del documento</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -369,7 +377,7 @@ Figura&nbsp;4.2: First example
 <div id="fig-source-editor" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-source-editor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/source-editor.png" class="img-fluid figure-img" style="width:80.0%">
+<img src="img/source-editor.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-source-editor-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figura&nbsp;4.3: Source editor
@@ -398,7 +406,7 @@ Figura&nbsp;4.3: Source editor
 <p>El contenido del archivo consta de dos partes:</p>
 <ul>
 <li><p><strong>Preámbulo</strong>: está delimitado por dos marcas <code>---</code>. Dentro de esta área podemos asignar valores a opciones de configuración para maquetar y crear el documento, tales como el título, autor/es, fecha, etc. También podemos configurar diversas opciones relacionadas con el formato de salida de los documentos.</p></li>
-<li><p><strong>Cuerpo del documento</strong>: se compone de párrafos de texto formateados utilizando la sintaxis de marcado Markdown, que veremos después. Además, también se pueden intercalar en el texto secciones de código ejecutable o <em>chunks</em>, que se marcan siguiendo una sintaxis especial (como vemos en el ejemplo anterior).</p></li>
+<li><p><strong>Cuerpo del documento</strong>: se compone de párrafos de texto formateados utilizando la sintaxis de marcado Markdown, que veremos después. Además, también se pueden intercalar en el texto fragmentos de código ejecutable o <em>chunks</em>, que se marcan siguiendo una sintaxis especial (como vemos en el ejemplo anterior).</p></li>
 </ul>
 <p>Cada <em>chunk</em> de código ejecutable está delimitado de la siguiente manera</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
@@ -427,32 +435,286 @@ Soporte para otros lenguajes de programación
 </section>
 <section id="listado-de-opciones" class="level3" data-number="4.2.2">
 <h3 data-number="4.2.2" class="anchored" data-anchor-id="listado-de-opciones"><span class="header-section-number">4.2.2</span> Listado de opciones</h3>
+<p>Existe un extenso listado de opciones de configuración que podemos incluir en nuestros documentos.</p>
+<ul>
+<li><p><em>Opciones para salida HTML</em>: permiten configurar diversos aspectos básicos del documento, tales como el título y subtítulo, fecha, autor (o lista de autores), resumen o DOI; opciones de formato como el tema o estilos avanzados para contenido HTML con CSS; numeración y tabla de contenidos, etc.</p>
+<ul>
+<li><a href="https://quarto.org/docs/output-formats/html-basics.html">Opciones básicas para HTML con Quarto</a>.</li>
+<li><a href="https://quarto.org/docs/reference/formats/html.html">Lista completa de opciones HTML con Quarto</a>.</li>
+</ul></li>
+<li><p><em>Opciones para salida PDF</em>: ofrecen la posibilidad de configurar múltiples parámetros para la creación del documento en este formato, muchas de ellas similares a las de la salida en HTML. Una opción particularmente relevante es elegir el formato de documento LaTeX (opción <code>documentclass</code>), que define el aspecto general de la maquetación que se va a emplear. Por defecto, se emplean clases del metapaquete <a href="https://ctan.org/pkg/koma-script">KOMA Script</a>, como <code>scrartcl</code> o <code>scrbook</code>. También es importante indicar la opción <code>papersize</code>, en nuestro caso para garantizar que se usa un formato estándar como el A4. El <a href="https://quarto.org/docs/output-formats/pdf-basics.html#citations">formato de las citas</a> también es relevante, pudiendo elegir, por ejemplo, el <a href="https://bibtex.eu/es/biblatex/">motor BibLaTeX</a> que es más potente, con soporte multilenguaje y para codificación de caracteres UTF-8 nativa. Por último, también es importante indicar el <a href="https://quarto.org/docs/output-formats/pdf-engine.html">motor de compilación</a>. Al contrario que en HTML, cuando generamos documentos en PDF es <strong>imprescidible</strong> que tengamos <strong>instalada una distribución TeX/LaTeX</strong> previamente en nuestro sistema, para compilar y generar los documentos. Si no disponemos de ninguna todavía, se puede <a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">instalar TinyTeX</a>, una distribución ligera de <a href="https://tug.org/texlive/">TeX Live</a> que tiene mucho menor tamaño (~100 MB frente a los más de 4 GB de TeX Live completa). Si queremos una flexibilidad total en la maquetación del documento, se recomienda encarecidamente usar el motor XeLaTeX (opción <code>pdf-engine: xelatex</code>), que es el <em>valor por defecto</em> que utiliza Quarto.</p>
+<ul>
+<li><a href="https://quarto.org/docs/output-formats/pdf-basics.html">Opciones básicas para PDF con Quarto</a>.</li>
+<li><a href="https://quarto.org/docs/reference/formats/pdf.html">Lista completa de opciones disponibles en PDF con Quarto</a>.</li>
+</ul></li>
+</ul>
 </section>
 <section id="sintaxis-markdown-básica" class="level3" data-number="4.2.3">
 <h3 data-number="4.2.3" class="anchored" data-anchor-id="sintaxis-markdown-básica"><span class="header-section-number">4.2.3</span> Sintaxis Markdown básica</h3>
+<p>En el siguiente enlace puedes encontrar un rápido tutorial básico que muestra las opciones básicas de la sintaxis Markdown aceptada en documentos Quarto para formatear el contenido textual.</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/markdown-basics.html">Guía básica de sintaxis markdown</a>.</li>
+</ul>
 </section>
 </section>
 <section id="creación-del-documento-output" class="level2" data-number="4.3">
 <h2 data-number="4.3" class="anchored" data-anchor-id="creación-del-documento-output"><span class="header-section-number">4.3</span> Creación del documento (<em>output</em>)</h2>
+<p>Por defecto, si no indicamos nada Quarto generará un solo formato de salida del documento en HTML. Sin embargo, es posible definir más de un formato de salida incluyendo más opciones de configuración. Por supuesto, se pueden indicar diferentes opciones para generar varios formatos de salida simultáneamente, o bien para elegir el formato de salida que queremos producir en función de nuestros intereses, seleccionando el formato que necesitamos al previsualizar o al generar el documento definitivo.</p>
 <section id="previsualización" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="previsualización"><span class="header-section-number">4.3.1</span> Previsualización</h3>
+<p>Para previsualizar el documento tenemos que pulsar el botón <em>Render</em> en el menú de herramientas de la interfaz de RStudio, tal y como se muestra en la <a href="#fig-render-button" class="quarto-xref">Figura&nbsp;<span>4.4</span></a>.</p>
+<div id="fig-render-button" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-render-button-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/render-button.png" class="img-fluid figure-img" style="width:80.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-render-button-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.4: Botón <em>Render</em> para previsualizar el documento generado.
+</figcaption>
+</figure>
+</div>
+<p>Por defecto, lo normal es que se abra nuestro navegador web principal o un panel en la interfaz de RStudio mostrando la página HTML con el documento ya generado. Pulsando sobre el icono con un engranaje junto al botón <em>Render</em> se puede seleccionar, entre otros aspectos, el tipo de previsualización que queremos que se lance tras completar la creación del documento o desactivar por completo dicha previsualización. La opciones disponibles se muestran en la <a href="#fig-preview-config" class="quarto-xref">Figura&nbsp;<span>4.5</span></a></p>
+<div id="fig-preview-config" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-preview-config-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/preview-config.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-preview-config-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.5: Opciones de previsualización de la operación <em>Render</em>.
+</figcaption>
+</figure>
+</div>
 </section>
 <section id="seleccionar-el-tipo-de-documento" class="level3" data-number="4.3.2">
 <h3 data-number="4.3.2" class="anchored" data-anchor-id="seleccionar-el-tipo-de-documento"><span class="header-section-number">4.3.2</span> Seleccionar el tipo de documento</h3>
+<p>Cuando tenemos varias opciones de formato de salida configuradas en nuestro documento, podemos elegir en tiempo de previsualización cuál de los formatos se elige para generar el documento. En la <a href="#fig-sel-output-formats" class="quarto-xref">Figura&nbsp;<span>4.6</span></a> se puede observar un ejemplo de documento que incluye configuración para dos formatos de salida (HTML y PDF) y el cambio en el botón <em>Render</em>, en el que ahora aparece una pequeña flecha negra justo a la derecha del icono del botón para desplegar las dos opciones de salida disponibles.</p>
+<div id="fig-sel-output-formats" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sel-output-formats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/select-output-formats.png" class="img-fluid figure-img" style="width:90.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sel-output-formats-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.6: Selección de formatos de salida con la operación <em>Render</em>.
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="opciones-básicas-de-configuración" class="level3" data-number="4.3.3">
-<h3 data-number="4.3.3" class="anchored" data-anchor-id="opciones-básicas-de-configuración"><span class="header-section-number">4.3.3</span> Opciones básicas de configuración</h3>
+<section id="sec-basic-ops" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="sec-basic-ops"><span class="header-section-number">4.3.3</span> Opciones básicas de configuración</h3>
+<p>A continuación, se presenta un ejemplo de algunas opciones básicas de configuración que suelen ser habituales en documentos con formato de salida HTML.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mi primer documento"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"John Doe"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"Mary Jane"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2024-10-24</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> es</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> cosmo</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">html-math-method</span><span class="kw">:</span><span class="at"> katex</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> styles.css</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">documentclass</span><span class="kw">:</span><span class="at"> scrreprt</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="at">RESTO DEL DOCUMENTO</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>En este ejemplo se indica, además del autor y la fecha, una lista de dos autores, el lenguaje principal del documento (español), el archivo de referencias de bibliografía (en formato <code>.bib</code>) y ya dentro de las opciones HTML, el tema de maquetación, la inclusión de una tabla de contenidos (por defecto situada en la parte superior derecha), numeración de secciones, selección del motor para renderizar ecuaciones en el documento y un archivo de estilos personalizados en formato CSS para ajustar algunas opciones finas de maquetación.</p>
+<p>Una opción que conviene destacar es la de forzar a que todos los recursos (imágenes, información de estilos, etc.) estén integrados en el propio archivo HTML, para facilitar la compartición o publicación directa del documento sin necesidad de aportar también los archivos auxiliares necesarios para mostrarlo en el navegador. Esta opción se muestra a continuación:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">embed-resources</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="chunks-de-código-ejecutable" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="chunks-de-código-ejecutable"><span class="header-section-number">4.4</span> <em>Chunks</em> de código ejecutable</h2>
-<p><a href="https://quarto.org/docs/get-started/computations/" class="uri">https://quarto.org/docs/get-started/computations/</a></p>
+<p>La característica más diferencial de los documentos creados con Quarto es la posibilidad de intercalar fragmentos de código ejecutable, llamadas <em>chunks</em> en el propio documento. Esto incluye también la opción de que dicho código genere diferentes resultados (numéricos, gráficos, tablas, animaciones, etc.) que se integren directamente en el documento. De este modo, si mantenemos actualizado el código siempre se generarán las versiones correcgtas de dichos resultados.</p>
+<p>Los fragmentos de código ejecutable tienen la siguiente estructura:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: id-fragmento</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="in"># Aquí va el código ejecutable</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">a = c(1, 2, 3, 4)</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="in">b = a^2</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>La tripleta de caracteres <code>```</code> se denomina <em>fence</em> y delimita el comienzo y el final del fragmento de código. Justo a continuación del delimitador de apertura se escribe entre llaves el identificador del lenguaje de programación en el que está escrito el código de ese fragmento. Esa información se usa para elegir el resaltado de sintaxis apropiado para mostrar el código de ese lenguaje y para seleccionar el intérprete que ejecuta el código y produce los resultados.</p>
+<p>En las siguientes líneas podemos incluir una o varias <strong>opciones de configuración</strong> específicas para ese fragmento de código, mediante la sintaxis <code>#| opcion: valor</code>. Por ejemplo, en el fragmento anterior la opción <code>#| label: id-fragmento</code> crea una etiqueta (que debe ser unívoca) para identificar a ese fragmento de código dentro del documento.</p>
+<ul>
+<li><a href="https://quarto.org/docs/reference/cells/cells-knitr.html">Lista de opciones para fragmentos de código</a>.</li>
+</ul>
+<p>Algunas opciones de uso frecuente son:</p>
+<ul>
+<li><code>eval: true | false | [...]</code>: Indica si se debe evaluar (ejecutar) el contenido de ese fragmento. Se puede pasar una lista de números de línea positivos o negativos para seleccionar explícitamente qué líneas de código se incluyen (positivos) o excluyen (negativos) de la ejecución.</li>
+<li><code>echo: true | false | fenced | [...]</code>: Indica si se debe incluir el código fuente del fragmento en el documento o no. La opción <code>fenced</code> incluye también el delimitador de celda como parte de la salida. Por último, también acepta una lista de números de línea positivos o negativos para seleccionar qué líneas de código se mostrarán o no en el fragmento.</li>
+<li><code>output: true | false | asis</code>: Para decidir si el resultado de la ejecución del código se incluye o no en el documento. El valor <code>asis</code>fuerza a que el resultado se trate como contenido Markdown en crudo.</li>
+<li><code>warning: true | false</code>: Indica si se deben incluir los mensajes de aviso en la salida.</li>
+<li><code>error: true | false</code>: Marca si los mensajes de error generados se incluyen en la salida.</li>
+<li><code>message: true | false</code>: Indica si los mensajes de información generados se incluyen en la salida.</li>
+</ul>
+<p>Cuando los fragmentos generan figuras, estas se insertan dentro del propio documento. Veamos un ejemplo:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-example-cars</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Gráfico de correlación lineal positiva entre el kilometraje en ciudad y en carretera de diferentes modelos de coches."</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: scatterplot</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: true</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5, size = 2) +</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_color_viridis_c() +</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-example-cars" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-example-cars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-singledoc_files/figure-html/fig-example-cars-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-example-cars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.7: Gráfico de correlación lineal positiva entre el kilometraje en ciudad y en carretera de diferentes modelos de coches.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Numeración automática de figuras
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es importante que <em>el identificador de fragmento</em> que elegimos para código que genera una o varias figuras <em>comience por el prefijo</em> <code>fig-</code>. De ese modo, nos aseguramos de que Quarto le asigne automáticamente una numeración a la figura generada y que podamos crear referencias cruzadas (enlaces internos) a dicha figura en nuestro documento.</p>
+<p>Como veremos más adelante, otros tipos de salida como las tablas también necesitan que se les asigne un patrón concreto en su identificador de fragmento para que se numeren de forma automática y se puedan referenciar dentro del documento.</p>
+</div>
+</div>
+<p>La gestión de figuras en Quarto es bastante sofisticada, hasta el punto de que se pueden organizar de forma sencilla varias subfiguras con sus respectivas descripciones individuales, como se muestra en el siguiente ejemplo usando algunas opciones adiconales.</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-mpg-subplot</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Kilometraje en ciudad y en carretera de 38 modelos populares de coches."</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="in">#|</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-subcap:</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - "Color por núm. de cilindros."</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">#|   - "Color por cubicaje del motor, en litros."</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">#| layout-ncol: 1</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5, size = 2) +</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_color_viridis_c() +</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mpg, aes(x = hwy, y = cty, color = displ)) +</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point(alpha = 0.5, size = 2) +</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="in">  scale_color_viridis_c(option = "E") +</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="in">  theme_minimal()</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-mpg-subplot" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mpg-subplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-mpg-subplot" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-mpg-subplot-1" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mpg-subplot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-singledoc_files/figure-html/fig-mpg-subplot-1.png" class="img-fluid figure-img" data-ref-parent="fig-mpg-subplot" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mpg-subplot-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) Color por núm. de cilindros.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-mpg-subplot" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-mpg-subplot-2" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-mpg-subplot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="04-singledoc_files/figure-html/fig-mpg-subplot-2.png" class="img-fluid figure-img" data-ref-parent="fig-mpg-subplot" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-mpg-subplot-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) Color por cubicaje del motor, en litros.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mpg-subplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.8: Kilometraje en ciudad y en carretera de 38 modelos populares de coches.
+</figcaption>
+</figure>
+</div>
+<p>Algunas opciones frecuentes para <em>chunks</em> que generan figuras son:</p>
+<ul>
+<li><code>fig-width</code>: Ancho de la figura.</li>
+<li><code>fig-height</code>: Alto de la figura.</li>
+<li><code>fig-cap</code>: String entre comillas que se insertará como descripción al pie de la figura (<em>caption</em>).</li>
+<li><code>fig-alt</code>: Mensaje de texto alternativo que rellena el atributo <code>alt</code> de la imagen HTML (por ejemplo, para mejorar la accesibilidad del contenido).</li>
+<li><code>fig-dpi</code>: Ajuste de la resolución de la figura (en puntos por pulgada).</li>
+</ul>
+<p>El <a href="https://quarto.org/docs/get-started/computations/rstudio.html">tutorial sobre fragmentos de código ejecutables</a> de la documentación oficial presenta más información y ejemplos sobre cómo utilizar esta potente característica de Quarto.l</p>
 </section>
 <section id="herramientas-para-el-autor" class="level2" data-number="4.5">
 <h2 data-number="4.5" class="anchored" data-anchor-id="herramientas-para-el-autor"><span class="header-section-number">4.5</span> Herramientas para el autor</h2>
+<p>Además de la capacidad de integrar código ejecutable y sus resultados en nuestros documentos científicos, Quarto incluye un buen número de recursos y herramientas para ofrecer una experiencia de autoría completa y eficiente.</p>
+<section id="secciones-del-documento" class="level3" data-number="4.5.1">
+<h3 data-number="4.5.1" class="anchored" data-anchor-id="secciones-del-documento"><span class="header-section-number">4.5.1</span> Secciones del documento</h3>
+<p>Como ya vimos en el ejemplo de la <a href="#sec-basic-ops" class="quarto-xref"><span>Sección 4.3.3</span></a>, existen dos opciones de configuración del documento HTML que nos permiten numerar las secciones e incorporar una tabla de contenidos generada automáticamente en la parte superior derecha de nuestro documento.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number-sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Un funcionalidad importante para la creación de documentación científica es poder incluir <strong>referencias cruzadas</strong>, es decir, enlaces que nos lleven a otras secciones del documento. En Quarto esto se consigue siguiendo un <a href="https://quarto.org/docs/get-started/authoring/rstudio.html#cross-references">sencillo procedimiento</a> en dos pasos:</p>
+<ol type="1">
+<li>Añadimos una <em>etiqueta única</em> para identificar la sección con la sintaxis:</li>
+</ol>
+<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Título de sección {#sec-etiqueta}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Referenciamos en otro lugar del texto la etiqueta que hemos creado para esa sección, de forma que Quarto crea automáticamente el enlace (referencia cruzada) a dicha sección:</li>
+</ol>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>En el texto añadimos una referencia a la @sec-etiqueta</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Se puede ver un ejemplo de este tipo de referencias cruzadas creadas de forma automática al comienzo de esta misma sección. Por el contrario, si queremos que una sección del documento se excluya del esquema de numeración del resto de secciones, usamos en el título de esa sección la etiqueta especial:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Sección no numerada {.unnumbered}</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Existen varias opciones adicionales que controlan la forma y estilo con que se crean y numeran las secciones. Algunas de ellas son:</p>
+<ul>
+<li><code>anchor-sections</code>: Hace que se muestre un enlace de anclado (para enlazar directamente esa sección en otro documento) cuando se pasa el ratón por encima del título de una sección.</li>
+<li><code>toc-depth</code>: Especifica cuántos niveles de profundidad en la numeración de secciones aparecen en la tabla de contenidos. Por defecto se muestran 3 niveles.</li>
+<li><code>toc-location: body | left | right | left-body | right-body</code>: Controla la ubicación en la que aparece la tabla de contenidos en el documento.</li>
+<li><code>toc-title</code>: Cadena de caracteres con el título de la tabla de contenidos.</li>
+<li><code>toc-expand</code>: Indica si se deben expandir todas las secciones de la tabla de contenidos o deben quedar colapsadas para que el usuario vaya pulsando en las que quiera expandir.</li>
+<li><code>number-depth</code>: Determina la profundidad máxima a la que se numeran las secciones del documento (cuidado, debería estar en consonancia con el valor asignado a la opción <code>toc-depth</code>).</li>
+<li><code>number-offset</code>: Permite ajustar el número por el que se empiezan a numerar las secciones. Si queremos que el documento comience a numerar la sección de más alto nivel como “4” entonces usamos <code>number-offset: 3</code>. Si queremos que el documento empiece en una sección de nivel 2 con numeración “1.5” debemos especificar <code>number-offset: [1,4]</code>. Definir un valor para esta opción implica que automáticamente <code>number-sections: true</code>.</li>
+</ul>
+</section>
+<section id="ecuaciones" class="level3" data-number="4.5.2">
+<h3 data-number="4.5.2" class="anchored" data-anchor-id="ecuaciones"><span class="header-section-number">4.5.2</span> Ecuaciones</h3>
+</section>
+<section id="tablas" class="level3" data-number="4.5.3">
+<h3 data-number="4.5.3" class="anchored" data-anchor-id="tablas"><span class="header-section-number">4.5.3</span> Tablas</h3>
+</section>
+<section id="llamadas" class="level3" data-number="4.5.4">
+<h3 data-number="4.5.4" class="anchored" data-anchor-id="llamadas"><span class="header-section-number">4.5.4</span> Llamadas</h3>
+</section>
+<section id="citas-bibliográficas" class="level3" data-number="4.5.5">
+<h3 data-number="4.5.5" class="anchored" data-anchor-id="citas-bibliográficas"><span class="header-section-number">4.5.5</span> Citas bibliográficas</h3>
+</section>
+<section id="maquetación-del-documento" class="level3" data-number="4.5.6">
+<h3 data-number="4.5.6" class="anchored" data-anchor-id="maquetación-del-documento"><span class="header-section-number">4.5.6</span> Maquetación del documento</h3>
 <p><a href="https://quarto.org/docs/get-started/authoring/" class="uri">https://quarto.org/docs/get-started/authoring/</a></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
