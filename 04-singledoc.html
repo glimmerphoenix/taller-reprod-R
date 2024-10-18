@@ -103,6 +103,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -312,7 +341,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tablas" id="toc-tablas" class="nav-link" data-scroll-target="#tablas"><span class="header-section-number">4.5.3</span> Tablas</a></li>
   <li><a href="#llamadas" id="toc-llamadas" class="nav-link" data-scroll-target="#llamadas"><span class="header-section-number">4.5.4</span> Llamadas</a></li>
   <li><a href="#citas-bibliográficas" id="toc-citas-bibliográficas" class="nav-link" data-scroll-target="#citas-bibliográficas"><span class="header-section-number">4.5.5</span> Citas bibliográficas</a></li>
-  <li><a href="#maquetación-del-documento" id="toc-maquetación-del-documento" class="nav-link" data-scroll-target="#maquetación-del-documento"><span class="header-section-number">4.5.6</span> Maquetación del documento</a></li>
+  <li><a href="#estilo-general-del-documento" id="toc-estilo-general-del-documento" class="nav-link" data-scroll-target="#estilo-general-del-documento"><span class="header-section-number">4.5.6</span> Estilo general del documento</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -699,19 +728,268 @@ Figura&nbsp;4.8: Kilometraje en ciudad y en carretera de 38 modelos populares de
 </section>
 <section id="ecuaciones" class="level3" data-number="4.5.2">
 <h3 data-number="4.5.2" class="anchored" data-anchor-id="ecuaciones"><span class="header-section-number">4.5.2</span> Ecuaciones</h3>
+<p>Otro aspecto esencial de los documentos científicos es la aparición de símbolos, fórmulas y ecuaciones matemáticas. Existen varias librerías para HTML que permiten mostrar las ecuanciones debidamente formateadas en pantalla. Por su parte, LaTeX, debido a sus orígenes, siempre ha incluído potentes y versátiles herramientas para manejar este tipo de contenido, por lo que el soporte está garantizado para documentos en PDF.</p>
+<p>En general, la sintaxis empleada para escribir las ecuaciones es muy similar a la que se utiliza en LaTeX.</p>
+<ul>
+<li><a href="https://www.overleaf.com/learn/latex/Mathematical_expressions">Tutorial sobre expresiones matemáticas en LaTeX</a>.</li>
+<li><a href="https://raw.githubusercontent.com/manuelemacchia/math-latex/master/amsmath.pdf">Resumen de sintaxis matemática en LaTeX</a>.</li>
+</ul>
+<p>Existen dos maneras de mostrar las ecuaciones en nuestro contenido, siguiendo también una filosofía similar a la de los documentos LaTeX:</p>
+<ul>
+<li>Ecuaciones en línea con el texto: para mostrar la ecuación dentro de una línea o párrafo, a la misma altura que el resto del texto.</li>
+<li>Ecuaciones en modo <em>display</em>: la ecuación se muestra en un espacio aparte, entre dos párrafos de texto y con cierto margen de espacio en la zona superior e inferior.</li>
+</ul>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="an">Ejemplo de ecuación en línea:</span><span class="co"> $F = m \cdot a$</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Que produce como resultado: ejemplo de ecuación en línea: <span class="math inline">\(F = m \cdot a\)</span>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="an">Ejemplo de ecuación en modo display:</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>$$E = mc^{2}$$</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Que genera el siguiente resultado (ver debajo cómo añadir la numeración):</p>
+<p><span id="eq-energy"><span class="math display">\[ E = mc^{2}  \tag{4.1}\]</span></span></p>
+<p>Si además queremos numerar nuestras ecuaciones, hay que acordarse de emplear el patrón de etiqueta identificadora unívoca <code>eq-etiqueta</code> para identificarla y luego poder insertar referencias internas a dicha ecuación en el texto.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>$$ E = mc^{2} $$ {#eq-energy}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Como resultado, podemos insertar una a la <a href="#eq-energy" class="quarto-xref">Ecuación&nbsp;<span>4.1</span></a>.</p>
 </section>
 <section id="tablas" class="level3" data-number="4.5.3">
 <h3 data-number="4.5.3" class="anchored" data-anchor-id="tablas"><span class="header-section-number">4.5.3</span> Tablas</h3>
+<p>Las tablas son otro contenido relevante que podemos formatear de diferentes maneras en los documentos generados con Quarto.</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/tables.html">Introducción a la creación de tablas en Quarto</a>.</li>
+</ul>
+<p>En este caso, el editor visual nos puede simplificar mucho esta tarea. Se aconseja probarlo para ver la diferencia, ya que es una herramienta muy intuitiva. Sin embargo, siguiendo la misma línea que el resto del taller, aquí vamos a describir los detalles para crear este contenido directamente en el código Markdown del archivo.</p>
+<p>La forma más directa de crear una tabla en Markdown es componer una tabla <code>pipe</code>, así denominada porque su sintaxis se basa en el operador <code>|</code> de la línea de comandos. Veamos un ejemplo.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>| Default | Left | Right | Center |</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>|---------|:-----|------:|:------:|</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>| 1       | 2    |     3 |    4   |</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>| 22      | 23   |    24 |   25   |</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>| 4       | 3    |     2 |   1    |</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>El resultado de incluir el código anterior en nuestro documento es:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Default</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: right;">Right</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Podemos observar cómo la clave para controlar el alineamiento horizontal del contenido de la tabla es situar apropiadamente el símbolo <code>:</code> en la línea justo debajo de la línea de título, que separa este del cuerpo de la tabla. Si no queremos incluir título es obligatorio que incluyamos la primera línea, pero podemos dejar las celdas en blanco.</p>
+<p>Debajo de la tabla podemos insertar la expresión <code>: Caption de la tabla</code> para incluir un mensaje descriptivo. También es posible utilizar directamente algunos elementos de estilo incluidos en las clases de Bootstrap, el entorno de estilo web que utiliza Quarto para componer las páginas (hemos visto antes cómo utilizar la opción de documento <code>theme: cosmo</code> para usar el tema Cosmo de Boostrap). Existen diferentes efectos, y uno de los más frecuentes es colorear en gris el fondo de las filas alternativamente así como resaltar la fila en la que está posada la flecha del ratón. Estos dos efectos son <code>.striped</code> y <code>.hover</code>, respectivamente.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>| Default | Left | Right | Center |</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>|---------|:-----|------:|:------:|</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>| 1       | 2    |     3 |    4   |</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>| 22      | 23   |    24 |   25   |</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>| 4       | 3    |     2 |   1    |</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>: Caption de la tabla {.striped .hover}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="table-striped table-hover caption-top table">
+<caption>Caption de la tabla</caption>
+<thead>
+<tr class="header">
+<th>Default</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: right;">Right</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+<p>Por último, de forma análoga a lo que hacemos para referenciar internamente ecuaciones y figuras en nuestro documento, también podemos etiquetar las tablas utilizando el patrón <code>#tbl-etiqueta</code> para referenciarlo como <code>@tbl-etiqueta</code> que queda formateado así: <a href="#tbl-etiqueta" class="quarto-xref">Tabla&nbsp;<span>4.1</span></a>.</p>
+<pre><code>| Default | Left | Right | Center |
+|---------|:-----|------:|:------:|
+| 1       | 2    |     3 |    4   |
+| 22      | 23   |    24 |   25   |
+| 4       | 3    |     2 |   1    |
+
+: Caption de la tabla. {#tbl-etiqueta .striped .hover}</code></pre>
+<div id="tbl-etiqueta" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-etiqueta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabla&nbsp;4.1: Caption de la tabla.
+</figcaption>
+<div aria-describedby="tbl-etiqueta-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover caption-top table">
+<thead>
+<tr class="header">
+<th>Default</th>
+<th style="text-align: left;">Left</th>
+<th style="text-align: right;">Right</th>
+<th style="text-align: center;">Center</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td style="text-align: left;">23</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>El mismo patrón de etiqueta se debe emplear en la opción de identificación de <em>chunks</em> de código <code>#| label: tbl-etiqueta</code> si luego queremos referenciar la tabla generada por ese fragmento de código con una referencia cruzada.</p>
+<p>Se pueden consultar más detalles sobre la <a href="https://quarto.org/docs/authoring/tables.html#subtables">creación de subtablas</a>, <a href="https://quarto.org/docs/authoring/tables.html#caption-location">cambio de ubicación del caption</a>, así como la creación de tablas <em>grid</em> que usan una sintaxis diferente y permiten incluir elementos de bloque arbitrarios en cada celda (múltiples párrafos, bloques de código, listas no numeradas o numeradas, etc.).</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>+-----------+-----------+--------------------+</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>| Fruta     | Precio    | Ventajas           |</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>+===========+===========+====================+</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>| Bananas   | $1.34     | - envoltorio       |</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>|           |           | - color brillante  |</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>+-----------+-----------+--------------------+</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>| Oranges   | $2.10     | - rica en vitam. C |</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>|           |           | - saborsa          |</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>+-----------+-----------+--------------------+</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>: Sample grid table.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<table class="caption-top table">
+<caption>Tabla <em>grid</em> de ejemplo.</caption>
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Fruta</th>
+<th>Precio</th>
+<th>Ventajas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Bananas</td>
+<td>$1.34</td>
+<td><ul>
+<li>envoltorio</li>
+<li>color brillante</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>Oranges</td>
+<td>$2.10</td>
+<td><ul>
+<li>rica en vitam. C</li>
+<li>saborsa</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="llamadas" class="level3" data-number="4.5.4">
 <h3 data-number="4.5.4" class="anchored" data-anchor-id="llamadas"><span class="header-section-number">4.5.4</span> Llamadas</h3>
+<p>Es posible incluir bloques de llamadas de atención, para resaltar notas prácticas, advertencias o consejos de especial interés. Además, se suele poner un título a la llamada para hacerla aún más informativa.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>::: {.callout-note}</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">## Título de la nota</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>Existen cinco tipos diferentes de llamaedas:</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="in">`note`</span>, <span class="in">`tip`</span>, <span class="in">`warning`</span>, <span class="in">`caution`</span>, e <span class="in">`important`</span>.</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Título de la nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Existen cinco tipos diferentes de llamaedas: <code>note</code>, <code>tip</code>, <code>warning</code>, <code>caution</code>, e <code>important</code>.</p>
+</div>
+</div>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/callouts.html">Introducción al uso de llamadas en Quarto</a>.</li>
+</ul>
 </section>
 <section id="citas-bibliográficas" class="level3" data-number="4.5.5">
 <h3 data-number="4.5.5" class="anchored" data-anchor-id="citas-bibliográficas"><span class="header-section-number">4.5.5</span> Citas bibliográficas</h3>
+<p>La gestión de referencias bibliográficas en Quarto se realiza codificando la información en formato BibTeX. Esto permite utilizar cualquiera de los formatos de citas bibliográficas soportados por este paquete, o bien incluir un fichero CLS que defina un formato estándar (APA, Chicago, IEEE, etc.).</p>
+<p>Por ejemplo, las opciones de documento</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"My Document"</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> references.bib</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> nature.csl</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>indican un fichero <code>references.bib</code> donde podemos almacenar la información sobre las referencias bibliográficas (que podemos conseguir de Google Scholar, Zotero u otras herramientas y servicios en Internet), así como un fichero de estilo de citas <code>nature.cls</code> (estilo definido por la editorial Nature).</p>
+<ul>
+<li><a href="https://github.com/citation-style-language/styles">Repositorio CLS con estilos de citas</a>.</li>
+<li><a href="https://www.zotero.org/styles">Repositorio Zotero con estilos de citas</a>.</li>
+</ul>
+<p>Dependiendo del estilo y formato de la cita, podemos utilizar una u otra sintaxis para indicar el autor y el año entre paréntesis, el autor fuera del paréntesis, números de página, capítulos, etc.</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/citations.html#sec-citations">Tabla de referencia de sintaxis para citas en Quarto</a>.</li>
+</ul>
+<p>Por último, la lista ordenada de referencias bibliográficas (según los criterios de estilo de citas que hayamos seleccionado) deben aparecer al final del documento. Para conseguirlo en un documento HTML, debemos incluir un código especial, que normalmente se coloca en una sección independiente y no numerada, tal y como se muestra en la <a href="#fig-sintax-refs" class="quarto-xref">Figura&nbsp;<span>4.9</span></a>.</p>
+<div id="fig-sintax-refs" class="quarto-float quarto-figure quarto-figure-left anchored" data-fig-align="left">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sintax-refs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/sintax-refs.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sintax-refs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;4.9: Sintaxis para mostrar las referencias bibliográficas al final del documento.
+</figcaption>
+</figure>
+</div>
+<p>Cuando la salida generada es en formato PDF y se usan los motores de gestión de referencias BibLaTeX o natbib, entonces la lista de referencias siempre aparece al final de documento y la etiqueta anterior se ignora. Finalmente, en el poco frecuente caso de que no queramos incluir ninguna referencia bibliográfica en nuestro documento podemos incluir en los metadatos de la cabecera del mismo la opción <code>supress-bibliography: true</code>.</p>
 </section>
-<section id="maquetación-del-documento" class="level3" data-number="4.5.6">
-<h3 data-number="4.5.6" class="anchored" data-anchor-id="maquetación-del-documento"><span class="header-section-number">4.5.6</span> Maquetación del documento</h3>
-<p><a href="https://quarto.org/docs/get-started/authoring/" class="uri">https://quarto.org/docs/get-started/authoring/</a></p>
+<section id="estilo-general-del-documento" class="level3" data-number="4.5.6">
+<h3 data-number="4.5.6" class="anchored" data-anchor-id="estilo-general-del-documento"><span class="header-section-number">4.5.6</span> Estilo general del documento</h3>
+<p>Hasta el momento, el documento de ejemplo que hemos mostrado así como estos mismos apuntes utilizan siempre un formato de estilo o <code>theme</code> del entorno de desarrollo web Bootstrap, llamado <code>cosmo</code>. No obstante, existe una amplia lista de temas alternativos para modificar el estilo general de nuestro documento (combinación de colores, tipografía y tamaño de fuentes, organización del contenido, aspecto de los enlaces, etc.). El proyecto Quarto se encarga de combinar regularmente los temas de estilo más populares para que estén disponibles como opción del documento.</p>
+<p>En este <a href="https://github.com/quarto-dev/quarto-cli/tree/main/src/resources/formats/html/bootstrap/themes">directorio de temas en GitHub</a> se puede comprobar una lista actualizada de los posibles valores que podemos asignar a la opción <code>theme</code> en la cabecera del documento. Es útil experimentar con diversas opciones para encontrar la que más se ajuste al tipo de documento generado, a su contenido y a la audiencia a la que va dirigido.</p>
+<p>En la página web <a href="https://bootswatch.com/" class="uri">https://bootswatch.com/</a> se puede acceder a una demo en línea de muchos de los temas disponibles.</p>
 
 
 </section>
