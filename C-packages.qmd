@@ -1,4 +1,4 @@
-# Paquetes R de interés
+# Paquetes R y atribuciones
 
 ## `rticles`
 
@@ -7,5 +7,13 @@ Shiny
 IOSlides, otras...
 
 Otros
+
+## Atribución de imágenes e iconos
+
+- [R logo by The R Foundation](https://www.r-project.org/logo/).
+- [Python file icons created by Flat Icons - Flaticon](https://www.flaticon.com/free-icons/python-file).
+- [Html icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/html).
+- [Microsoft word icons created by Pixel perfect - Flaticon](https://www.flaticon.com/free-icons/microsoft-word).
+- [Pdf icons created by Dimitry Miroliubov - Flaticon](https://www.flaticon.com/free-icons/pdf).
 
 

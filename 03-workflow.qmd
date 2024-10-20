@@ -1,6 +1,6 @@
 # Proceso de trabajo
 
-![How it works. Fuente: [RStudio](https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works).](img/rstudio-qmd-how-it-works.png){#fig-how-it-works}
+![Proceso de creación de contenidos con Quarto. Fuente: [RStudio](https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works).](img/rstudio-qmd-how-it-works.png){#fig-how-it-works-ii}
 
 ## Conjunto de herramientas
 
@@ -15,7 +15,14 @@ web (HTML), MS Word (archivos DOC), visor PDF (archivos PDF).
 
 ## Producir HTML
 
-## Producir PDF
+## Producir PDF {#sec-pdf-reqs}
+
+Al contrario que en HTML, cuando generamos documentos en PDF es **imprescidible** que tengamos
+**instalada una distribución TeX/LaTeX** previamente en nuestro sistema, para compilar y generar los
+documentos. Si no disponemos de ninguna todavía, se puede 
+[instalar TinyTeX](https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex), una
+distribución ligera de [TeX Live](https://tug.org/texlive/) que tiene mucho menor tamaño (~100 MB frente
+a los más de 4 GB de TeX Live completa). 
 
 
 ### Personalizar documentos PDF
