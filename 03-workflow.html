@@ -230,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./C-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Paquetes R de interés</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Paquetes R y atribuciones</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -259,7 +259,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#conjunto-de-herramientas" id="toc-conjunto-de-herramientas" class="nav-link active" data-scroll-target="#conjunto-de-herramientas"><span class="header-section-number">3.1</span> Conjunto de herramientas</a></li>
   <li><a href="#producir-html" id="toc-producir-html" class="nav-link" data-scroll-target="#producir-html"><span class="header-section-number">3.2</span> Producir HTML</a></li>
-  <li><a href="#producir-pdf" id="toc-producir-pdf" class="nav-link" data-scroll-target="#producir-pdf"><span class="header-section-number">3.3</span> Producir PDF</a>
+  <li><a href="#sec-pdf-reqs" id="toc-sec-pdf-reqs" class="nav-link" data-scroll-target="#sec-pdf-reqs"><span class="header-section-number">3.3</span> Producir PDF</a>
   <ul class="collapse">
   <li><a href="#personalizar-documentos-pdf" id="toc-personalizar-documentos-pdf" class="nav-link" data-scroll-target="#personalizar-documentos-pdf"><span class="header-section-number">3.3.1</span> Personalizar documentos PDF</a></li>
   </ul></li>
@@ -288,13 +288,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div id="fig-how-it-works" class="quarto-float quarto-figure quarto-figure-center anchored">
+<div id="fig-how-it-works-ii" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-how-it-works-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div aria-describedby="fig-how-it-works-ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/rstudio-qmd-how-it-works.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-how-it-works-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figura&nbsp;3.1: How it works. Fuente: <a href="https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works">RStudio</a>.
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-how-it-works-ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;3.1: Proceso de creación de contenidos con Quarto. Fuente: <a href="https://quarto.org/docs/get-started/hello/rstudio.html#how-it-works">RStudio</a>.
 </figcaption>
 </figure>
 </div>
@@ -311,8 +311,9 @@ Figura&nbsp;3.1: How it works. Fuente: <a href="https://quarto.org/docs/get-star
 <section id="producir-html" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="producir-html"><span class="header-section-number">3.2</span> Producir HTML</h2>
 </section>
-<section id="producir-pdf" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="producir-pdf"><span class="header-section-number">3.3</span> Producir PDF</h2>
+<section id="sec-pdf-reqs" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="sec-pdf-reqs"><span class="header-section-number">3.3</span> Producir PDF</h2>
+<p>Al contrario que en HTML, cuando generamos documentos en PDF es <strong>imprescidible</strong> que tengamos <strong>instalada una distribución TeX/LaTeX</strong> previamente en nuestro sistema, para compilar y generar los documentos. Si no disponemos de ninguna todavía, se puede <a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">instalar TinyTeX</a>, una distribución ligera de <a href="https://tug.org/texlive/">TeX Live</a> que tiene mucho menor tamaño (~100 MB frente a los más de 4 GB de TeX Live completa).</p>
 <section id="personalizar-documentos-pdf" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="personalizar-documentos-pdf"><span class="header-section-number">3.3.1</span> Personalizar documentos PDF</h3>
 <p>Se pueden utilizar plantillas de documentos LaTeX predefinidas. Por defecto, Quarto utiliza varias plantillas de la colección de paquetes LaTeX <a href="https://ctan.org/pkg/koma-script">koma-script</a>.</p>
