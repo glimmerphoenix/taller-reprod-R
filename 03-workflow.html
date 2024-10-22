@@ -257,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#conjunto-de-herramientas" id="toc-conjunto-de-herramientas" class="nav-link active" data-scroll-target="#conjunto-de-herramientas"><span class="header-section-number">3.1</span> Conjunto de herramientas</a></li>
+  <li><a href="#cadena-de-montaje-de-un-documento" id="toc-cadena-de-montaje-de-un-documento" class="nav-link active" data-scroll-target="#cadena-de-montaje-de-un-documento"><span class="header-section-number">3.1</span> Cadena de montaje de un documento</a></li>
   <li><a href="#producir-html" id="toc-producir-html" class="nav-link" data-scroll-target="#producir-html"><span class="header-section-number">3.2</span> Producir HTML</a></li>
   <li><a href="#sec-pdf-reqs" id="toc-sec-pdf-reqs" class="nav-link" data-scroll-target="#sec-pdf-reqs"><span class="header-section-number">3.3</span> Producir PDF</a>
   <ul class="collapse">
@@ -288,6 +288,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>En este apartado vamos a explicar algunos detalles más sobre el proceso de creación de los documentos en Quarto, para comprender mejor los componentes que intervienen en este proceso y las opciones de configuración que tenemos disponibles. La <a href="#fig-how-it-works-ii" class="quarto-xref">Figura&nbsp;<span>3.1</span></a> resume a alto nivel las fases de creación de un documento con Quarto.</p>
 <div id="fig-how-it-works-ii" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-how-it-works-ii-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -298,25 +299,47 @@ Figura&nbsp;3.1: Proceso de creación de contenidos con Quarto. Fuente: <a href=
 </figcaption>
 </figure>
 </div>
-<section id="conjunto-de-herramientas" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="conjunto-de-herramientas"><span class="header-section-number">3.1</span> Conjunto de herramientas</h2>
+<section id="cadena-de-montaje-de-un-documento" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="cadena-de-montaje-de-un-documento"><span class="header-section-number">3.1</span> Cadena de montaje de un documento</h2>
+<p>Podemos considerar el proceso de creación de un documento en Quarto como una cadena de montaje en la que varias herramientas software se aplican secuencialmente para producir el documento final en diferentes formatos de salida.</p>
 <ul>
-<li>Quarto</li>
-<li>Knitr</li>
-<li>Markdown</li>
-<li>Pandoc</li>
+<li><p>Quarto: El primer agente que interviene en la interpretación del fichero con extensión <code>.qmd</code> es Quarto. El programa debe estar instalado previamente en nuestro equipo para que el entorno de desarrollo que decidamos emplear (RStudio, Microsoft VS Code, etc.) pueda encontrarlo. Quarto se encarga de interpretar el contenido del archivo y considerar las diferentes opciones de configuració que hemos insertado en la cabecera del documento, así como en los fragmentos de código ejecutable, para delegar las tareas de construcción de las distintas partes del documento a otras herramientas.</p>
+<p>Quarto también se encarga de insertar de forma automática algunos elementos de autoría de documentos (como las llamadas de atención, explicadas en la <a href="04-singledoc.html#sec-callouts" class="quarto-xref"><span>Sección 4.5.4</span></a>), mientras que la generación de otros elementos (numeración de figuras, tablas, citas bibliográficas, etc.) se delega a otras herramientas como Pandoc.</p></li>
+<li><p>Motor de ejecución de código (<code>engine</code>): Una de las grandes ventajas de la producción de documentos en Quarto es la posibilidad de insertar fragmentos de código ejecutable en nuestros documentos. Quarto puede <a href="https://quarto.org/docs/computations/execution-options.html#engine-binding">trabajar con diferentes motores</a> (<em>engines</em> en la terminología de Quarto) que interpretan el código y devuelven el resultado de su ejecución para integrarlo en el documento final.</p>
+<ul>
+<li><p>Todos los bloques de código en lenguaje R utilizan el paquete <code>knitr</code> como <em>engine</em> de ejecución.</p></li>
+<li><p>Los bloques de código ejecutable en otros lenguajes soportados en Quarto (Python, Julia, Observable) utilizan los <em>kernel</em> disponibles en la herramienta <a href="https://jupyter.org/">Jupyter</a> para su ejecución, excepto en el caso explícito de que se combinen bloques de código en R y Python en el mismo documento.</p></li>
+<li><p>En el caso particular de que un mismo documento combine bloques de código en R y Python, entonces se utiliza la herramienta Knitr para el código en R junto con el <a href="https://rstudio.github.io/reticulate/">paquete <code>reticulate</code></a> de R para ejecutar los bloques escritos en Python. Esta combinación tiene la ventaja adicional de que es posible “trasvasar” variables y resultados entre los entornos de ejecución de R y Python, de forma que podamos usar variables y estructuras de datos creados en la parte de R dentro de nuestro código Python y viceversa.</p></li>
+</ul></li>
+<li><p>Markdown: El producto intermedio de todas las fases anteriores es un archivo en formato Markdown (extensión <code>.md</code>), que ya integra el contenido textual formateado y muchos de los resultados y elementos adicionales generados por las distintas herramientas que han entrado en juego hasta este punto. En caso de que fuese útil, este archivo intermedio se puede almacenar para ser revisado o para utilizarlo para otros fines. A continuación, este archivo se envía a Pandoc para la última etapa de creación del documento.</p></li>
+<li><p>Pandoc: El <a href="https://pandoc.org/">proyecto Pandoc</a> ofrece una herramienta sofwtware para traducir documentos entre diferentes formatos de representación de información. Como se puede ver rápidamente en la página principal del proyecto, la lista de formatos soportados es realmente extensa. A efectos prácticos, en Quarto se utiliza la capacidad de Pandoc para recibir como entrada un documento en formato Markdown y generar una salida en tres posibles formatos: HTML, DOC/DOCX o PDF. El archivo Markdown debe incluir una sintaxis específica para codificar determinados elementos (referencias cruzadas, citas bibliográficas, figuras, tablas, ecuaciones, etc.) que iremos presentando en los siguientes capítulos, para que Pandoc pueda interpretar estos elementos y representarlos de forma apropiada en cada formato de salida.</p></li>
 </ul>
-<p>Se necesitan programas para cargar los documentos de salida, según el formato: navegador web (HTML), MS Word (archivos DOC), visor PDF (archivos PDF).</p>
+<p>Por último, cabe destacar que se necesitan programas de visualización de documentos para cargar los documentos de salida, según el formato: navegador web (HTML), MS Word (archivos DOC/DOCX), visor PDF (archivos PDF).</p>
 </section>
 <section id="producir-html" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="producir-html"><span class="header-section-number">3.2</span> Producir HTML</h2>
+<p>La opción por defecto para el formato de salida de los documentos Quarto es generar un documento HTML, que se puede visualizar con la mayoría de navegadores web modernos. Este formato de salida tiene varias ventajas:</p>
+<ul>
+<li><p>Es bastante probable que el receptor del documento ya disponga de uno o varios navegadores instalados en su sistema para ver el documento, si se lo enviamos o compartimos directamente.</p></li>
+<li><p>Es más sencillo publicar este tipo de documentos en la Web, utilizando alguna de las distintas plataformas disponibles para este fin:</p>
+<ul>
+<li><a href="https://rpubs.com/">RPubs</a>, un servicio de publicación de documentos de la empresa Posit PBC, integrado con RStudio.</li>
+<li>Los documentos individuales (véase <a href="04-singledoc.html" class="quarto-xref"><span>Capítulo 4</span></a>) y los libros o colecciones de documentos (véase <a href="05-books.html" class="quarto-xref"><span>Capítulo 5</span></a>) se pueden publicar de forma sencilla y rápida en sitios de hospedaje de proyectos software como GitHub o GitLab, que además proporcionan servicios de control de versiones, gestión de informes de error/mejoras, documentación, testing, etc.</li>
+</ul></li>
+</ul>
 </section>
 <section id="sec-pdf-reqs" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-pdf-reqs"><span class="header-section-number">3.3</span> Producir PDF</h2>
-<p>Al contrario que en HTML, cuando generamos documentos en PDF es <strong>imprescidible</strong> que tengamos <strong>instalada una distribución TeX/LaTeX</strong> previamente en nuestro sistema, para compilar y generar los documentos. Si no disponemos de ninguna todavía, se puede <a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">instalar TinyTeX</a>, una distribución ligera de <a href="https://tug.org/texlive/">TeX Live</a> que tiene mucho menor tamaño (~100 MB frente a los más de 4 GB de TeX Live completa).</p>
+<p>Al contrario que en HTML, cuando generamos documentos en PDF se añade un paso adicional de compilación del documento a final de toda la cadena de montaje, utilizando LaTeX y el motor de compilación XeLaTeX para generar la salida PDF. Por tanto, si seleccionamos esta opción de salida es <strong>imprescidible</strong> tener <strong>instalada una distribución TeX/LaTeX</strong> previamente en nuestro sistema, para compilar y generar los documentos. Si no disponemos de ninguna todavía, se puede <a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">instalar TinyTeX</a>, una distribución ligera de <a href="https://tug.org/texlive/">TeX Live</a> que tiene mucho menor tamaño (~100 MB frente a los más de 4 GB de TeX Live completa).</p>
 <section id="personalizar-documentos-pdf" class="level3" data-number="3.3.1">
 <h3 data-number="3.3.1" class="anchored" data-anchor-id="personalizar-documentos-pdf"><span class="header-section-number">3.3.1</span> Personalizar documentos PDF</h3>
 <p>Se pueden utilizar plantillas de documentos LaTeX predefinidas. Por defecto, Quarto utiliza varias plantillas de la colección de paquetes LaTeX <a href="https://ctan.org/pkg/koma-script">koma-script</a>.</p>
+<p>Algunas de estas plantillas pueden funcionar de forma relativamente sencilla en Quarto, mientras que otras requieren cierta adaptación, para lo cual se necesitarán algunos conocimientos sobre LaTeX. Este es probablemente un tema más avanzado para muchos usuarios, por lo que por ahora no lo vamos a tratar en este taller introductorio.</p>
+<p>No obstante, a modo de ejemplo, ofrecemos a continuación un listado de algunos ejemplos que ilustran las enormes posibilidades de este tipo de plantillas:</p>
+<ul>
+<li><p>El profesor R.J. Hyndman ha publicado <a href="https://robjhyndman.com/hyndsight/quarto_templates.html">plantillas de documentos Quarto de la Monash University</a>, que pueden utilizarse como punto de partida para personalizarlas en nuestros propios proyectos.</p></li>
+<li><p>El repositorio <a href="https://github.com/Jupyter4Science/awesome-quarto-thesis">Awesome Quarto Thesis</a> recoge un listado de plantillas Quarto para generar memorias de TFG/TFM y tesis doctorales para algunas universidades. También se enlaza una <a href="https://github.com/nmfs-opensci/quarto-thesis">plantilla genérica de extensión</a> para Quarto, concebida para facilitar que otros usuarios puedan personalizarla según los criterios marcados por su propia institución para generar estos trabajos.</p></li>
+</ul>
 
 
 </section>
