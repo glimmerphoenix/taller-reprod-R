@@ -107,6 +107,20 @@ Sin embargo, para que pueda funcionar necesitaremos realizar algunas tareas adic
 
 ### El preámbulo
 
+Un ejemplo básico de preámbulo es el siguiente (aunque bastaría con proporcionar únicamente un
+título para el documento):
+
+```yaml
+---
+title: "Mi primer documento"
+author: John Doe
+date: 2024-10-24
+---
+```
+
+Por supuesto, se pueden ir añadiendo muchas más opciones que iremos explicando a lo largo de
+este capítulo.
+
 ### Listado de opciones
 
 Existe un extenso listado de opciones de configuración que podemos incluir en nuestros documentos.
