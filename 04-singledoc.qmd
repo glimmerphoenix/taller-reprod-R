@@ -348,7 +348,7 @@ Además de la capacidad de integrar código ejecutable y sus resultados en nuest
 científicos, Quarto incluye un buen número de recursos y herramientas para ofrecer una experiencia
 de autoría completa y eficiente.
 
-### Secciones del documento
+### Secciones del documento {#sec-doc-sections}
 
 Como ya vimos en el ejemplo de la @sec-basic-ops, existen dos opciones de configuración del
 documento HTML que nos permiten numerar las secciones e incorporar una tabla de contenidos

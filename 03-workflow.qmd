@@ -78,8 +78,8 @@ instalados en su sistema para ver el documento, si se lo enviamos o compartimos 
 - Es más sencillo publicar este tipo de documentos en la Web, utilizando alguna de las distintas
 plataformas disponibles para este fin:
 
-  - [RPubs](https://rpubs.com/), un servicio de publicación de documentos de la empresa Posit PBC, integrado
-  con RStudio.
+  - [Quarto Pub](https://quartopub.com/), un servicio de publicación de documentos que permite que
+  sean accesibles públicamente.
   - Los documentos individuales (véase [@sec-individual-docs]) y los libros o colecciones de
   documentos (véase [@sec-books]) se pueden publicar de forma sencilla y rápida en sitios de
   hospedaje de proyectos software como GitHub o GitLab, que además proporcionan servicios de

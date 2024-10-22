@@ -1,25 +1,207 @@
 # Libros {#sec-books}
 
+Ahora que ya conocemos todos los elementos básicos para crear documentos
+individuales de programación literaria con Quarto, la evolución natural es
+preguntarnos si podemos gestionar colecciones ordenadas de documentos en
+un solo proyecto para, por ejemplo, crear un libro, un cuaderno de laboratorio
+o una bitácora de experimentos.
+
+Los proyectos de tipo `book` en Quarto son la respuesta a estas necesidades, 
+permitiendo agrupar y organizar varios documentos individuales en un solo
+sitio web o un solo volumen (PDF) para su publicación.
+
+## Creación de proyectos de tipo `book`
+
+El primer paso consiste en la creación de un proyecto de tipo `book`, utilizando
+la IDE de nuestra elección, por ejemplo, RStudio. La [@fig-new-quarto-book-project] muestra
+la interfaz de RStudio para crear un nuevo proyecto de tipo `book` con Quarto. Como
+es habitual, seleccionamos un nombre para el directorio que almacena el proyecto tal
+y como se muestra en la [@fig-book-new-dir].
+
+![Interfaz en RStudio para la creación de un nuevo proyecto Quarto de tipo *book*.](img/new-book-quarto-project.png){#fig-new-quarto-book-project width=80%}
+
+![Diálogo para indicar el nombre del directorio que almacena el proyecto de tipo *book* y algunas opciones básicas de configuración, como el motor de ejecución de los bloques de código integrados en los documentos (resaltado en rojo).](img/book-new-dir.png){#fig-book-new-dir width=80%}
+
+- [Página de inicio del tutoríal sobre libros en la guía de Quarto](https://quarto.org/docs/books/).
+
+## Opciones de configuración
+
+Al contrario que en los documentos individuales, en los proyectos como los de tipo `book` que
+agrupan varios documentos (archivos `.qmd`) en una sola colección podemos indicar opciones
+globales de configuración para todo el proyecto en un archivo independiente `_quarto.yml`, que
+debe estar presente en el directorio raíz de nuestro proyecto.
+
+Por defecto, las opciones de configuración que presenta este archivo en un proyecto de este
+tipo recien creado son las siguientes.
+
+```yaml
+project:
+  type: book
+
+book:
+  title: "primer-libro"
+  author: "Norah Jones"
+  date: "22/10/2024"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+```
+
+Los nuevos elementos en este listado de opciones son:
+
+- `project` --> `type: book`: Permite indicar el tipo de proyecto
+que queremos montar para que Quarto ajuste su comportamiento y pueda
+agrupar una colección de documentos. Activa la interpretación de opciones
+relacionadas con este tipo de proyectos.
+
+- `book`: Nueva categoría de opciones que indica la configuración especifica
+aplicable a todos los documentos de este proyecto, así como las opciones
+globales. Por ejemplo, el título, el autor y la fecha se mostrarán en una página
+de portada especial.
+
+- `chapters`: Nueva subcategoría de opciones que permite insertar un listado
+de nombres de archivo que contienen las diferentes secciones o capítulos de nuestro
+libro.
+
+  Debemos tener en cuenta que las secciones o capítulos se procesarán exactamente
+  en el mismo orden en el que aparecen en este listado, por lo que es importante
+  prestar atención a dicha ordenación.
+
+## Archivo de portada
+
+Además del nuevo archivo `_quarto.yml` se genera otro archivo llamado `index.qmd` que
+contiene el material que se presentará como portada del libro o colección de documentos.
+Un archivo general se crea también en otros tipos de proyectos, por ejemplo para la página
+de inicio de un sitio web generado con Quarto. Es en esta página de portada en la que se
+consigna la información general de la configuración (título, autores, fecha, etc.).
+
+El contenido de este archivo es el mismo que en cualquier otro documento, siguiendo las mismas
+reglas de sintaxis de Quarto para archivos `.qmd` que ya hemos visto.
+
+Debemos resaltar también que el título de esta página de portada no suele numerarse y, por
+tanto, es habitual que se configure como:
+
+```markdown
+# Preface {.unnumbered}
+```
+
 ## Herramientas de redacción
 
-### Figuras
+Todas las herramientas de redacción que ya hemos visto en el [@sec-individual-docs] se pueden
+utilizar en el caso de los capítulos de un libro. Es importante resaltar que los enlaces a las
+secciones funcionan también desde documentos de otras secciones o capítulos diferentes del libro,
+aunque estén en otro archivo distinto.
 
-### Tablas
+### Estructura del libro
 
-### Ecuaciones
+Además de los capítulos estándar, también podemos organizar el contenido del libro en partes
+(que agrupan capíutlos relacionados entre sí), así como apéndices, presentados a continuación del
+contenido principal del libro para ofrecer material adicional.
 
-### *Callouts*
+Veamos un ejemplo de configuración de un libro que incluya varias partes y que podemos integrar
+en el resto de la configuración del proyecto, dentro del archivo `_quarto.yml`.
 
+```yaml
+chapters:
+  - index.qmd
+  - preface.qmd
+  - part: dice.qmd
+    chapters: 
+      - basics.qmd
+      - packages.qmd
+  - part: cards.qmd
+    chapters:
+      - objects.qmd
+      - notation.qmd
+      - modifying.qmd
+      - environments.qmd
+```
+
+Es importante señalar que, en este caso, la opción `part` puede aceptar un archivo con
+extensión `.qmd` (como en el ejemplo), o bien una cadena de caracteres entre comillas que
+simplemente indique un título para la parte.
+
+Ahora presentamos un ejemplo para los apéndices.
+
+```yaml
+book:
+  title: "mybook"
+  author: "Jane Doe"
+  date: "5/9/2021"
+  chapters:
+    - index.qmd
+    - intro.qmd
+    - summary.qmd
+    - references.qmd
+  appendices:
+    - tools.qmd
+    - resources.qmd
+```
+
+Es importante resaltar que estas opciones de configuración generan la salida apropiada
+(partes y apéndices) tanto en el caso de sitios web HTML como cuando generamos un documento PDF,
+siguiendo en el segundo caso la sintaxis estándar de LaTeX para indicar la estructura del documento.
+
+- [Ejemplo de un conocido libro de H. Wickham creado en Quarto y accesible públicamente, que está
+organizado en partes que agrupan capítulos](https://r4ds.hadley.nz/).
+- [Opciones de configuración adicionales para la estructura de un libro en Quarto](https://quarto.org/docs/books/book-structure.html).
 
 ## Gestión de referencias
 
-### Referencias cruzadas en el documento
+Como ya se ha mencionado, las referencias internas (a figuras, tablas, ecuaciones y otras secciones del
+documento, entre otros elementos) funcionan exactamente igual que en los documentos individuales (consulta
+la [@sec-doc-sections]), con la ventaja adicional de que en un libro que combina diferentes capítulos
+la numeración de todos los elementos se actualiza para reflejar el número de capítulo como prefijo del número
+de elemento (por ejemplo, "Figura 1.2" para la segunda figura del capítulo 1).
 
+Es importante recalcar que para que la numeración automática de los elementos funcione adecuadamente, es
+imprescindible que comiencen por el prefijo adecuado (`#sec-` para secciones, `#fig-` para figuras, etc.).
 
-### Referencias bibliográficas
+## Previsualización del proyecto
 
+Para previsualizar en nuestra máquina local el proyecto que hemos creado, utilizando RStudio, debemos
+seleccionar en el panel superior derecho la pestaña *Build* y pulsar el botón *Render Book* para generar
+todos los formatos de salida que estén configurados en el archivo `_quarto.yml`, tal y como se muestra
+en la [@fig-render-book]. Además, también existe la opción de seleccionar solo uno de estos formatos
+de salida si pulsamos con cuidado en la pequeña flecha junto al botón "Render Book", para desplegar una
+lista de opciones de formato de salida y seleccionar uno de ellos, como muestra la [@fig-preview-select-book]
+
+![Botón para lanzar el proceso de previsualización del libro en RStudio.](/img/render-book.png){#fig-render-book width=80%}
+
+![Listado de opciones de configuración que aparecen al pulsar la flecha junto al botón *Render Book*](img/preview-select-book.png){#fig-preview-select-book width=80%}
+
+## Publicación del proyecto
+
+Existen diferentes [opciones de publicación] para poner nuestro libro o colección de documentos
+disponible para otros usuarios, incluyendo:
+
+- Quarto Pub.
+- GitHub Pages, muy conveniente si queremos una solución integrada para gestión de versiones del código
+fuente de nuestro proyecto.
+- Netlify, una plataforma de publicación web profesional que permite más opciones de ajuste y configuración.
+
+También es posible utilizar otros servicios para publicar documentos, libros y sitios web con Quarto, incluyendo
+GitLab (alternativa a GitHub), aunque no estarán tan automatizados e integrados con las herramientas que ofrece
+Quarto como las opciones anteriores.
 
 ## Plantillas y personalización
 
+Al igual que hemos explicado en el caso de los documentos individuales, se pueden utilizar
+opciones de configuración análogas para personalizar el estilo y el tema de diseño que podemos 
+aplicar a nuestro libro o colección de documentos, tanto en la versión de sitio web HTML como 
+en la versión de salida en formato PDF.
 
+- [Guía para la personalización del estilo de los libros en Quarto](https://quarto.org/docs/books/book-output.html).
 
