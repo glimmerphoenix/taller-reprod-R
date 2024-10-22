@@ -1,4 +1,4 @@
-# Documentos individuales
+# Documentos individuales {#sec-individual-docs}
 
 La manera más sencilla de comenzar a utilizar Quarto es crear documentos
 individuales. Se trata de documentos autocontenidos, que incorporan texto
@@ -575,7 +575,7 @@ o numeradas, etc.).
 
 : Tabla *grid* de ejemplo.
 
-### Llamadas
+### Llamadas {#sec-callouts}
 
 Es posible incluir bloques de llamadas de atención, para resaltar notas prácticas, advertencias o
 consejos de especial interés. Además, se suele poner un título a la llamada para hacerla aún más informativa.

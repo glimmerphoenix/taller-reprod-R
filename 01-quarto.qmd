@@ -100,7 +100,7 @@ A pesar de todo, como muy bien recoge una conocida tira cómica sobre el mundo a
 (ver @fig-phd-comic-revs), el proceso de desarrollo de las publicaciones científicas se basa primordialmente
 en la revisión continua de los métodos y resultados (empezando por los propios estudiantes y sus supervisores).
 
-![Tira cómica que representa el modelo de revisión de publicaciones científicas. Fuente: [PhD comics](http://phdcomics.com/comics/archive.php?comicid=1531).](img/phd101212s.gif){#fig-phd-comic-revs width=90%}
+![Tira cómica que representa el modelo de revisión de publicaciones científicas. Fuente: [PhD comics](http://phdcomics.com/comics/archive.php?comicid=1531).](img/phd101212s.png){#fig-phd-comic-revs width=90%}
 
 La @fig-evol-research-fraud muestra un gráfico publicado en la prestigiosa revista Science Magazine [CITATION], 
 que representa los datos sobre evolución del número de artículos de investigación retractados o retirados por 
