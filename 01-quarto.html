@@ -119,6 +119,7 @@ div.csl-indent {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Investigación reproducible con Quarto y R</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/glimmerphoenix/taller-reprod-R" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <a href="./Investigación-reproducible-con-Quarto-y-R.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
@@ -206,7 +207,7 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-manuscripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -290,7 +291,7 @@ div.csl-indent {
   <li><a href="#quarto-para-publicaciones-científicas" id="toc-quarto-para-publicaciones-científicas" class="nav-link" data-scroll-target="#quarto-para-publicaciones-científicas"><span class="header-section-number">1.3</span> Quarto para publicaciones científicas</a></li>
   <li><a href="#sec-quarto-install" id="toc-sec-quarto-install" class="nav-link" data-scroll-target="#sec-quarto-install"><span class="header-section-number">1.4</span> Instalación de Quarto</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/01-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/01-quarto.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -363,7 +364,7 @@ Figura&nbsp;1.2: Tira cómica que representa el modelo de revisión de publicaci
 </figcaption>
 </figure>
 </div>
-<p>La <a href="#fig-evol-research-fraud" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> muestra un gráfico publicado en la prestigiosa revista Science Magazine [CITATION], que representa los datos sobre evolución del número de artículos de investigación retractados o retirados por diveresas causas, entre 1997 y 2014. En este gráfico, podemos constatar cómo la mejora de las herramientas y la mayor disponibilidad de recursos permite analizar y revisar un mayor volumen de publicaciones y análisis, lo que permite detectar un mayor número de casos problemáticos.</p>
+<p>La <a href="#fig-evol-research-fraud" class="quarto-xref">Figura&nbsp;<span>1.3</span></a> muestra un gráfico publicado en la prestigiosa revista Science Magazine <span class="citation" data-cites="brainard2018massive">(<a href="references.html#ref-brainard2018massive" role="doc-biblioref">Brainard et&nbsp;al., 2018</a>)</span>, que representa los datos sobre evolución del número de artículos de investigación retractados o retirados por diveresas causas, entre 1997 y 2014. En este gráfico, podemos constatar cómo la mejora de las herramientas y la mayor disponibilidad de recursos permite analizar y revisar un mayor volumen de publicaciones y análisis, lo que permite detectar un mayor número de casos problemáticos.</p>
 <div id="fig-evol-research-fraud" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-evol-research-fraud-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -462,7 +463,7 @@ Figura&nbsp;1.7: Proceso de creación de contenidos con Quarto.
 </div>
 <ul>
 <li><strong>Quarto</strong>: un software que permite crear documentación científica siguiendo los principios de la programación literaria.</li>
-<li><strong>Kintr y lenguaje de programación</strong>: el paquete <code>knitr</code> se encarga de la conexión con un intérprete de un lenguaje de programación (R, Python, Julia) que se pueda ejecutar en un entorno <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, para poder ejecutar fragmentos de código software integrados en el documento y generar como resultado contenido en formato Markdown.</li>
+<li><strong>Knitr y lenguaje de programación</strong>: el paquete <code>knitr</code> se encarga de la conexión con un intérprete de un lenguaje de programación (R, Python, Julia) que se pueda ejecutar en un entorno <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>, para poder ejecutar fragmentos de código software integrados en el documento y generar como resultado contenido en formato Markdown.</li>
 <li><strong>Markdown</strong> (contenido formateado): lenguaje de marcado de contenido textual que permite formatear de forma sencilla la información de nuestros documentos creados con Quarto.</li>
 <li><strong>Pandoc</strong> (traductor universal de formatos documentales): este software recibe el contenido ya formateado usando el estándar Markdown, para convertirlo en el tipo de salida seleccionado. Existen varias opciones disponibles: HTML, PDF o Word, así como diapositivas, websites o paneles interactivos (<em>dashboards</em>).</li>
 </ul>
@@ -961,4 +962,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/01-quarto.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/01-quarto.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>

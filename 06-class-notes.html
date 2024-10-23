@@ -162,6 +162,7 @@ window.Quarto = {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Investigación reproducible con Quarto y R</a> 
         <div class="sidebar-tools-main">
+    <a href="https://github.com/glimmerphoenix/taller-reprod-R" title="Ejecutar el código" class="quarto-navigation-tool px-1" aria-label="Ejecutar el código"><i class="bi bi-github"></i></a>
     <a href="./Investigación-reproducible-con-Quarto-y-R.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
 </div>
     </div>
@@ -249,7 +250,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-manuscripts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -336,11 +337,15 @@ window.Quarto = {
   <li><a href="#idioma-de-los-documentos" id="toc-idioma-de-los-documentos" class="nav-link" data-scroll-target="#idioma-de-los-documentos"><span class="header-section-number">6.3.2</span> Idioma de los documentos</a></li>
   <li><a href="#enlaces-a-otros-formatos" id="toc-enlaces-a-otros-formatos" class="nav-link" data-scroll-target="#enlaces-a-otros-formatos"><span class="header-section-number">6.3.3</span> Enlaces a otros formatos</a></li>
   </ul></li>
-  <li><a href="#plantillas-y-herramientas" id="toc-plantillas-y-herramientas" class="nav-link" data-scroll-target="#plantillas-y-herramientas"><span class="header-section-number">6.4</span> Plantillas y herramientas</a></li>
+  <li><a href="#ejercicio-personalizar-el-estilo-gráfico-del-documento" id="toc-ejercicio-personalizar-el-estilo-gráfico-del-documento" class="nav-link" data-scroll-target="#ejercicio-personalizar-el-estilo-gráfico-del-documento"><span class="header-section-number">6.4</span> Ejercicio: personalizar el estilo gráfico del documento</a></li>
   <li><a href="#personalización-de-los-libros" id="toc-personalización-de-los-libros" class="nav-link" data-scroll-target="#personalización-de-los-libros"><span class="header-section-number">6.5</span> Personalización de los libros</a></li>
-  <li><a href="#publicación" id="toc-publicación" class="nav-link" data-scroll-target="#publicación"><span class="header-section-number">6.6</span> Publicación</a></li>
+  <li><a href="#plantillas-y-extensiones-de-quarto" id="toc-plantillas-y-extensiones-de-quarto" class="nav-link" data-scroll-target="#plantillas-y-extensiones-de-quarto"><span class="header-section-number">6.6</span> Plantillas y extensiones de Quarto</a></li>
+  <li><a href="#publicación-del-proyecto" id="toc-publicación-del-proyecto" class="nav-link" data-scroll-target="#publicación-del-proyecto"><span class="header-section-number">6.7</span> Publicación del proyecto</a>
+  <ul class="collapse">
+  <li><a href="#método-con-quarto-publish" id="toc-método-con-quarto-publish" class="nav-link" data-scroll-target="#método-con-quarto-publish"><span class="header-section-number">6.7.1</span> Método con <code>quarto-publish</code></a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/06-class-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/06-class-notes.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -669,6 +674,7 @@ it in the margin without a footnote number.]{.aside}</code></pre>
 </dl>
 </div>
 </div>
+<p>Se pueden utilizar más opciones de configuración para controlar cómo se muestran las anotaciones de código (al hacer click sobre la anotación, al pasar el ratón por encima o la opción por defecto que hemos visto).</p>
 <ul>
 <li><a href="https://quarto.org/docs/authoring/code-annotation.html">Guía para anotación de líneas en bloques de código</a></li>
 </ul>
@@ -701,11 +707,47 @@ it in the margin without a footnote number.]{.aside}</code></pre>
 </section>
 <section id="enlaces-a-otros-formatos" class="level3" data-number="6.3.3">
 <h3 data-number="6.3.3" class="anchored" data-anchor-id="enlaces-a-otros-formatos"><span class="header-section-number">6.3.3</span> Enlaces a otros formatos</h3>
-<p><a href="https://quarto.org/docs/output-formats/html-multi-format.html" class="uri">https://quarto.org/docs/output-formats/html-multi-format.html</a></p>
+<p>Cuando generamos un documento Quarto en múltiples formatos, de manera automática se debería generar en la parte superior derecha (o en algún punto de la columna a la derecha de la página) un enlace a las otras versiones disponibles de dicho documento. La figura <a href="#fig-other-format-PDF" class="quarto-xref">Figura&nbsp;<span>6.2</span></a> muestra un ejemplo del enlace que aparece en la página:</p>
+<div id="fig-other-format-PDF" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-other-format-PDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/link-other-format-PDF.png" class="img-fluid figure-img" style="width:40.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-other-format-PDF-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.2: Enlace a otra versión en PDF del documento creado con Quarto
+</figcaption>
+</figure>
+</div>
+<p>Para que esto suceda, tenemos que declarar que se genere la salida del docoumento en varios formatos:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> Sample Page</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> Sarah Connor</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> last-modified</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">ipynb</span><span class="kw">:</span><span class="at"> default</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Las opciones anteriores generarían dos enlaces en la página HTML (el formato por defecto): uno para descargar la versión alternativa en PDF y otro para descargar la versión en formato <em>notebook</em> de Jupyter.</p>
+<p>Se puede consultar la siguiente página de la guía de Quarto para descubrir más opciones de configuración, incluyendo cómo personalizar los textos de los enlaces o los formatos que se muestran para descarga:</p>
+<ul>
+<li><a href="https://quarto.org/docs/output-formats/html-multi-format.html">Guía para incluir enlaces a otros formatos del documento</a></li>
+</ul>
+<p>Es importante saber que los proyectos de tipo <code>book</code> funcionan de una manera un tanto diferente, por ser un tipo de proyecto especial. En este caso, el enlace de descarga para versiones en otros formatos se pone junto al título del libro (en la parte superior izquierda) y se activa con la siguiente opción:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">downloads</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">pdf</span><span class="kw">]</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="plantillas-y-herramientas" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="plantillas-y-herramientas"><span class="header-section-number">6.4</span> Plantillas y herramientas</h2>
+<section id="ejercicio-personalizar-el-estilo-gráfico-del-documento" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="ejercicio-personalizar-el-estilo-gráfico-del-documento"><span class="header-section-number">6.4</span> Ejercicio: personalizar el estilo gráfico del documento</h2>
+<p>Ahora, vamos a practicar con un ejemplo en el que se combinan varios aspectos que hemos estado tratando en este capítulo.</p>
+<ol type="1">
+<li>Descarga este documento de ejemplo en tu equipo: <a href="https://github.com/glimmerphoenix/taller-reprod-R/raw/refs/heads/main/examples/tufte-doc/tufte.qmd.">Ejemplo apuntes Tufte</a>.</li>
+<li>Crea un nuevo proyecto en RStudio, indicando como directorio de trabajo aquel en el que has guardado el ejemplo.</li>
+<li>Previsualiza el documento en su versión HTML. Comprueba que hay un enlace para descargar también la versión en PDF.</li>
+<li>Modifica algunos de los ejemplos para entender mejor cómo funcionan las opciones de configuración de los bloques de código ejecutables y los estilos gráficos aplicables al contenido en formato Markdown.</li>
+<li>Modifica las dimensiones de la columna central (<em>document body</em>), para reducir su anchua 50 píxeles.</li>
+</ol>
+<p><strong>Referencias adicionales para el ejercicio práctico</strong></p>
 <ul>
 <li><a href="https://github.com/quarto-dev/quarto-gallery/tree/main">Galería de ejemplo de plantillas de documentos en Quarto</a>.</li>
 <li><a href="https://github.com/quarto-dev/quarto-gallery/blob/main/page-layout/tufte.qmd">Documento de ejemplo con los estilos gráficos de Tufte <em>handouts</em></a>.
@@ -716,20 +758,181 @@ it in the margin without a footnote number.]{.aside}</code></pre>
 </section>
 <section id="personalización-de-los-libros" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="personalización-de-los-libros"><span class="header-section-number">6.5</span> Personalización de los libros</h2>
+<p>Es importante entender la diferencia entre un proyecto configurado como <a href="https://quarto.org/docs/books/book-output.html">libro</a> y otro configurado como <a href="https://quarto.org/docs/websites/">website</a>. En el caso de un libro, se aplicarán las mismas opciones de formateo y diseño gráfico a todos los documentos que forman parte del mismo, puesto que se combinan en un solo documento (esto queda más claro cuando el formato de salida es PDF, puesto que se genera un único archivo con todo el contenido). Sin embargo, cuando creamos un sitio web es posible aplicar opciones de diseño y configuración personalizadas a cada documento del sitio, puesto que se comportan de forma independiente (aunque es posible aplicar también opciones globales para todo el sitio web).</p>
+<p>En consecuencia, en un proyecto de tipo <code>book</code> cualquier opción de renderizado (incluso las específicas de un formato de salida) deben especificarse en el archvio global <code>_quarto.yml</code>. Se pueden utilizar muchas de las <a href="https://quarto.org/docs/books/book-output.html#website-tools">herramientas aplicables a los sitios web</a> con Quarto (barras de navegación, encabezado y pie de página, barra de búsqueda textual, etc.). No obstante, todas estas opciones hay que especificarlas bajo la etiqueta <code>book</code> en el caso de un libro, no bajo la etiqueta <code>website</code>.</p>
+<p>Una excepción a esta regla es la opción global <code>output-dir</code>, para seleccionar un directorio de salida diferentes donde almacenar los archivos HTML, PDF, etc. del libro ya renderizado. Esa opción se debe poner debajo de la etiqueta <code>project</code>:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">project</span><span class="kw">:</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">type</span><span class="kw">:</span><span class="at"> book</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-dir</span><span class="kw">:</span><span class="at"> docs</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Por contra, la opción <code>output-file</code>, que cambia el nombre del fichero de salida generado (por defecto es el título del documento), se pone debajo de la etiqueta <code>book</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">book</span><span class="kw">:</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"El título de este libro es una cosa larguísima"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">"Jane Doe"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">output-file</span><span class="kw">:</span><span class="at"> </span><span class="st">"nombre-corto"</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extensiones de los archivos de salida
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cuando configuremos un nombre personalizado para el fichero de salida del libro con la opción <code>output-file</code> <strong>no debemos añadir una extensión</strong>, ya que ésta se añadirá automáticamente en función del tipo de fichero de salida generado.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Personalización en LaTeX
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Aunque no nos estamos centrando en la producción de salida LaTeX/PDF en este taller, aprovechamos este punto para resaltar que es posible también utilizar paquetes, <em>scripts</em> y otras herramientas LaTeX que ya tengamos desarrolladas previamente.</p>
+<p>El método más directo (aunque a bajo nivel) para introducir los cambios es crear todo el libro con Quarto y compilar la salida en formato <code>latex</code>.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb15" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render <span class="at">--to</span> latex</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Esto nos dejará todo el código fuente de LaTeX dentro del subdirectorio <code>_book/book-latex</code> (o en el directorio de salida que hayamos configurado). Podemos acabar de editar esos ficheros y compilar con otra herramienta (e.g.&nbsp;un editor LaTeX o usando <code>make</code>) el documento final.</p>
+<p>Sin embargo, si los cambios se limitan a modificar las opciones de configuración estándar del documento en LaTeX, entonces podemos usar la extensa [lista de variables de configuración para LaTeX de Pandoc], con la que podremos indicar:</p>
 <ul>
-<li><p><a href="https://quarto.org/docs/books/book-output.html" class="uri">https://quarto.org/docs/books/book-output.html</a></p></li>
-<li><p>Importación y uso de plantillas y extensiones.</p></li>
+<li>Opciones de clase (páginas a doble cara, tamaño de página).</li>
+<li>La opción <code>documentclass</code> para cambiar la plantilla del documento base; normalmente, Quarto usa <code>scrreport</code>, <code>scrbook</code> o <code>scrartcl</code> (clases del paquete LaTeX <a href="https://ctan.org/pkg/koma-script">KOMA-Script</a>).</li>
+<li>La opción <code>geometry</code> para cambiar las dimensiones de la página, los márgenes, etc.</li>
+<li>Fuentes y tipos de letra, color de la fuente, etc.</li>
+<li>Enlaces: color, estilo, ubicación, etc.</li>
+</ul>
+<p>Por último, debemos tener en cuenta que si en alguno de los capítulos de nuestro libro insertamos notas en el margen, figuras al margen o cualquier otro elemento en los márgenes, entonces el área de texto de los demás capítulos se mantendrá más reducida (dejando espacio en blanco en el margen), para poder presentar adecuadamente esos elementos en el margen de las páginas que sí los contienen. Nuevamente, esto se debe a que en el libro PDF la maquetación es común a todo el documento.</p>
+</div>
+</div>
+</section>
+<section id="plantillas-y-extensiones-de-quarto" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="plantillas-y-extensiones-de-quarto"><span class="header-section-number">6.6</span> Plantillas y extensiones de Quarto</h2>
+<p>Por si no fuese suficiente con la larga lista de funcionalidades y opciones de configuración de Quarto estándar, se pueden instalar <strong>extensiones</strong> para ampliar todavía más su funcionalidad o modificar su comportamiento.</p>
+<ul>
+<li><a href="https://quarto.org/docs/extensions/">Catálogo de extensiones disponibles para Quarto</a>.</li>
+</ul>
+<p>Es importante saber que antes de utilizar una extensión debemos de instalarla localmente y, además, que las extensiones se instalan <strong>para cada carpeta de proyeto</strong> en la que tengamos un documento individual, website, libro, etc. Por tanto, cada proyecto puede tener su propio listado de extensiones de Quarto instaladas y diferente del de otros proyectos.</p>
+<p>Las extensiones se suelen publicar como proyectos en GitHub, por ejemplo la extensión <a href="https://github.com/quarto-ext/fontawesome">quarto-ext/fontawesome</a>. Si pulsamos en el enlace anterior vemos que una extensión es un conjunto de ficheros en un repositorio. Al instalar la extensión, estos ficheros se copiarán localmente en el directorio de nuestro proyecto, dentro de una carpeta de nombre <code>_extensions</code>.</p>
+<p>Por ejemplo, supongamos que queremos instalar en nuestro proyecto <code>mi-projecto</code> dos nuevas extensiones creadas por <code>quarto-ext</code> en GitHub, que se llaman <code>fontawesome</code> y <code>video</code>. En una terminal del sistema, vamos al directorio de trabajo de nuestro proyecto (este paso previo es <em>importante</em>) y ejecutamos los comandos para instalarlas.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb16" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> myblog</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-ext/fontawesome</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-ext/video</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Extensiones en documentos sin proyecto
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>No es obligatorio que tengamos un proyecto creado para instalar extensiones y aplicarlas a documentos Quarto. Si tenemos uno o varios documentos en un directorio (aunque no sea un proyecto) y ejecutamos los comandos para instalar extensiones dentro de ese directorio, entonces cualquier documento situado en ese directorio puede acceder a dichas extensiones.</p>
+</div>
+</div>
+<p>Las extensiones están organizadas dentro de cuatro grandes tipos:</p>
+<ul>
+<li>Códigos acortados o filtros: permiten usar una sintaxis más breve para operaciones complicadas o aplicar filtros de diversa índole para manejo de contenidos.</li>
+<li>Artículos de revista: extensiones que ya contienen los archivos de estilo necesarios para generar artículos científicos según el formato requerido por diversas organizaciones y editoriales (véase <span class="quarto-unresolved-ref">?sec-scientific-articles</span>).</li>
+<li>Formatos personalizados: Plantillas que aplican formatos predefinidos a nuestros documentos.</li>
+<li><code>Reveal.js</code>: Plantillas y temas para la creació de diapositivas con Quarto utilizando esta biblioteca JavaScript.</li>
 </ul>
 </section>
-<section id="publicación" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="publicación"><span class="header-section-number">6.6</span> Publicación</h2>
+<section id="publicación-del-proyecto" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="publicación-del-proyecto"><span class="header-section-number">6.7</span> Publicación del proyecto</h2>
+<p>Si queremos publicar nuestro proyecto (documento, libro, sitio web), tenemos varias opciones de publicación, como ya vimos en la <a href="05-books.html#sec-pub-options" class="quarto-xref"><span>Sección 5.7</span></a>. De entre las opciones disponibles, una bastante directa y que no tiene coste es utilizar GitHub Pages.</p>
+<p>GitHub Pages es un método de publicación de documentación asociada a un proyecto de GitHub. Esencialmente, tenemos que seguir un procedimiento ya definido para subir los archivos ya compilados de nuestro proyecto a GitHub y configurar ciertos parámetros de nuestro proyecto en esa plataforma. Como resultado, el servicio GitHub Pages toma ese contenido y lo publica en un sitio web, asignándole una URL para que sea accesible mediante un navegador (igual que estos mismos apuntes).</p>
+<p>Aquí vamos a explicar el método para publicar nuestro contenido utilizando el comando <code>quarto publish</code>.</p>
+<section id="método-con-quarto-publish" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="método-con-quarto-publish"><span class="header-section-number">6.7.1</span> Método con <code>quarto-publish</code></h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Antes de empezar a usar Git y GitHub con RStudio
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Comenzar a utilizar un Sistema de Control de Versiones (SCV) como Git y un servicio como GitHub para gestionar nuestros proyectos es una tarea factible pero no tan sencilla como puede parecer, sobre todo si no has recibido previamente formación sobre estas tecnologías o no has aprendido a usarlas por tu cuenta.</p>
+<p>Por tanto, hacemos una llamada a la cautela para afrontar el contenido de esta sección armados de mucha <em>paciencia</em>, ganas de aprender y sobre todo <em>tiempo</em> para seguir todos los pasos descritos en los diferentes capítulos de varios tutoriales.</p>
+</div>
+</div>
+<p>Para poder publicar nuestro proyecto con este método, primero hemos tenido que crear un proyecto nuevo en GitHub, clonarlo en nuestra máquina y crear un nuevo proyecto (con RStudio o MS Visual Studio) dentro del directorio del proyecto para que esté bajo control de versiones. Alternativamente, también podemos realizar este proceso a la inversa: crear primero todo el proyecto en nuestra máquina, para luego subirlo a GitHub.</p>
+<p>En cualquiera de los dos casos, el contenido de este taller no cubre la parte de poner nuestro proyecto en un SCV (Sistema de Control de Versiones) como Git, para después subirlo a un servicio como GitHub. No obstante, dejamos a continuación unos enlaces a un tutorial paso a paso que nos guiará por este proceso.</p>
+<ol type="1">
+<li>Si no tenemos ya una cuenta de usuario/a en GitHub, debemos <a href="https://happygitwithr.com/github-acct">registrar una nueva cuenta</a>.</li>
+<li>Ahora, debemos <a href="https://happygitwithr.com/install-git">instalar Git en nuestra máquina</a>, si no estaba ya instalado previamente.</li>
+<li>Para no tener problemas después cuando interactuemos con GitHub, es preciso <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github">configurar un método de autenticación</a> para acceder a la plataforma con nuestro usuario. La forma más sencilla es mediante el navegador web y configurando <a href="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication">un sistema de autenticación de doble factor (2FA)</a>. La opción más cómoda es instalar la app de GitHub en tu móvil y seguir las instrucciones. Una vez que esté funcionando:
+<ol type="1">
+<li>Abrimos la página web de GitHub en el navegador e ingresamos con nuestro usuario y contraseña.</li>
+<li>Usamos la app de GitHub en el móvil para confirmar nuestra identidad.</li>
+</ol></li>
+<li><a href="https://happygitwithr.com/rstudio-git-github">Conectamos RStudio con Git y GitHub</a>.</li>
+<li>Ahora ya podemos crear un nuevo proyecto en GitHub de varias formas:
 <ul>
-<li><p>Ejemplo de publicación con GitHub pages.</p></li>
-<li><p><a href="https://quarto.org/docs/publishing/" class="uri">https://quarto.org/docs/publishing/</a></p></li>
-<li><p><a href="https://quarto.org/docs/publishing/github-pages.html" class="uri">https://quarto.org/docs/publishing/github-pages.html</a></p></li>
+<li><a href="https://happygitwithr.com/new-github-first">Nuevo proyecto primero en GitHub</a>.</li>
+<li><a href="https://happygitwithr.com/existing-github-first">Proyecto que ya existe en la máquina local y lo copio en un nuevo repositorio clonado desde GitHub</a>.</li>
+<li><a href="https://happygitwithr.com/existing-github-last">Proyecto que ya existe y lo subo a un repositorio de GitHub (sin clonarlo localmente)</a>.</li>
+</ul></li>
+</ol>
+<p>Ahora ya podemos trabajar en nuestro proyecto, poniendo en práctica lo explicado hasta el momento en este taller para añadir secciones, bloques de código ejecutable, figuras, tablas, ecuaciones y demás elementos y opciones de configuración. En nuestra máquina, podemos previsualizar periódicamente el resultado (bontón <em>Render</em> en RStudio). Es conveniente que cada poco tiempo, <a href="http://destio.us.es/calvo/asignaturas/ge_esco/tutorialusargitgithubrstudio/UsarGitGithubconRStudio.html#haga-una-consolidaci%C3%B3n-o-confirmaci%C3%B3n-commit-y-vea-m%C3%A1s-historia">confirmemos los cambios en Git</a>.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Confirmación manual de cambios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Al contrario que en otros servicios que controlan cambios en ficheros (como Google Docs o MS Office 365 en OneDrive), Git <strong>no controla automáticamente</strong> los cambios realizados en los archivos. Por eso, cada cierto tiempo, cuando hemos terminado cambios relacionados y antes de seguir cambiando muchas cosas más, debemos indicar a Git que queremos <strong>confirmar el trabajo</strong> hecho hasta ese punto. En el último enlace del párrafo anterior se explica cómo hacerlo desde RStudio (vídeo incluido).</p>
+</div>
+</div>
+<p>Finalmente, cuando ya tenemos una versión publicable de nuestro proyecto podemos seguir las siguientes instrucciones para publicar el proyecto con el comando <code>quarto publish</code> que automatiza varias fases del proceso.</p>
+<ul>
+<li><a href="https://quarto.org/docs/publishing/github-pages.html#publish-command">Publicar un proyecto Quarto con GitHub Pages y el comando <code>quarto publish</code></a>.</li>
 </ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Enviar los cambios de la rama <code>main</code> a GitHub
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Si has prestado atención al último tutorial, verás que la publicación de los contenidos se hace en una rama diferente de la principal de tu repositorio en GitHub, llamada <code>gh-pages</code>. A esa rama sólo se van a subir <strong>los ficheros de salida</strong> ya generados en los formatos que hayamos configurado en nuestro proyecto (HTML, PDF, etc.).</p>
+<p>Es muy importante darse cuenta de que los ficheros fuente de nuestro proyecto, con extensión <code>.qmd</code>, <code>_quarto.yml</code> etc. <strong>no se han copiado al repositorio remoto</strong> y, por tanto, todavía no tenemos una “copia de seguridad” de dichos archivos en GitHub.</p>
+<p>Para conseguir esto, desde RStudio (pestaña Git) podemos hacer una operación <code>push</code> que envía los <em>commits</em> (cambios confirmados) desde nuestra máquina local al repositorio remoto. Alternativamente, también podemos abrir una terminal de sistema en RStudio y ejecutar (en el directorio raíz del proyecto) el siguiente comando:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb17" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Si todo va correctamente, aparecerán varios mensajes en pantalla informando del progreso de la subida y confirmando que el historial de cambios en nuestro repositorio local ya está <em>sincronizado</em> con el repositorio remoto alojado en GitHub.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -1160,8 +1363,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07-manuscripts.html" class="pagination-link" aria-label="Artículos y publicaciones científicas">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-manuscripts.html" class="pagination-link" aria-label="Artículos y publicaciones científicas{#sec-scientfic-articles}">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1170,4 +1373,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/06-class-notes.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/06-class-notes.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>
