@@ -204,4 +204,5 @@ aplicar a nuestro libro o colección de documentos, tanto en la versión de siti
 en la versión de salida en formato PDF.
 
 - [Guía para la personalización del estilo de los libros en Quarto](https://quarto.org/docs/books/book-output.html).
+- [Galería de ejemplo de algunos estilos para personalizar el aspecto de documentos Quarto](https://github.com/quarto-dev/quarto-gallery/tree/main).
 

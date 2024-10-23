@@ -1,14 +1,14 @@
 # Artículos y publicaciones científicas
 
+- [Formatos editoriales soportados](https://quarto.org/docs/journals/).
+- [Adjusting templates](https://quarto.org/docs/journals/templates.html).
 
-## Replicabilidad en publicaciones científicas
+- <https://quarto.org/docs/journals/formats.html>
 
+- [List of Quarto journal templates](https://github.com/quarto-journals).
 
 
 ## Figuras y gráficos para publicación
-
-
-## EL paquete `rticles`
 
 
 ## Ejemplos y recomendaciones
