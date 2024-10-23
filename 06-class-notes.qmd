@@ -153,7 +153,50 @@ it in the margin without a footnote number.]{.aside}
 
 ## Anotaciones en bloques de código
 
-<https://quarto.org/docs/authoring/code-annotation.html>
+Una característica muy útil para la creación de documentació y tutoriales es la de anotar las líneas dentro de
+los bloques de código ejecutable. Veamos un ejemplo:
+
+```` markdown
+```r
+#| label: demo-code-annotation
+#| message: false
+#| output: false
+library(tidyverse)
+library(palmerpenguins)
+penguins |>                                      # <1>
+  mutate(                                        # <2>
+    bill_ratio = bill_depth_mm / bill_length_mm, # <2>
+    bill_area  = bill_depth_mm * bill_length_mm  # <2>
+  )                                              # <2>
+```
+1. Take `penguins`, and then,
+2. add new columns for the bill ratio and bill area.
+````
+
+Que produce el siguiente resultado:
+
+```{r}
+#| label: demo-code-annotation
+#| message: false
+#| output: false
+library(tidyverse)
+library(palmerpenguins)
+penguins |>                                      # <1>
+  mutate(                                        # <2>
+    bill_ratio = bill_depth_mm / bill_length_mm, # <2>
+    bill_area  = bill_depth_mm * bill_length_mm  # <2>
+  )                                              # <2>
+```
+1. Take `penguins`, and then,
+2. add new columns for the bill ratio and bill area.
+
+Se pueden utilizar más opciones de configuración para
+controlar cómo se muestran las anotaciones de código
+(al hacer click sobre la anotación, al pasar el ratón
+por encima o la opción por defecto que hemos visto).
+
+- [Guía para anotación de líneas en bloques de código](https://quarto.org/docs/authoring/code-annotation.html)
+
 
 ## Configuración del proyecto
 
@@ -205,7 +248,49 @@ al resto de idiomas disponibles). Más aún, el objetivo principal de este paque
 para el servicio de traducción automática DeepL, de forma que se traduzcan automáticamente los textos de
 nuestros documentos a otros idiomas.
 
+### Enlaces a otros formatos
+
+Cuando generamos un documento Quarto en múltiples formatos, de manera automática se debería generar en la parte
+superior derecha (o en algún punto de la columna a la derecha de la página) un enlace a las otras versiones disponibles
+de dicho documento. La figura [@fig-other-format-PDF] muestra un ejemplo del enlace que aparece en la página:
+
+![Enlace a otra versión en PDF del documento creado con Quarto](img/link-other-format-PDF.png){#fig-other-format-PDF width=40%}
+
+Para que esto suceda, tenemos que declarar que se genere la salida del docoumento en varios formatos:
+
+```yaml
+title: Sample Page
+author: Norah Jones
+date: last-modified
+toc: true
+format: 
+  html: default
+  pdf: default
+  ipynb: default
+```
+
+Las opciones anteriores generarían dos enlaces en la página HTML (el formato por defecto): uno para descargar la versión
+alternativa en PDF y otro para descargar la versión en formato *notebook* de Jupyter.
+
+Se puede consultar la siguiente página de la guía de Quarto para descubrir más opciones de configuración, incluyendo
+cómo personalizar los textos de los enlaces o los formatos que se muestran para descarga:
+
+- [Guía para incluir enlaces a otros formatos del documento](https://quarto.org/docs/output-formats/html-multi-format.html)
+
+Es importante saber que los proyectos de tipo `book` funcionan de una manera un tanto diferente, por ser un tipo
+de proyecto especial. En este caso, el enlace de descarga para versiones en otros formatos se pone junto al título
+del libro (en la parte superior izquierda) y se activa con la siguiente opción:
+
+```yaml
+book:
+  downloads: [pdf]
+```
+
+
 ## Plantillas y herramientas
+
+Ahora, vamos a practicar con un ejemplo en el que se combinan varios aspectos que hemos estado tratando en este
+capítulo
 
 - [Galería de ejemplo de plantillas de documentos en Quarto](https://github.com/quarto-dev/quarto-gallery/tree/main).
 - [Documento de ejemplo con los estilos gráficos de Tufte *handouts*](https://github.com/quarto-dev/quarto-gallery/blob/main/page-layout/tufte.qmd).
