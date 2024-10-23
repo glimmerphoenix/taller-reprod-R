@@ -36,6 +36,7 @@ book:
     - C-packages.qmd
     - D-pdf-latex.qmd
     - app-refs.qmd
+  downloads: [pdf]
 
 lang: es
 bibliography: references.bib
@@ -47,6 +48,13 @@ format:
     css: styles.css
   pdf:
     documentclass: scrreprt
+    include-in-header: 
+       text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          commandchars=\\\{\},
+          breaklines, breaknonspaceingroup, breakanywhere
+        }
 
 
 

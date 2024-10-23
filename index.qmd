@@ -39,3 +39,16 @@ aprendices de Quarto en la dirección correcta.
 Puedes aprender muchos más detalles sobre cuarto en la guía en línea
 <https://quarto.org/docs/guide/>. En particular, en <https://quarto.org/docs/books>
 se documenta en detalle cómo crear libros como este utilizando Quarto.
+
+## Requisitos previos
+
+Para poder realizar los ejemplos inlcuids en este taller necesitas tener instalado
+R y una IDE de desarrollo para este lenguaje. Se recomienda instalar RStudio o MS
+Visual Code como entorno de programación.
+
+- [Instalación de R](https://cran.r-project.org/).
+- [Instalación de RStudio](https://posit.co/download/rstudio-desktop/).
+
+Adicionalmente, es necesario instalar una serie de paquetes R antes de ejecutar los
+ejemplos, para que todas las dependencias estén disponibles en nuestro sistema.
+Consulta el Apéndice [@sec-pkg-requirements] para comprobar el listado de paquetes R necesarios.
