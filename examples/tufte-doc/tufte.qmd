@@ -1,0 +1,337 @@
+---
+title: "Ejemplo de estilo de documento en Quarto"
+subtitle: "Inspirado en Tufte Handout, usando Quarto"
+date: "`r Sys.Date()`"
+format:
+    pdf:
+      include-in-header: 
+       text: |
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+          commandchars=\\\{\},
+          breaklines, breaknonspaceingroup, breakanywhere
+        }
+    html: 
+      self-contained: true
+      grid: 
+        margin-width: 350px
+execute: 
+  echo: fenced
+lang: es
+reference-location: margin
+citation-location: margin
+bibliography: skeleton.bib
+---
+
+# Introducción
+
+Este documento demuestra el uso de unas cuantas características avanzadas para configurar el estilo y la
+maquetación visual de las páginas en Quarto, con el objetivo de producir un documento atractivo y práctico
+inspirado en el estilo de entregas de Edward R. Tufte. Dicho estilo ya se implementó con éxito en los
+documentos con RMarkdown [@xie2018], la tecnología que ha precedido a Quarto. Este estilo es el que
+utilizaba Tufte en sus entregables y sus libros, y es conocido por su uso intensivo de notas al margen,
+la estrecha integración de los gráficos con el texto y una tipografía muy cuidada. Quarto[^1] soporta
+muchas de las técnicas de diseño gráfico que se utilizan en el estilo de entregas Tufte, tanto para
+documentos HTML como en LaTeX/PDF.
+
+Veamos un ejemplo de las opciones básicas de debemos configurar en la cabecera de nuestro documento
+para utilizar este diseño en particular.
+
+
+``` yaml
+---
+title: "Ejemplo de documento con el estilo Tufte"
+author: "John Doe"
+format:
+  html:
+    grid:
+      margin-width: 350px         # <1>
+  pdf: default
+reference-location: margin        # <2>
+citation-location: margin         # <2>
+---
+```
+
+1.  Esta opción incrementa el ancho del margen de la página, para dejar más espacio para notas
+y figuras al margen (sólo válido en HTML).
+2.  Coloca las notas al pie y las citas bibliográficas en el margen lateral. Otras opciones de diseño
+gráfico y maquetación (por ejemplo, colocar figuras en el margen) se configurarán para cada elemento en
+los ejemplos a continuación.
+
+Estas características de diseño están concebidas con dos importantes objetivos en mente:
+
+1. Producir tanto salida en HTML como en PDF con un estilo similar y elementos homogéneos usando
+el mismo documento Quarto como fuente.
+2. Proporcionar una sintaxis sencilla para escribir elementos siguiendo el estilo Tufte, tales
+como notas y figuras al margen. Por ejemplo, si se quiere colocar una figura en el margen sólo
+hay que añadir la opción `fig-column: margin` en el bloque de código y Quarto se encargará
+del resto del trabajo[^2].
+
+[^2]: Nunca deberías tener que pensar en introducir configuraciones específicas para cada salida,
+como `\begin{marginfigure}` en LaTeX o `<span class="marginfigure">` en HTML; el código de LaTeX 
+o HTML para producir cada elemento gráfico internamente puede ser complicado de recordar, así que
+el usuario de Quarto no debería tener que bajar nunca a ese nivel.
+
+Se pueden enviar informes de error o solicitudes de nuevas características a través de la URL: <https://github.com/quarto-dev/quarto-cli/issues>.
+
+# Figuras
+
+## Figuras al margen
+
+Las imágenes y los gráficos juegan un papel integral en la propuesta de diseño de Tufte. Para
+colocar las figuras en el margen de la hoja se puede usar la opción `column: margin` dentro de 
+un bloque de código en Quarto:
+
+```{r}
+#| label: fig-margin
+#| fig-cap: "MPG vs horsepower, colored by transmission."
+#| column: margin
+#| message: false
+library(ggplot2)
+mtcars2 <- mtcars
+mtcars2$am <- factor(
+  mtcars$am, labels = c('automatic', 'manual')
+)
+ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point() + geom_smooth() +
+  theme(legend.position = 'bottom')
+```
+
+Fíjate en el uso de la opción `fig-cap` para insertar un *caption* bajo la figura. Se puede
+ajustar las proporciones de la figura usando las opciones de bloque de código`fig-width` y `fig-height` que
+ya hemos presentado antes. Las dimensiones se especifican en pulgadas y se escalarán automáticamente para
+encajar en las dimensiones del margen del documento.
+
+## Contenido arbitrario en el margen
+
+Se puede incluir cualquier contenido en el margen del documento sin más que aplicar la clase de estilo `.column-margin` sobre el elemento. Puedes ver un ejemplo a la derecha de este texto, en el que se
+reproduce la ecuación del teorema fundamental del Cálculo.
+
+::: column-margin
+Sabemos por el *primer teorema fundamental del Cálculo* que para $x$ en $[a, b]$:
+
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+:::
+
+## Figuras con anchura completa
+
+Se pueden configurar también las figuras para que ocupen el ancho total de la página mediante
+la opción para el bloque de código fig-column: page-right
+
+
+```{r}
+#| label: fig-fullwidth
+#| fig-cap: "A full width figure."
+#| fig-width: 11
+#| fig-height: 3
+#| fig-column: page-right
+#| warning: false
+ggplot(diamonds, aes(carat, price)) + geom_smooth() +
+  facet_grid(~ cut)
+```
+
+Otras opciones de *chunk* relacionadas con las figuras se pueden combinar también con esta, como `fig-width`, `fig-cap`, y demás. Para imágenes de anchura completa lo normal es que el valor asigando a `fig-width` sea
+elevado y `fig-height` tenga un valor menor (figura en formato apaisado). En el ejemplo anterior, el tamaño
+de la figura es $11 \times 3$.
+
+## Contenido arbitrario a anchura completa
+
+De forma análoga a las figuras, cualquier contenido puede ocupar el ancho completo de la página,
+simplemente con insertar el elemento en una sección HTML `div` y añadirle la clase de estilo 
+`column-page-right`. Por ejemplo, el siguiente código muestra el contenido en todo el ancho de la
+página.
+
+``` md
+::: {.fullwidth}
+Any _full width_ content here.
+:::
+```
+
+Un ejemplo práctico:
+
+::: column-page-right
+*R is free software and comes with ABSOLUTELY NO WARRANTY.* You are welcome to redistribute it under the terms of the GNU General Public License versions 2 or 3. For more information about these matters see <https://www.gnu.org/licenses/>.
+:::
+
+## Figuras en la columna principal
+
+Además de las figuras en el margen y las de anchura completa, también se puede restringir el ancho de
+la figura al de la columna principal. Este es el tipo de figuras por defecto que aparece en la salida
+de HTML o PDF.
+
+```{r}
+#| label: fig-main
+#| fig-cap: "A figure in the main column."
+ggplot(diamonds, aes(cut, price)) + geom_boxplot()
+```
+
+## *Captions* al margen
+
+Cuando se incluye una figura con anchura limitada a la columna principal, se puede elegir ubicar el caption
+de la figura en el margen, utilizando la opción `cap-location`. Por ejemplo:
+
+```{r}
+#| label: fig-main-margin-cap
+#| fig-cap: "A figure with a longer caption. The figure appears in the main column, but the caption is placed in the margin. Captions can even contain elements like a citation such as @xie2018."
+#| cap-location: margin
+ggplot(diamonds, aes(cut, price)) + geom_boxplot()
+```
+
+# Notas al margen
+
+Una de las características más prominentes y distintivas del estilo Tufte es extenso uso de notas al margen.
+El diseño de la página tiene un amplio espacio en el margen lateral para colocar notas y figuras de pequeño
+tamaño. Cualquier uso de una nota al pie se convierte automáticamente en una nota al margen.
+
+[Esto es un área configurada con la clase de estilo `column-margin`, que coloca la nota en el margen del
+documento sin una marca de nota al margen.]{.column-margin} Si se quiere incluir información complementaria
+en el margen sin la marca de nota al pie (número en superíndice), se puede aplicar la clase `column-margin`
+al elemento.
+
+# Referencias bibliográficas
+
+Las referencias se pueden mostrar también como notas al margen en la salida en HTML. Por ejemplo, podemos
+citar R aquí [@R-base].
+
+::: {.callout-note appearance="simple"}
+Esta característica depende de la opción `link-citations` para localizar y ubicar las referencias en el margen.
+Esto se habilita por defecto, por lo que si deshabilitamos la opción `link-citations` en la salida HTML entonces
+las referencias volverán a colocarse al final del documento de salida, como se haría en un documento de
+Quarto con estilo estándar.
+:::
+
+# Tablas
+
+Se puede utilizar la función `kable()` de paquete **knitr** para formatear tablas que se integran bien con
+el resto del estilo de entrega Tufte. El *caption* de la tabla se coloca en el margen, al igual que ocurre
+con las figuras en documentos HTML con este estilo.
+
+```{r}
+#| tbl-cap-location: margin
+knitr::kable(
+  mtcars[1:6, 1:6], caption = 'A subset of mtcars.'
+)
+```
+
+# Respuesta dinámica
+
+El diseño de la página en HTML es dinámico, lo que implica que si la página se encoge los elementos ajustarán
+su posición automáticamente. Los elementos que aparecen en el margen se moverán en línea con el contenido y
+los que ocupan tanto el cuerpo principal como el margen pasarán a ocupar sólo el cuerpo principal.
+
+# Más ejemplos
+
+El resto de este documento consiste en unos cuantos casos de prueba para asegurarnos de que todo funciona
+correctamente en escenarios ligeramente más complicados que los que acabamos de describir. Primero, generamos
+dos gráficos en una misma figura con la opción de *chunk* `fig-show: hold`:
+
+```{r}
+#| label: fig-two-together
+#| fig-cap: "Two plots in one figure environment."
+#| fig-show: hold
+#| warning: false
+#| cap-location: margin
+p <- ggplot(mtcars2, aes(hp, mpg, color = am)) +
+  geom_point()
+p
+p + geom_smooth()
+```
+
+Ahora, dos gráficos en entoros de figura separados (el código es idéntico al del bloque anterior, pero la
+opción del *chunk* es `fig-show: asis`, el valor por defecto si no ponemos nada):
+
+```{r fig-two-separate, ref.label='fig-two-together', fig.cap=sprintf("Two plots in separate figure environments (the %s plot).", c("first", "second")), message=FALSE}
+#| cap-location: margin
+```
+
+Deberías haberte percatado de que las dos figuras tienen *captions* diferentes, y eso es porque usamos
+un vector de cadenas de caracteres de longitud 2 para la opción de bloque `fig.cap` (algo como `fig.cap = c('first plot', 'second plot')`).
+
+::: {.callout-tip}
+## Usando R con las opciones de *chunk*
+Si deseas emplear expresiones de R en crudo dentro de las opciones de un *chunk* (como en el ejemplo anterior), 
+entonces debes definirlas siguiendo el formato `etiqueta=valor` dentro de las llaves `{r label, tag=value}`,
+en lugar de la sintaxis de YAML habitual `tag: value`, en una nueva línea que comienza por el símbolo `#|`. 
+La primera aproximación está documentada en el [sitio web de `knitr`](https://yihui.org/knitr/options/) mientras
+que la segunda está explicada en la [documentación de Quarto](https://quarto.org/docs/reference/cells/cells-knitr.html).
+:::
+
+Ahora, mostramos varios gráficos en figuras al margen. De manera similar, dos gráficos en la misma figura
+en el margen:
+
+```{r}
+#| label: fig-margin-together
+#| fig-cap: "Two plots in one figure environment in the margin."
+#| fig-width: 3.5
+#| fig-height: 2
+#| fig-show: hold
+#| column: margin
+#| warning: false
+#| echo: false
+p
+p + geom_smooth(method = 'lm')
+```
+
+Dos gráficos del mismo bloque de código colocados en diferentes entornos de figura:
+
+```{r}
+#| echo: false
+knitr::kable(head(iris[,c(1,2,3,4)], 13))
+```
+
+```{r}
+#| label: fig-margin-separate-a
+#| fig-cap: "Two plots in separate figure environments in the margin"
+#| fig-width: 3.5
+#| fig-height: 2
+#| column: margin
+#| warning: false
+#| echo: false
+p
+p + geom_smooth(method = 'lm')
+```
+
+```{r}
+#| echo: false
+knitr::kable(head(iris[,c(1,2,3,4)], 11))
+```
+
+Se han combinado algunas tablas en el bloque de código anterior simplemente como marcadores
+de espacio, para asegurar que existe suficiente espacio vertical entre las figuras al
+margen. En caso contrario, las figuras quedarían demasiado juntas unas de otras. Para
+un documento real, no es recomendable insertar demasiadas figuras al margen conseuctivas,
+ya que provoca que se apiñen en el margen y genera el efecto visual contrario al que
+inicialmente se pretende con este diseño.
+
+No es necesario asignar *captions* a las figuras. A continuación se muestran tres ejemplos de
+figuras ubicadas en distintas posiciones y sin *captions*.
+
+```{r}
+#| fig-width: 3.5
+#| fig-height: 2
+#| column: margin
+# a boxplot of weight vs transmission; this figure
+# will be placed in the margin
+ggplot(mtcars2, aes(am, wt)) + geom_boxplot() +
+  coord_flip()
+```
+
+```{r}
+#| warning: false
+# a figure in the main column
+p <- ggplot(mtcars, aes(wt, hp)) + geom_point()
+p
+```
+
+```{r}
+#| fig-width: 11
+#| fig-height: 4
+#| column: page-right
+#| warning: false
+# a fullwidth figure
+p + geom_smooth(method = 'lm') + facet_grid(~ gear)
+```
+
+# Notas adicionales sobre el diseño gráfico de las páginas
+
+El archivo fuente de este documento está  [disponible en este enlace al repositorio de código en GitHub](https://raw.githubusercontent.com/quarto-dev/quarto-gallery/main/page-layout/tufte.qmd).
