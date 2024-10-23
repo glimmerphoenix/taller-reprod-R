@@ -15,7 +15,7 @@
 
 ### Plantilla para artículos en revistas Elsevier
 
-:: {.callout-warning}
+::: {.callout-warning}
 ## Requisito: tener instalado LaTeX
 
 En este apartado se muestra cómo generar un *draft* de un artículo para enviar a una
