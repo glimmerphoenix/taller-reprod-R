@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>7&nbsp; Artículos y publicaciones científicas{#sec-scientfic-articles} – Investigación reproducible con Quarto y R</title>
+<title>7&nbsp; Artículos y publicaciones científicas – Investigación reproducible con Quarto y R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -82,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publicaciones</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publicaciones científicas</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -178,7 +212,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Publicaciones</span></a>
+ <span class="menu-text">Publicaciones científicas</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Alternar sección">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -187,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./07-manuscripts.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -262,16 +296,19 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#figuras-y-gráficos-para-publicación" id="toc-figuras-y-gráficos-para-publicación" class="nav-link active" data-scroll-target="#figuras-y-gráficos-para-publicación"><span class="header-section-number">7.1</span> Figuras y gráficos para publicación</a></li>
-  <li><a href="#ejemplos-y-recomendaciones" id="toc-ejemplos-y-recomendaciones" class="nav-link" data-scroll-target="#ejemplos-y-recomendaciones"><span class="header-section-number">7.2</span> Ejemplos y recomendaciones</a></li>
+  <li><a href="#ejemplos-y-recomendaciones" id="toc-ejemplos-y-recomendaciones" class="nav-link" data-scroll-target="#ejemplos-y-recomendaciones"><span class="header-section-number">7.2</span> Ejemplos y recomendaciones</a>
+  <ul class="collapse">
+  <li><a href="#plantilla-para-artículos-en-revistas-elsevier" id="toc-plantilla-para-artículos-en-revistas-elsevier" class="nav-link" data-scroll-target="#plantilla-para-artículos-en-revistas-elsevier"><span class="header-section-number">7.2.1</span> Plantilla para artículos en revistas Elsevier</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/07-manuscripts.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/07-manuscripts.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publicaciones</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-manuscripts.html">Publicaciones científicas</a></li><li class="breadcrumb-item"><a href="./07-manuscripts.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas{#sec-scientfic-articles}</span></h1>
+<h1 class="title"><span id="sec-scientfic-articles" class="quarto-section-identifier"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Artículos y publicaciones científicas</span></span></h1>
 </div>
 
 
@@ -290,17 +327,61 @@ ul.task-list li input[type="checkbox"] {
 
 <ul>
 <li><p><a href="https://quarto.org/docs/journals/">Formatos editoriales soportados</a>.</p></li>
-<li><p><a href="https://quarto.org/docs/journals/templates.html">Adjusting templates</a>.</p></li>
+<li><p><a href="https://quarto.org/docs/journals/templates.html">Ajuste de las plantillas</a>.</p></li>
 <li><p><a href="https://quarto.org/docs/journals/formats.html" class="uri">https://quarto.org/docs/journals/formats.html</a></p></li>
-<li><p><a href="https://github.com/quarto-journals">List of Quarto journal templates</a>.</p></li>
+<li><p><a href="https://github.com/quarto-journals">Listado de plantillas para publicaciones científicas en Quarto</a>.</p></li>
 </ul>
 <section id="figuras-y-gráficos-para-publicación" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="figuras-y-gráficos-para-publicación"><span class="header-section-number">7.1</span> Figuras y gráficos para publicación</h2>
 </section>
 <section id="ejemplos-y-recomendaciones" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="ejemplos-y-recomendaciones"><span class="header-section-number">7.2</span> Ejemplos y recomendaciones</h2>
+<section id="plantilla-para-artículos-en-revistas-elsevier" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="plantilla-para-artículos-en-revistas-elsevier"><span class="header-section-number">7.2.1</span> Plantilla para artículos en revistas Elsevier</h3>
+<p>:: {.callout-warning} ## Requisito: tener instalado LaTeX</p>
+<p>En este apartado se muestra cómo generar un <em>draft</em> de un artículo para enviar a una revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda que previamente debes tener instalada una distribución de LaTeX en tu equipo (como TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio. :::</p>
+<p>En este caso, los pasos a seguir son bastante sencillos:</p>
+<ol type="1">
+<li>Creamos un nuevo directorio para guardar nuestro proyecto, por ejemplo, una carpeta con el nombre <code>ejemplo-elsevier</code>.</li>
+<li>En la terminal (por ejemplo en RStudio, pestaña en el panel inferior izquierdo), entramos en la carpeta recién creada y ejecutamos un comando para descargar la plantilla y empezar a usarla:</li>
+</ol>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ejemplo-elsevier</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template quarto-journals/elsevier</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Creamos un nuevo proyecto en RStudio sobre el directorio ya existente en el que hemos descargado los archivos de la plantilla.</li>
+<li>Abrimos el archivo <code>ejemplo-elsevier.qmd</code> y pulsamos el botón <em>Render</em> para generar el la salida en PDF.</li>
+</ol>
+<p>Si ya teníamos creado previamente nuestro proyecto con un documento genérico de Quarto no tenemos que empezar desde cero. Basta con abrir una terminal dentro del directorio del proyecto y ejecutar:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb2" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-journals/elsevier</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Por último, si queremos generar el artículo <em>draft</em> en formato PDF desde la línea de comandos, ejecutamos:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb3" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render article.qmd <span class="at">--to</span> elsevier-pdf</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fíjate bien en la opción de formato de salida que se especifica en el archivo <code>.qmd</code> para generar el artículo <em>draft</em>:</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>ejemplo-elsevier.qmd</strong></pre>
+</div>
+<div class="sourceCode" id="cb4" data-filename="ejemplo-elsevier.qmd"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">elsevier-pdf</span><span class="kw">:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

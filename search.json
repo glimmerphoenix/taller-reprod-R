@@ -451,23 +451,23 @@
   {
     "objectID": "07-manuscripts.html",
     "href": "07-manuscripts.html",
-    "title": "7  Artículos y publicaciones científicas{#sec-scientfic-articles}",
+    "title": "7  Artículos y publicaciones científicas",
     "section": "",
     "text": "7.1 Figuras y gráficos para publicación",
     "crumbs": [
-      "Publicaciones",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas{#sec-scientfic-articles}</span>"
+      "Publicaciones científicas",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
     ]
   },
   {
     "objectID": "07-manuscripts.html#ejemplos-y-recomendaciones",
     "href": "07-manuscripts.html#ejemplos-y-recomendaciones",
-    "title": "7  Artículos y publicaciones científicas{#sec-scientfic-articles}",
+    "title": "7  Artículos y publicaciones científicas",
     "section": "7.2 Ejemplos y recomendaciones",
-    "text": "7.2 Ejemplos y recomendaciones",
+    "text": "7.2 Ejemplos y recomendaciones\n\n7.2.1 Plantilla para artículos en revistas Elsevier\n:: {.callout-warning} ## Requisito: tener instalado LaTeX\nEn este apartado se muestra cómo generar un draft de un artículo para enviar a una revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda que previamente debes tener instalada una distribución de LaTeX en tu equipo (como TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio. :::\nEn este caso, los pasos a seguir son bastante sencillos:\n\nCreamos un nuevo directorio para guardar nuestro proyecto, por ejemplo, una carpeta con el nombre ejemplo-elsevier.\nEn la terminal (por ejemplo en RStudio, pestaña en el panel inferior izquierdo), entramos en la carpeta recién creada y ejecutamos un comando para descargar la plantilla y empezar a usarla:\n\n\n\nTerminal\n\ncd ejemplo-elsevier\nquarto use template quarto-journals/elsevier\n\n\nCreamos un nuevo proyecto en RStudio sobre el directorio ya existente en el que hemos descargado los archivos de la plantilla.\nAbrimos el archivo ejemplo-elsevier.qmd y pulsamos el botón Render para generar el la salida en PDF.\n\nSi ya teníamos creado previamente nuestro proyecto con un documento genérico de Quarto no tenemos que empezar desde cero. Basta con abrir una terminal dentro del directorio del proyecto y ejecutar:\n\n\nTerminal\n\nquarto add quarto-journals/elsevier\n\nPor último, si queremos generar el artículo draft en formato PDF desde la línea de comandos, ejecutamos:\n\n\nTerminal\n\nquarto render article.qmd --to elsevier-pdf\n\nFíjate bien en la opción de formato de salida que se especifica en el archivo .qmd para generar el artículo draft:\n\n\nejemplo-elsevier.qmd\n\nformat:\n  elsevier-pdf:\n    keep-tex: true",
     "crumbs": [
-      "Publicaciones",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas{#sec-scientfic-articles}</span>"
+      "Publicaciones científicas",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
     ]
   },
   {
@@ -477,7 +477,7 @@
     "section": "",
     "text": "8.1 Visión general",
     "crumbs": [
-      "Publicaciones",
+      "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
     ]
   },
@@ -488,7 +488,7 @@
     "section": "8.2 Publicación del código fuente",
     "text": "8.2 Publicación del código fuente",
     "crumbs": [
-      "Publicaciones",
+      "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
     ]
   },
@@ -499,7 +499,7 @@
     "section": "8.3 Publicación de conjuntos de datos",
     "text": "8.3 Publicación de conjuntos de datos",
     "crumbs": [
-      "Publicaciones",
+      "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
     ]
   },
@@ -510,7 +510,7 @@
     "section": "8.4 Gestión de referencias",
     "text": "8.4 Gestión de referencias\nDOI\nFigshare\nZenodo\narXiv\netc.",
     "crumbs": [
-      "Publicaciones",
+      "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
     ]
   },
