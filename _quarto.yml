@@ -24,7 +24,7 @@ book:
       chapters:
         - 05-books.qmd
         - 06-class-notes.qmd
-    - part: "Publicaciones"
+    - part: "Publicaciones científicas"
       chapters:
         - 07-manuscripts.qmd
         - 08-FAIR.qmd

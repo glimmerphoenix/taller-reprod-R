@@ -1,11 +1,11 @@
-# Artículos y publicaciones científicas{#sec-scientfic-articles}
+# Artículos y publicaciones científicas {#sec-scientfic-articles}
 
 - [Formatos editoriales soportados](https://quarto.org/docs/journals/).
-- [Adjusting templates](https://quarto.org/docs/journals/templates.html).
+- [Ajuste de las plantillas](https://quarto.org/docs/journals/templates.html).
 
 - <https://quarto.org/docs/journals/formats.html>
 
-- [List of Quarto journal templates](https://github.com/quarto-journals).
+- [Listado de plantillas para publicaciones científicas en Quarto](https://github.com/quarto-journals).
 
 
 ## Figuras y gráficos para publicación
@@ -13,5 +13,55 @@
 
 ## Ejemplos y recomendaciones
 
+### Plantilla para artículos en revistas Elsevier
 
+:: {.callout-warning}
+## Requisito: tener instalado LaTeX
 
+En este apartado se muestra cómo generar un *draft* de un artículo para enviar a una
+revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda
+que previamente debes tener instalada una distribución de LaTeX en tu equipo (como
+TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio.
+:::
+
+En este caso, los pasos a seguir son bastante sencillos:
+
+1. Creamos un nuevo directorio para guardar nuestro proyecto, por ejemplo, una carpeta
+con el nombre `ejemplo-elsevier`.
+2. En la terminal (por ejemplo en RStudio, pestaña en el panel inferior izquierdo), 
+entramos en la carpeta recién creada y ejecutamos un comando para descargar la plantilla
+y empezar a usarla:
+
+``` {.bash filename="Terminal"}
+cd ejemplo-elsevier
+quarto use template quarto-journals/elsevier
+```
+
+3. Creamos un nuevo proyecto en RStudio sobre el directorio ya existente en el que hemos
+descargado los archivos de la plantilla.
+4. Abrimos el archivo `ejemplo-elsevier.qmd` y pulsamos el botón *Render* para generar el
+la salida en PDF.
+
+Si ya teníamos creado previamente nuestro proyecto con un documento genérico de Quarto no
+tenemos que empezar desde cero. Basta con abrir una terminal dentro del directorio del proyecto
+y ejecutar:
+
+``` {.bash filename="Terminal"}
+quarto add quarto-journals/elsevier
+```
+
+Por último, si queremos generar el artículo *draft* en formato PDF desde la línea de comandos,
+ejecutamos:
+
+``` {.bash filename="Terminal"}
+quarto render article.qmd --to elsevier-pdf
+```
+
+Fíjate bien en la opción de formato de salida que se especifica en el archivo `.qmd` para
+generar el artículo *draft*:
+
+```{.yaml filename="ejemplo-elsevier.qmd"}
+format:
+  elsevier-pdf:
+    keep-tex: true
+```
