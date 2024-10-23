@@ -1,4 +1,4 @@
-# Preface {.unnumbered}
+# Prefacio {.unnumbered}
 
 Este taller explica cómo utilizar [Quarto](https://quarto.org/), un software
 de creación de documentación científica, para crear publicaciones de calidad
