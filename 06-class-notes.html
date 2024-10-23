@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -69,11 +103,40 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar floating">
+<body class="nav-sidebar floating slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -110,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -257,14 +320,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#plantillas-y-herramientas" id="toc-plantillas-y-herramientas" class="nav-link active" data-scroll-target="#plantillas-y-herramientas"><span class="header-section-number">6.1</span> Plantillas y herramientas</a></li>
-  <li><a href="#gestión-del-proyecto" id="toc-gestión-del-proyecto" class="nav-link" data-scroll-target="#gestión-del-proyecto"><span class="header-section-number">6.2</span> Gestión del proyecto</a></li>
-  <li><a href="#publicación" id="toc-publicación" class="nav-link" data-scroll-target="#publicación"><span class="header-section-number">6.3</span> Publicación</a></li>
+  <li><a href="#opciones-de-diseño-del-documento" id="toc-opciones-de-diseño-del-documento" class="nav-link active" data-scroll-target="#opciones-de-diseño-del-documento"><span class="header-section-number">6.1</span> Opciones de diseño del documento</a>
+  <ul class="collapse">
+  <li><a href="#contenido-principal" id="toc-contenido-principal" class="nav-link" data-scroll-target="#contenido-principal"><span class="header-section-number">6.1.1</span> Contenido principal</a></li>
+  <li><a href="#contenido-en-los-márgenes" id="toc-contenido-en-los-márgenes" class="nav-link" data-scroll-target="#contenido-en-los-márgenes"><span class="header-section-number">6.1.2</span> Contenido en los márgenes</a></li>
+  <li><a href="#notas-al-margen-y-citas-bibliográficas" id="toc-notas-al-margen-y-citas-bibliográficas" class="nav-link" data-scroll-target="#notas-al-margen-y-citas-bibliográficas"><span class="header-section-number">6.1.3</span> Notas al margen y citas bibliográficas</a></li>
+  </ul></li>
+  <li><a href="#anotaciones-en-bloques-de-código" id="toc-anotaciones-en-bloques-de-código" class="nav-link" data-scroll-target="#anotaciones-en-bloques-de-código"><span class="header-section-number">6.2</span> Anotaciones en bloques de código</a></li>
+  <li><a href="#configuración-del-proyecto" id="toc-configuración-del-proyecto" class="nav-link" data-scroll-target="#configuración-del-proyecto"><span class="header-section-number">6.3</span> Configuración del proyecto</a>
+  <ul class="collapse">
+  <li><a href="#opciones-globales" id="toc-opciones-globales" class="nav-link" data-scroll-target="#opciones-globales"><span class="header-section-number">6.3.1</span> Opciones globales</a></li>
+  <li><a href="#idioma-de-los-documentos" id="toc-idioma-de-los-documentos" class="nav-link" data-scroll-target="#idioma-de-los-documentos"><span class="header-section-number">6.3.2</span> Idioma de los documentos</a></li>
+  </ul></li>
+  <li><a href="#plantillas-y-herramientas" id="toc-plantillas-y-herramientas" class="nav-link" data-scroll-target="#plantillas-y-herramientas"><span class="header-section-number">6.4</span> Plantillas y herramientas</a></li>
+  <li><a href="#personalización-de-los-libros" id="toc-personalización-de-los-libros" class="nav-link" data-scroll-target="#personalización-de-los-libros"><span class="header-section-number">6.5</span> Personalización de los libros</a></li>
+  <li><a href="#publicación" id="toc-publicación" class="nav-link" data-scroll-target="#publicación"><span class="header-section-number">6.6</span> Publicación</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-books.html">Libros con Quarto</a></li><li class="breadcrumb-item"><a href="./06-class-notes.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Taller: colección de apuntes</span></a></li></ol></nav>
 <div class="quarto-title">
@@ -285,14 +360,327 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="plantillas-y-herramientas" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="plantillas-y-herramientas"><span class="header-section-number">6.1</span> Plantillas y herramientas</h2>
+<p>En este capítulo, vamos a poner en práctica los conocimientos adquiridos para crear un documento de apuntes de clase, que también puede servir como cuaderno de laboratorio, cuaderno de prácticas o bitácora de experimentos.</p>
+<p>Para ello, vamos combinar lo que ya sabemos acerca de los documentos y libros en Quarto junto con nuevas opciones de configuración y plantillas que abrirán nuevas e interesantes posibilidades de diseño. Por supuesto, con los conocimientos adicionales adecuados (no necesariamente muy avanzados), muchos usuarios serán capaces de adaptar y personalizar el diseño gráfico y la maquetación de sus documentos en PDF o LaTeX para ajustarlos a sus necesidades.</p>
+<section id="opciones-de-diseño-del-documento" class="level2 page-columns page-full" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="opciones-de-diseño-del-documento"><span class="header-section-number">6.1</span> Opciones de diseño del documento</h2>
+<p>Además de las numerosas opciones que hemos explorado para ajustar el comportamiento de muchos elementos de nuestros documentos, Quarto todavía nos reserva muchas más alternativas para controlar el diseño de la página y la distribución de su contenido de forma que:</p>
+<ul>
+<li><p>Ocupe toda la región principal (centro del documento).</p></li>
+<li><p>Sobrepase los límites de la región principal.</p></li>
+<li><p>Cubra todo el ancho de la pantalla (por ejemplo, cuando queremos representar mapas o figuras muy anchas, compuestas por varias gráficas en una misma fila).</p></li>
+<li><p>Se sitúe en los márgenes del documento.</p></li>
+<li><p><a href="https://quarto.org/docs/authoring/article-layout.html">Guía para personalizar el diseño del documento (HTML)</a>.</p></li>
+<li><p><a href="https://quarto.org/docs/authoring/article-layout.html#pdflatex-layout">Opciones de configuración del diseño del documento (PDF)</a>.</p></li>
+</ul>
+<p>En este taller nos centramos en la generación de salida en HTML. Por defecto, en un documento HTML producido con Quarto tenemos un <a href="https://quarto.org/docs/output-formats/page-layout.html#html-page-layout">diseño estándar</a> del espacio de la página en tres columnas:</p>
+<ul>
+<li>La columna central, <em>body</em> más ancha, para el contenido principal de la página.</li>
+<li>La columna izquierda, <em>sidebar</em> (barra lateral), que se suele emplear en los libros para la tabla de contenidos desplegable que permite navegar por la colección de documentos.</li>
+<li>La columna derecha, <em>margin</em>, que se suele utilizar para mostrar la tabla de contenidos del documento o capítulo que aparece en el body en ese momento, junto con otros enlaces a contenido adicional (e.g.&nbsp;enlace al código fuente, a la web de la organización o editorial, etc.).</li>
+</ul>
+<p>Por supuesto, las dimensiones de estas tres columnas son <a href="https://quarto.org/docs/output-formats/page-layout.html#customizing-component-widths">totalmente personalizables</a>.</p>
+<section id="contenido-principal" class="level3 page-columns page-full" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="contenido-principal"><span class="header-section-number">6.1.1</span> Contenido principal</h3>
+<p>Si no especificamos ninguna variación en la configuración, el documento de Quarto muestra los elementos ocupando todo el ancho de la columna central (<em>document body</em>).</p>
+<p>Si queremos que el contenido sobrepase un poco los límites de ese espacio central, pero sin llegar a ocupar todo el ancho de la pantalla, podemos usar una nueva sección <em>div</em> HTML con un estilo específico:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>:::{.column-body-outset}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Outset content...</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Para ampliar aún mas el ancho de presentación, pero dejando cierto margen de espacio respecto a ambos bordes de la pantalla se puede usar en su lugar el estilo <code>{.column-page}</code>. Por último, si realmente queremos ocupar todo el ancho de la pantalla (sin dejar margen a ambos lados) se puede usar el estilo <code>{.column-screen}</code>. Estas opciones de diseño también son aplicables a la configuración de los bloques de código ejecutable. Veamos un ejemplo:</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: page</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="in">  mtcars[1:6, 1:10]</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display column-page">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+<th style="text-align: right;">hp</th>
+<th style="text-align: right;">drat</th>
+<th style="text-align: right;">wt</th>
+<th style="text-align: right;">qsec</th>
+<th style="text-align: right;">vs</th>
+<th style="text-align: right;">am</th>
+<th style="text-align: right;">gear</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.620</td>
+<td style="text-align: right;">16.46</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.90</td>
+<td style="text-align: right;">2.875</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">3.85</td>
+<td style="text-align: right;">2.320</td>
+<td style="text-align: right;">18.61</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">110</td>
+<td style="text-align: right;">3.08</td>
+<td style="text-align: right;">3.215</td>
+<td style="text-align: right;">19.44</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">175</td>
+<td style="text-align: right;">3.15</td>
+<td style="text-align: right;">3.440</td>
+<td style="text-align: right;">17.02</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valiant</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">225</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">2.76</td>
+<td style="text-align: right;">3.460</td>
+<td style="text-align: right;">20.22</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Por último, las opciones de estilo <code>{.column-screen-inset}</code> o <code>{.column-screen-inset-shaded}</code> dan una apariencia de ocupar el ancho de la pantalla al completo pero dejando un ligero margen en los bordes (con sombreado, en el segundo caso).</p>
 </section>
-<section id="gestión-del-proyecto" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="gestión-del-proyecto"><span class="header-section-number">6.2</span> Gestión del proyecto</h2>
+<section id="contenido-en-los-márgenes" class="level3 page-columns page-full" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="contenido-en-los-márgenes"><span class="header-section-number">6.1.2</span> Contenido en los márgenes</h3>
+<p>El estilo <code>{.column-margin}</code> permite ubicar en la columna derecha de la página cualquier elemento, ya sea un texto, una figura o gráfica, una tabla, ecuación, etc.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>::: {.column-margin}</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="al">![A margin image](image.png)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Veamos un ejemplo aplicado a una ecuación que se muestra al margen:</p>
+
+<div class="no-row-height column-margin column-container"><div class="">
+<p>We know from <em>the first fundamental theorem of calculus</em> that for <span class="math inline">\(x\)</span> in <span class="math inline">\([a, b]\)</span>:</p>
+<p><span class="math display">\[\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).\]</span></p>
+</div></div><p>Ahora con una figura al margen:</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: fig-mtcars</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "MPG vs horsepower, colored by transmission."</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: margin</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="in">library(ggplot2)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars2 &lt;- mtcars</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars2$am &lt;- factor(</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">  mtcars$am, labels = c('automatic', 'manual')</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="in">ggplot(mtcars2, aes(hp, mpg, color = am)) +</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point() +</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_smooth(formula = y ~ x, method = "loess") +</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(legend.position = 'bottom')</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<div id="fig-mtcars" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="06-class-notes_files/figure-html/fig-mtcars-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mtcars-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;6.1: MPG vs horsepower, colored by transmission.
+</figcaption>
+</figure>
+</div>
+</div></div></div>
+<p>Por último, probamos con una tabla ubicada en el margen:</p>
+<div class="cell page-columns page-full">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| column: margin</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::kable(</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">  mtcars[1:6, 1:3]</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="in">)</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="no-row-height column-margin column-container"><div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">mpg</th>
+<th style="text-align: right;">cyl</th>
+<th style="text-align: right;">disp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Mazda RX4</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Mazda RX4 Wag</td>
+<td style="text-align: right;">21.0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">160</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Datsun 710</td>
+<td style="text-align: right;">22.8</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">108</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hornet 4 Drive</td>
+<td style="text-align: right;">21.4</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">258</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Hornet Sportabout</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">360</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Valiant</td>
+<td style="text-align: right;">18.1</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">225</td>
+</tr>
+</tbody>
+</table>
+</div></div></div>
+<p>También es posible especificar opciones individualizadas para cada elemento cuando un bloque de código <a href="https://quarto.org/docs/authoring/article-layout.html#multiple-outputs">genera varios resultados</a>.</p>
+<p>Se recomienda consultar la [guía completa de diseño de los artículos] de Quarto para explorar más opciones adicionales de configuración.</p>
 </section>
-<section id="publicación" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="publicación"><span class="header-section-number">6.3</span> Publicación</h2>
+<section id="notas-al-margen-y-citas-bibliográficas" class="level3 page-columns page-full" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="notas-al-margen-y-citas-bibliográficas"><span class="header-section-number">6.1.3</span> Notas al margen y citas bibliográficas</h3>
+<p>Si se añaden las siguientes opciones en la cabecera del documento (o de la salida HTML del proyecto global), se modifica la ubicación de las notas al pie y las citas bibliográficas, que pasan a mostrarse en el margen derecho del documento, a la misma altura de la llamada o cita en el texto principal, siguiendo los principios de diseño de los documentos de Tufte:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="an">reference-location:</span><span class="co"> margin</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">citation-location:</span><span class="co"> margin</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Adicionalmente, también podemos poner notas puntuales (no numeradas) en el margen del documento con el estilo de párrafo <code>{.aside}</code>:</p>
+<pre><code>[This is a span that has the class `aside` which places 
+it in the margin without a footnote number.]{.aside}</code></pre>
+<div class="page-columns page-full"><p></p><div class="no-row-height column-margin column-container"><span class="margin-aside">This is a span that has the class <code>aside</code> which places it in the margin without a footnote number.</span></div></div>
+</section>
+</section>
+<section id="anotaciones-en-bloques-de-código" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="anotaciones-en-bloques-de-código"><span class="header-section-number">6.2</span> Anotaciones en bloques de código</h2>
+<p><a href="https://quarto.org/docs/authoring/code-annotation.html" class="uri">https://quarto.org/docs/authoring/code-annotation.html</a></p>
+</section>
+<section id="configuración-del-proyecto" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="configuración-del-proyecto"><span class="header-section-number">6.3</span> Configuración del proyecto</h2>
+<section id="opciones-globales" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="opciones-globales"><span class="header-section-number">6.3.1</span> Opciones globales</h3>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/article-layout.html#options-reference">Guía de referencia de opciones globales del diseño gráfico del documento (HTML)</a>.</li>
+<li><a href="https://quarto.org/docs/authoring/article-layout.html#pdflatex-layout">Guía de referencia de opciones globales del diseño gráfico del documento (PDF)</a>.</li>
+</ul>
+</section>
+<section id="idioma-de-los-documentos" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="idioma-de-los-documentos"><span class="header-section-number">6.3.2</span> Idioma de los documentos</h3>
+<p>Una opción de configuración muy interesante para nuestros documentos y proyectos es la de especificar el idioma de los mismos. Por defecto, los documentos de Quarto se generan en inglés. Si embargo, varias herramientas, incluyendo paquetes LaTeX para localización del contenido y división de palabraas, así como Pandoc y el propio Quarto pueden traducir muchas etiquetas automáticamente (“Figura”, “Tabla”, “Ecuación”, etc.) al idioma adecuado.</p>
+<p>Para ello, tenemos que proporcionar <a href="https://quarto.org/docs/authoring/language.html#lang-option">un nuevo valor para la opción <code>lang</code></a> en la cabecera de nuestro documento o en el archivo de configuración <code>_quarto.yml</code> de nuestro proyecto:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mi documento en castellano"</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> es    </span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>También es posible ofrecer traducciones personalizadas para etiquetas y campos estándar del documento o proyecto, de forma que se ajuste perfectamente a nuestras directrices de estilo o las de nuestra organización. Para más detalles, consulta la siguiente guía:</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/language.html">Configuración de idioma en documentos Quarto</a>.</li>
+</ul>
+<p>En particular, si vamos a proporcionar una larga lista de traducciones alternativas conviene codificarlas en un fichero independiente y pasarlo a las opciones de configuración del documento o proyecto:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">language</span><span class="kw">:</span><span class="at"> custom_translations.yml</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Podemos llegar incluso al extremo de tener traducciones personalizadas para diferentes idiomas, que se usan en función del valor que pasemos a la opción de selección de idioma <code>lang</code>.</p>
+<p>Respecto al <strong>soporte multilenguaje simultáneo</strong> (el mismo documento en varios idiomas), dicha característica todavía no está soportada en Quarto. Sin embargo, un paquete de reciente creación en la comunidad ROpenSci llamado <a href="https://docs.ropensci.org/babeldown/articles/quarto.html"><code>babledown</code></a> (aún en fase expermental), permite gestionar estas versiones multidioma de forma simultánea (mostrando en un idioma enlaces al resto de idiomas disponibles). Más aún, el objetivo principal de este paquete es ofrecer una interfaz para el servicio de traducción automática DeepL, de forma que se traduzcan automáticamente los textos de nuestros documentos a otros idiomas.</p>
+</section>
+</section>
+<section id="plantillas-y-herramientas" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="plantillas-y-herramientas"><span class="header-section-number">6.4</span> Plantillas y herramientas</h2>
+<ul>
+<li><a href="https://github.com/quarto-dev/quarto-gallery/tree/main">Galería de ejemplo de plantillas de documentos en Quarto</a>.</li>
+<li><a href="https://github.com/quarto-dev/quarto-gallery/blob/main/page-layout/tufte.qmd">Documento de ejemplo con los estilos gráficos de Tufte <em>handouts</em></a>.
+<ul>
+<li><a href="https://quarto-dev.github.io/quarto-gallery/page-layout/tufte.html">Ejemplo de documento HTML con diseño gráfico Tufte <em>handouts</em></a>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="personalización-de-los-libros" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="personalización-de-los-libros"><span class="header-section-number">6.5</span> Personalización de los libros</h2>
+<ul>
+<li><p><a href="https://quarto.org/docs/books/book-output.html" class="uri">https://quarto.org/docs/books/book-output.html</a></p></li>
+<li><p>Importación y uso de plantillas y extensiones.</p></li>
+</ul>
+</section>
+<section id="publicación" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="publicación"><span class="header-section-number">6.6</span> Publicación</h2>
+<ul>
+<li><p>Ejemplo de publicación con GitHub pages.</p></li>
+<li><p><a href="https://quarto.org/docs/publishing/" class="uri">https://quarto.org/docs/publishing/</a></p></li>
+<li><p><a href="https://quarto.org/docs/publishing/github-pages.html" class="uri">https://quarto.org/docs/publishing/github-pages.html</a></p></li>
+</ul>
 
 
 </section>

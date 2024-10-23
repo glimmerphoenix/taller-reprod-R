@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Prefacio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">Prefacio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -259,7 +259,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#prefacio" id="toc-prefacio" class="nav-link active" data-scroll-target="#prefacio">Prefacio</a>
+  <ul class="collapse">
+  <li><a href="#requisitos-previos" id="toc-requisitos-previos" class="nav-link" data-scroll-target="#requisitos-previos">Requisitos previos</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -299,15 +302,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
+<section id="prefacio" class="level1 unnumbered">
+<h1 class="unnumbered">Prefacio</h1>
 <p>Este taller explica cómo utilizar <a href="https://quarto.org/">Quarto</a>, un software de creación de documentación científica, para crear publicaciones de calidad que integren contenido de texto formateado, gráficos, tablas, así como resultados de ejecución de código software en varios lenguajes, todo ello integrado en el propio documento.</p>
 <p>Quarto se ha convertido en una herramienta muy versátil y potente en el conjunto de herramientas de los programadores científicos, en especial por proporcionar soporte para implementar buenas prácticas de <strong>investigación reproducible</strong>, incluyendo los <a href="https://www.go-fair.org/fair-principles/">principios FAIR</a>. El intenso movimiento iniciado desde hace años por la comunidad científica para garantizar acceso en abierto no solo al producto final (e.g.&nbsp;una publicación) sino también a materiales adicionales (códig fuente, conjuntos de datos, figuras, procesos de trabajo, archivos de configuración, etc.) se ha convertido en un objetivo insoslayable para académicos y especialistas en muchos campos diferentes. Muchas publicaciones científicas de prestigio exigen ahora a los autores enviar estos materiales auxiliares junto con los borradores de sus manuscritos, para permitir que otros colegas reproduzcan y validen los resultados, repliquen sus estudios sobre nuevas cohortes de individuos o elementos o para contribuir a la interpretación de los resultados obtenidos.</p>
 <p>Con la herramienta Quarto se puede combinar texto formateado (escrito en Markdown) junto con secciones de código ejecutable, todo integrado en un mismo documento. Estas secciones o <em>chunks</em> de código ejecutable pueden estar escritas en varios lenguajes: R, Python, Julia u Observable. Es incluso posible combinar en un mismo documento o colección de documentos secciones de código escritas en diferentes lenguajes de programación.</p>
 <p>Este es un <strong>taller práctico</strong> que presenta ejemplos reales y comandos para crear paso a paso tus propios documentos con Quarto en poco tiempo. Además, junto a la explicación de los conceptos clave para entender este proceso también se ofrecen recomendaciones sobre buenas prácticas de trabajo, para guiar a los aprendices de Quarto en la dirección correcta.</p>
 <p>Puedes aprender muchos más detalles sobre cuarto en la guía en línea <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a>. En particular, en <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a> se documenta en detalle cómo crear libros como este utilizando Quarto.</p>
+<section id="requisitos-previos" class="level2">
+<h2 class="anchored" data-anchor-id="requisitos-previos">Requisitos previos</h2>
+<p>Para poder realizar los ejemplos inlcuids en este taller necesitas tener instalado R y una IDE de desarrollo para este lenguaje. Se recomienda instalar RStudio o MS Visual Code como entorno de programación.</p>
+<ul>
+<li><a href="https://cran.r-project.org/">Instalación de R</a>.</li>
+<li><a href="https://posit.co/download/rstudio-desktop/">Instalación de RStudio</a>.</li>
+</ul>
+<p>Adicionalmente, es necesario instalar una serie de paquetes R antes de ejecutar los ejemplos, para que todas las dependencias estén disponibles en nuestro sistema. Consulta el Apéndice <a href="C-packages.html#sec-pkg-requirements" class="quarto-xref"><span>C.1 Requisitos previos</span></a> para comprobar el listado de paquetes R necesarios.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

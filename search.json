@@ -4,9 +4,19 @@
     "href": "index.html",
     "title": "Investigación reproducible con Quarto y R",
     "section": "",
-    "text": "Preface\nEste taller explica cómo utilizar Quarto, un software de creación de documentación científica, para crear publicaciones de calidad que integren contenido de texto formateado, gráficos, tablas, así como resultados de ejecución de código software en varios lenguajes, todo ello integrado en el propio documento.\nQuarto se ha convertido en una herramienta muy versátil y potente en el conjunto de herramientas de los programadores científicos, en especial por proporcionar soporte para implementar buenas prácticas de investigación reproducible, incluyendo los principios FAIR. El intenso movimiento iniciado desde hace años por la comunidad científica para garantizar acceso en abierto no solo al producto final (e.g. una publicación) sino también a materiales adicionales (códig fuente, conjuntos de datos, figuras, procesos de trabajo, archivos de configuración, etc.) se ha convertido en un objetivo insoslayable para académicos y especialistas en muchos campos diferentes. Muchas publicaciones científicas de prestigio exigen ahora a los autores enviar estos materiales auxiliares junto con los borradores de sus manuscritos, para permitir que otros colegas reproduzcan y validen los resultados, repliquen sus estudios sobre nuevas cohortes de individuos o elementos o para contribuir a la interpretación de los resultados obtenidos.\nCon la herramienta Quarto se puede combinar texto formateado (escrito en Markdown) junto con secciones de código ejecutable, todo integrado en un mismo documento. Estas secciones o chunks de código ejecutable pueden estar escritas en varios lenguajes: R, Python, Julia u Observable. Es incluso posible combinar en un mismo documento o colección de documentos secciones de código escritas en diferentes lenguajes de programación.\nEste es un taller práctico que presenta ejemplos reales y comandos para crear paso a paso tus propios documentos con Quarto en poco tiempo. Además, junto a la explicación de los conceptos clave para entender este proceso también se ofrecen recomendaciones sobre buenas prácticas de trabajo, para guiar a los aprendices de Quarto en la dirección correcta.\nPuedes aprender muchos más detalles sobre cuarto en la guía en línea https://quarto.org/docs/guide/. En particular, en https://quarto.org/docs/books se documenta en detalle cómo crear libros como este utilizando Quarto.",
+    "text": "Prefacio\nEste taller explica cómo utilizar Quarto, un software de creación de documentación científica, para crear publicaciones de calidad que integren contenido de texto formateado, gráficos, tablas, así como resultados de ejecución de código software en varios lenguajes, todo ello integrado en el propio documento.\nQuarto se ha convertido en una herramienta muy versátil y potente en el conjunto de herramientas de los programadores científicos, en especial por proporcionar soporte para implementar buenas prácticas de investigación reproducible, incluyendo los principios FAIR. El intenso movimiento iniciado desde hace años por la comunidad científica para garantizar acceso en abierto no solo al producto final (e.g. una publicación) sino también a materiales adicionales (códig fuente, conjuntos de datos, figuras, procesos de trabajo, archivos de configuración, etc.) se ha convertido en un objetivo insoslayable para académicos y especialistas en muchos campos diferentes. Muchas publicaciones científicas de prestigio exigen ahora a los autores enviar estos materiales auxiliares junto con los borradores de sus manuscritos, para permitir que otros colegas reproduzcan y validen los resultados, repliquen sus estudios sobre nuevas cohortes de individuos o elementos o para contribuir a la interpretación de los resultados obtenidos.\nCon la herramienta Quarto se puede combinar texto formateado (escrito en Markdown) junto con secciones de código ejecutable, todo integrado en un mismo documento. Estas secciones o chunks de código ejecutable pueden estar escritas en varios lenguajes: R, Python, Julia u Observable. Es incluso posible combinar en un mismo documento o colección de documentos secciones de código escritas en diferentes lenguajes de programación.\nEste es un taller práctico que presenta ejemplos reales y comandos para crear paso a paso tus propios documentos con Quarto en poco tiempo. Además, junto a la explicación de los conceptos clave para entender este proceso también se ofrecen recomendaciones sobre buenas prácticas de trabajo, para guiar a los aprendices de Quarto en la dirección correcta.\nPuedes aprender muchos más detalles sobre cuarto en la guía en línea https://quarto.org/docs/guide/. En particular, en https://quarto.org/docs/books se documenta en detalle cómo crear libros como este utilizando Quarto.",
     "crumbs": [
-      "Preface"
+      "Prefacio"
+    ]
+  },
+  {
+    "objectID": "index.html#requisitos-previos",
+    "href": "index.html#requisitos-previos",
+    "title": "Investigación reproducible con Quarto y R",
+    "section": "Requisitos previos",
+    "text": "Requisitos previos\nPara poder realizar los ejemplos inlcuids en este taller necesitas tener instalado R y una IDE de desarrollo para este lenguaje. Se recomienda instalar RStudio o MS Visual Code como entorno de programación.\n\nInstalación de R.\nInstalación de RStudio.\n\nAdicionalmente, es necesario instalar una serie de paquetes R antes de ejecutar los ejemplos, para que todas las dependencias estén disponibles en nuestro sistema. Consulta el Apéndice C.1 Requisitos previos para comprobar el listado de paquetes R necesarios.",
+    "crumbs": [
+      "Prefacio"
     ]
   },
   {
@@ -212,7 +222,7 @@
     "href": "04-singledoc.html#estructura-del-documento",
     "title": "4  Documentos individuales",
     "section": "4.2 Estructura del documento",
-    "text": "4.2 Estructura del documento\nLa estructura de un documento individual en Quarto es esta.\n---\ntitle: \"Mi primer documento\"\nauthor: John Doe\ndate: 2024-10-24\n---\n\nAquí tenemos algo de contenido en formato **Markdown**.\n\n```{r}\n#| label: Etiqueta\n\n1 + 1\n```\n\nContenido *adicional* en Markdown.\nEl contenido del archivo consta de dos partes:\n\nPreámbulo: está delimitado por dos marcas ---. Dentro de esta área podemos asignar valores a opciones de configuración para maquetar y crear el documento, tales como el título, autor/es, fecha, etc. También podemos configurar diversas opciones relacionadas con el formato de salida de los documentos.\nCuerpo del documento: se compone de párrafos de texto formateados utilizando la sintaxis de marcado Markdown, que veremos después. Además, también se pueden intercalar en el texto fragmentos de código ejecutable o chunks, que se marcan siguiendo una sintaxis especial (como vemos en el ejemplo anterior).\n\nCada chunk de código ejecutable está delimitado de la siguiente manera\n```{r}\n# Código en R\n```\n\n\n\n\n\n\nSoporte para otros lenguajes de programación\n\n\n\nAunque en este taller nos centramos en el lenguaje R, debemos sabes que Quarto también soporta otros lenguajes de programación como Python, Julia u Observable.\nPodemos cambiar el lenguaje de programación de cada chunk indicando su nombre al comienzo, como por ejemplo:\n```{pyton}\n# Código en Python\n```\nSin embargo, para que pueda funcionar necesitaremos realizar algunas tareas adicionales de configuración.\n\n\n\n4.2.1 El preámbulo\n\n\n4.2.2 Listado de opciones\nExiste un extenso listado de opciones de configuración que podemos incluir en nuestros documentos.\n\nOpciones para salida HTML: permiten configurar diversos aspectos básicos del documento, tales como el título y subtítulo, fecha, autor (o lista de autores), resumen o DOI; opciones de formato como el tema o estilos avanzados para contenido HTML con CSS; numeración y tabla de contenidos, etc.\n\nOpciones básicas para HTML con Quarto.\nLista completa de opciones HTML con Quarto.\n\nOpciones para salida PDF: ofrecen la posibilidad de configurar múltiples parámetros para la creación del documento en este formato, muchas de ellas similares a las de la salida en HTML. Una opción particularmente relevante es elegir el formato de documento LaTeX (opción documentclass), que define el aspecto general de la maquetación que se va a emplear. Por defecto, se emplean clases del metapaquete KOMA Script, como scrartcl o scrbook. También es importante indicar la opción papersize, en nuestro caso para garantizar que se usa un formato estándar como el A4. El formato de las citas también es relevante, pudiendo elegir, por ejemplo, el motor BibLaTeX que es más potente, con soporte multilenguaje y para codificación de caracteres UTF-8 nativa. Por último, también es importante indicar el motor de compilación. Si queremos una flexibilidad total en la maquetación del documento, se recomienda encarecidamente usar el motor XeLaTeX (opción pdf-engine: xelatex), que es el valor por defecto que utiliza Quarto.\n\nOpciones básicas para PDF con Quarto.\nLista completa de opciones disponibles en PDF con Quarto.\n\n\n\n\n4.2.3 Sintaxis Markdown básica\nEn el siguiente enlace puedes encontrar un rápido tutorial básico que muestra las opciones básicas de la sintaxis Markdown aceptada en documentos Quarto para formatear el contenido textual.\n\nGuía básica de sintaxis markdown.",
+    "text": "4.2 Estructura del documento\nLa estructura de un documento individual en Quarto es esta.\n---\ntitle: \"Mi primer documento\"\nauthor: John Doe\ndate: 2024-10-24\n---\n\nAquí tenemos algo de contenido en formato **Markdown**.\n\n```{r}\n#| label: Etiqueta\n\n1 + 1\n```\n\nContenido *adicional* en Markdown.\nEl contenido del archivo consta de dos partes:\n\nPreámbulo: está delimitado por dos marcas ---. Dentro de esta área podemos asignar valores a opciones de configuración para maquetar y crear el documento, tales como el título, autor/es, fecha, etc. También podemos configurar diversas opciones relacionadas con el formato de salida de los documentos.\nCuerpo del documento: se compone de párrafos de texto formateados utilizando la sintaxis de marcado Markdown, que veremos después. Además, también se pueden intercalar en el texto fragmentos de código ejecutable o chunks, que se marcan siguiendo una sintaxis especial (como vemos en el ejemplo anterior).\n\nCada chunk de código ejecutable está delimitado de la siguiente manera\n```{r}\n# Código en R\n```\n\n\n\n\n\n\nSoporte para otros lenguajes de programación\n\n\n\nAunque en este taller nos centramos en el lenguaje R, debemos sabes que Quarto también soporta otros lenguajes de programación como Python, Julia u Observable.\nPodemos cambiar el lenguaje de programación de cada chunk indicando su nombre al comienzo, como por ejemplo:\n```{pyton}\n# Código en Python\n```\nSin embargo, para que pueda funcionar necesitaremos realizar algunas tareas adicionales de configuración.\n\n\n\n4.2.1 El preámbulo\nUn ejemplo básico de preámbulo es el siguiente (aunque bastaría con proporcionar únicamente un título para el documento):\n---\ntitle: \"Mi primer documento\"\nauthor: John Doe\ndate: 2024-10-24\n---\nPor supuesto, se pueden ir añadiendo muchas más opciones que iremos explicando a lo largo de este capítulo.\n\n\n4.2.2 Listado de opciones\nExiste un extenso listado de opciones de configuración que podemos incluir en nuestros documentos.\n\nOpciones para salida HTML: permiten configurar diversos aspectos básicos del documento, tales como el título y subtítulo, fecha, autor (o lista de autores), resumen o DOI; opciones de formato como el tema o estilos avanzados para contenido HTML con CSS; numeración y tabla de contenidos, etc.\n\nOpciones básicas para HTML con Quarto.\nLista completa de opciones HTML con Quarto.\n\nOpciones para salida PDF: ofrecen la posibilidad de configurar múltiples parámetros para la creación del documento en este formato, muchas de ellas similares a las de la salida en HTML. Una opción particularmente relevante es elegir el formato de documento LaTeX (opción documentclass), que define el aspecto general de la maquetación que se va a emplear. Por defecto, se emplean clases del metapaquete KOMA Script, como scrartcl o scrbook. También es importante indicar la opción papersize, en nuestro caso para garantizar que se usa un formato estándar como el A4. El formato de las citas también es relevante, pudiendo elegir, por ejemplo, el motor BibLaTeX que es más potente, con soporte multilenguaje y para codificación de caracteres UTF-8 nativa. Por último, también es importante indicar el motor de compilación. Si queremos una flexibilidad total en la maquetación del documento, se recomienda encarecidamente usar el motor XeLaTeX (opción pdf-engine: xelatex), que es el valor por defecto que utiliza Quarto.\n\nOpciones básicas para PDF con Quarto.\nLista completa de opciones disponibles en PDF con Quarto.\n\n\n\n\n4.2.3 Sintaxis Markdown básica\nEn el siguiente enlace puedes encontrar un rápido tutorial básico que muestra las opciones básicas de la sintaxis Markdown aceptada en documentos Quarto para formatear el contenido textual.\n\nGuía básica de sintaxis markdown.",
     "crumbs": [
       "Quarto",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Documentos individuales</span>"
@@ -344,7 +354,7 @@
     "href": "05-books.html#plantillas-y-personalización",
     "title": "5  Libros",
     "section": "5.8 Plantillas y personalización",
-    "text": "5.8 Plantillas y personalización\nAl igual que hemos explicado en el caso de los documentos individuales, se pueden utilizar opciones de configuración análogas para personalizar el estilo y el tema de diseño que podemos aplicar a nuestro libro o colección de documentos, tanto en la versión de sitio web HTML como en la versión de salida en formato PDF.\n\nGuía para la personalización del estilo de los libros en Quarto.",
+    "text": "5.8 Plantillas y personalización\nAl igual que hemos explicado en el caso de los documentos individuales, se pueden utilizar opciones de configuración análogas para personalizar el estilo y el tema de diseño que podemos aplicar a nuestro libro o colección de documentos, tanto en la versión de sitio web HTML como en la versión de salida en formato PDF.\n\nGuía para la personalización del estilo de los libros en Quarto.\nGalería de ejemplo de algunos estilos para personalizar el aspecto de documentos Quarto.",
     "crumbs": [
       "Libros con Quarto",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Libros</span>"
@@ -355,18 +365,62 @@
     "href": "06-class-notes.html",
     "title": "6  Taller: colección de apuntes",
     "section": "",
-    "text": "6.1 Plantillas y herramientas",
+    "text": "6.1 Opciones de diseño del documento\nAdemás de las numerosas opciones que hemos explorado para ajustar el comportamiento de muchos elementos de nuestros documentos, Quarto todavía nos reserva muchas más alternativas para controlar el diseño de la página y la distribución de su contenido de forma que:\nEn este taller nos centramos en la generación de salida en HTML. Por defecto, en un documento HTML producido con Quarto tenemos un diseño estándar del espacio de la página en tres columnas:\nPor supuesto, las dimensiones de estas tres columnas son totalmente personalizables.",
     "crumbs": [
       "Libros con Quarto",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
     ]
   },
   {
-    "objectID": "06-class-notes.html#gestión-del-proyecto",
-    "href": "06-class-notes.html#gestión-del-proyecto",
+    "objectID": "06-class-notes.html#opciones-de-diseño-del-documento",
+    "href": "06-class-notes.html#opciones-de-diseño-del-documento",
     "title": "6  Taller: colección de apuntes",
-    "section": "6.2 Gestión del proyecto",
-    "text": "6.2 Gestión del proyecto",
+    "section": "",
+    "text": "Ocupe toda la región principal (centro del documento).\nSobrepase los límites de la región principal.\nCubra todo el ancho de la pantalla (por ejemplo, cuando queremos representar mapas o figuras muy anchas, compuestas por varias gráficas en una misma fila).\nSe sitúe en los márgenes del documento.\nGuía para personalizar el diseño del documento (HTML).\nOpciones de configuración del diseño del documento (PDF).\n\n\n\nLa columna central, body más ancha, para el contenido principal de la página.\nLa columna izquierda, sidebar (barra lateral), que se suele emplear en los libros para la tabla de contenidos desplegable que permite navegar por la colección de documentos.\nLa columna derecha, margin, que se suele utilizar para mostrar la tabla de contenidos del documento o capítulo que aparece en el body en ese momento, junto con otros enlaces a contenido adicional (e.g. enlace al código fuente, a la web de la organización o editorial, etc.).\n\n\n\n6.1.1 Contenido principal\nSi no especificamos ninguna variación en la configuración, el documento de Quarto muestra los elementos ocupando todo el ancho de la columna central (document body).\nSi queremos que el contenido sobrepase un poco los límites de ese espacio central, pero sin llegar a ocupar todo el ancho de la pantalla, podemos usar una nueva sección div HTML con un estilo específico:\n:::{.column-body-outset}\nOutset content...\n:::\nPara ampliar aún mas el ancho de presentación, pero dejando cierto margen de espacio respecto a ambos bordes de la pantalla se puede usar en su lugar el estilo {.column-page}. Por último, si realmente queremos ocupar todo el ancho de la pantalla (sin dejar margen a ambos lados) se puede usar el estilo {.column-screen}. Estas opciones de diseño también son aplicables a la configuración de los bloques de código ejecutable. Veamos un ejemplo:\n\n```{r}\n#| column: page\n\nknitr::kable(\n  mtcars[1:6, 1:10]\n)\n```\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nmpg\ncyl\ndisp\nhp\ndrat\nwt\nqsec\nvs\nam\ngear\n\n\n\n\nMazda RX4\n21.0\n6\n160\n110\n3.90\n2.620\n16.46\n0\n1\n4\n\n\nMazda RX4 Wag\n21.0\n6\n160\n110\n3.90\n2.875\n17.02\n0\n1\n4\n\n\nDatsun 710\n22.8\n4\n108\n93\n3.85\n2.320\n18.61\n1\n1\n4\n\n\nHornet 4 Drive\n21.4\n6\n258\n110\n3.08\n3.215\n19.44\n1\n0\n3\n\n\nHornet Sportabout\n18.7\n8\n360\n175\n3.15\n3.440\n17.02\n0\n0\n3\n\n\nValiant\n18.1\n6\n225\n105\n2.76\n3.460\n20.22\n1\n0\n3\n\n\n\n\n\nPor último, las opciones de estilo {.column-screen-inset} o {.column-screen-inset-shaded} dan una apariencia de ocupar el ancho de la pantalla al completo pero dejando un ligero margen en los bordes (con sombreado, en el segundo caso).\n\n\n6.1.2 Contenido en los márgenes\nEl estilo {.column-margin} permite ubicar en la columna derecha de la página cualquier elemento, ya sea un texto, una figura o gráfica, una tabla, ecuación, etc.\n::: {.column-margin}\n![A margin image](image.png)\n:::\nVeamos un ejemplo aplicado a una ecuación que se muestra al margen:\n\n\nWe know from the first fundamental theorem of calculus that for \\(x\\) in \\([a, b]\\):\n\\[\\frac{d}{dx}\\left( \\int_{a}^{x} f(u)\\,du\\right)=f(x).\\]\nAhora con una figura al margen:\n\n```{r}\n#| label: fig-mtcars\n#| fig-cap: \"MPG vs horsepower, colored by transmission.\"\n#| column: margin\n\nlibrary(ggplot2)\nmtcars2 &lt;- mtcars\nmtcars2$am &lt;- factor(\n  mtcars$am, labels = c('automatic', 'manual')\n)\nggplot(mtcars2, aes(hp, mpg, color = am)) +\n  geom_point() +\n  geom_smooth(formula = y ~ x, method = \"loess\") +\n  theme(legend.position = 'bottom')\n```\n\n\n\n\n\n\n\n\nFigura 6.1: MPG vs horsepower, colored by transmission.\n\n\n\n\nPor último, probamos con una tabla ubicada en el margen:\n\n```{r}\n#| column: margin\n\nknitr::kable(\n  mtcars[1:6, 1:3]\n)\n```\n\n\n\n\n\n\nmpg\ncyl\ndisp\n\n\n\n\nMazda RX4\n21.0\n6\n160\n\n\nMazda RX4 Wag\n21.0\n6\n160\n\n\nDatsun 710\n22.8\n4\n108\n\n\nHornet 4 Drive\n21.4\n6\n258\n\n\nHornet Sportabout\n18.7\n8\n360\n\n\nValiant\n18.1\n6\n225\n\n\n\n\nTambién es posible especificar opciones individualizadas para cada elemento cuando un bloque de código genera varios resultados.\nSe recomienda consultar la [guía completa de diseño de los artículos] de Quarto para explorar más opciones adicionales de configuración.\n\n\n6.1.3 Notas al margen y citas bibliográficas\nSi se añaden las siguientes opciones en la cabecera del documento (o de la salida HTML del proyecto global), se modifica la ubicación de las notas al pie y las citas bibliográficas, que pasan a mostrarse en el margen derecho del documento, a la misma altura de la llamada o cita en el texto principal, siguiendo los principios de diseño de los documentos de Tufte:\nreference-location: margin\ncitation-location: margin\nAdicionalmente, también podemos poner notas puntuales (no numeradas) en el margen del documento con el estilo de párrafo {.aside}:\n[This is a span that has the class `aside` which places \nit in the margin without a footnote number.]{.aside}\nThis is a span that has the class aside which places it in the margin without a footnote number.",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html#anotaciones-en-bloques-de-código",
+    "href": "06-class-notes.html#anotaciones-en-bloques-de-código",
+    "title": "6  Taller: colección de apuntes",
+    "section": "6.2 Anotaciones en bloques de código",
+    "text": "6.2 Anotaciones en bloques de código\nhttps://quarto.org/docs/authoring/code-annotation.html",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html#configuración-del-proyecto",
+    "href": "06-class-notes.html#configuración-del-proyecto",
+    "title": "6  Taller: colección de apuntes",
+    "section": "6.3 Configuración del proyecto",
+    "text": "6.3 Configuración del proyecto\n\n6.3.1 Opciones globales\n\nGuía de referencia de opciones globales del diseño gráfico del documento (HTML).\nGuía de referencia de opciones globales del diseño gráfico del documento (PDF).\n\n\n\n6.3.2 Idioma de los documentos\nUna opción de configuración muy interesante para nuestros documentos y proyectos es la de especificar el idioma de los mismos. Por defecto, los documentos de Quarto se generan en inglés. Si embargo, varias herramientas, incluyendo paquetes LaTeX para localización del contenido y división de palabraas, así como Pandoc y el propio Quarto pueden traducir muchas etiquetas automáticamente (“Figura”, “Tabla”, “Ecuación”, etc.) al idioma adecuado.\nPara ello, tenemos que proporcionar un nuevo valor para la opción lang en la cabecera de nuestro documento o en el archivo de configuración _quarto.yml de nuestro proyecto:\n---\ntitle: \"Mi documento en castellano\"\nlang: es    \n---\nTambién es posible ofrecer traducciones personalizadas para etiquetas y campos estándar del documento o proyecto, de forma que se ajuste perfectamente a nuestras directrices de estilo o las de nuestra organización. Para más detalles, consulta la siguiente guía:\n\nConfiguración de idioma en documentos Quarto.\n\nEn particular, si vamos a proporcionar una larga lista de traducciones alternativas conviene codificarlas en un fichero independiente y pasarlo a las opciones de configuración del documento o proyecto:\nlanguage: custom_translations.yml\nPodemos llegar incluso al extremo de tener traducciones personalizadas para diferentes idiomas, que se usan en función del valor que pasemos a la opción de selección de idioma lang.\nRespecto al soporte multilenguaje simultáneo (el mismo documento en varios idiomas), dicha característica todavía no está soportada en Quarto. Sin embargo, un paquete de reciente creación en la comunidad ROpenSci llamado babledown (aún en fase expermental), permite gestionar estas versiones multidioma de forma simultánea (mostrando en un idioma enlaces al resto de idiomas disponibles). Más aún, el objetivo principal de este paquete es ofrecer una interfaz para el servicio de traducción automática DeepL, de forma que se traduzcan automáticamente los textos de nuestros documentos a otros idiomas.",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html#plantillas-y-herramientas",
+    "href": "06-class-notes.html#plantillas-y-herramientas",
+    "title": "6  Taller: colección de apuntes",
+    "section": "6.4 Plantillas y herramientas",
+    "text": "6.4 Plantillas y herramientas\n\nGalería de ejemplo de plantillas de documentos en Quarto.\nDocumento de ejemplo con los estilos gráficos de Tufte handouts.\n\nEjemplo de documento HTML con diseño gráfico Tufte handouts.",
+    "crumbs": [
+      "Libros con Quarto",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
+    ]
+  },
+  {
+    "objectID": "06-class-notes.html#personalización-de-los-libros",
+    "href": "06-class-notes.html#personalización-de-los-libros",
+    "title": "6  Taller: colección de apuntes",
+    "section": "6.5 Personalización de los libros",
+    "text": "6.5 Personalización de los libros\n\nhttps://quarto.org/docs/books/book-output.html\nImportación y uso de plantillas y extensiones.",
     "crumbs": [
       "Libros con Quarto",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
@@ -376,8 +430,8 @@
     "objectID": "06-class-notes.html#publicación",
     "href": "06-class-notes.html#publicación",
     "title": "6  Taller: colección de apuntes",
-    "section": "6.3 Publicación",
-    "text": "6.3 Publicación",
+    "section": "6.6 Publicación",
+    "text": "6.6 Publicación\n\nEjemplo de publicación con GitHub pages.\nhttps://quarto.org/docs/publishing/\nhttps://quarto.org/docs/publishing/github-pages.html",
     "crumbs": [
       "Libros con Quarto",
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Taller: colección de apuntes</span>"
@@ -388,29 +442,7 @@
     "href": "07-manuscripts.html",
     "title": "7  Artículos y publicaciones científicas",
     "section": "",
-    "text": "7.1 Replicabilidad en publicaciones científicas",
-    "crumbs": [
-      "Publicaciones",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
-    ]
-  },
-  {
-    "objectID": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
-    "href": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
-    "title": "7  Artículos y publicaciones científicas",
-    "section": "7.2 Figuras y gráficos para publicación",
-    "text": "7.2 Figuras y gráficos para publicación",
-    "crumbs": [
-      "Publicaciones",
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
-    ]
-  },
-  {
-    "objectID": "07-manuscripts.html#el-paquete-rticles",
-    "href": "07-manuscripts.html#el-paquete-rticles",
-    "title": "7  Artículos y publicaciones científicas",
-    "section": "7.3 EL paquete rticles",
-    "text": "7.3 EL paquete rticles",
+    "text": "7.1 Figuras y gráficos para publicación",
     "crumbs": [
       "Publicaciones",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
@@ -420,8 +452,8 @@
     "objectID": "07-manuscripts.html#ejemplos-y-recomendaciones",
     "href": "07-manuscripts.html#ejemplos-y-recomendaciones",
     "title": "7  Artículos y publicaciones científicas",
-    "section": "7.4 Ejemplos y recomendaciones",
-    "text": "7.4 Ejemplos y recomendaciones",
+    "section": "7.2 Ejemplos y recomendaciones",
+    "text": "7.2 Ejemplos y recomendaciones",
     "crumbs": [
       "Publicaciones",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
@@ -540,7 +572,18 @@
     "href": "C-packages.html",
     "title": "Apéndice C — Paquetes R y atribuciones",
     "section": "",
-    "text": "C.1 rticles\nShiny\nIOSlides, otras…\nOtros",
+    "text": "C.1 Requisitos previos",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
+    ]
+  },
+  {
+    "objectID": "C-packages.html#rticles",
+    "href": "C-packages.html#rticles",
+    "title": "Apéndice C — Paquetes R y atribuciones",
+    "section": "C.2 rticles",
+    "text": "C.2 rticles\nShiny\nIOSlides, otras…\nOtros",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
@@ -550,8 +593,8 @@
     "objectID": "C-packages.html#atribución-de-imágenes-e-iconos",
     "href": "C-packages.html#atribución-de-imágenes-e-iconos",
     "title": "Apéndice C — Paquetes R y atribuciones",
-    "section": "C.2 Atribución de imágenes e iconos",
-    "text": "C.2 Atribución de imágenes e iconos\n\nR logo by The R Foundation.\nPython file icons created by Flat Icons - Flaticon.\nHtml icons created by Freepik - Flaticon.\nMicrosoft word icons created by Pixel perfect - Flaticon.\nPdf icons created by Dimitry Miroliubov - Flaticon.",
+    "section": "C.3 Atribución de imágenes e iconos",
+    "text": "C.3 Atribución de imágenes e iconos\n\nR logo by The R Foundation.\nPython file icons created by Flat Icons - Flaticon.\nHtml icons created by Freepik - Flaticon.\nMicrosoft word icons created by Pixel perfect - Flaticon.\nPdf icons created by Dimitry Miroliubov - Flaticon.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
