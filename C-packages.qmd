@@ -1,5 +1,7 @@
 # Paquetes R y atribuciones
 
+## Requisitos previos {#sec-pkg-requirements}
+
 ## `rticles`
 
 Shiny
