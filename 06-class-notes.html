@@ -161,6 +161,9 @@ window.Quarto = {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Investigación reproducible con Quarto y R</a> 
+        <div class="sidebar-tools-main">
+    <a href="./Investigación-reproducible-con-Quarto-y-R.pdf" title="Descargar PDF" class="quarto-navigation-tool px-1" aria-label="Descargar PDF"><i class="bi bi-file-pdf"></i></a>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -331,6 +334,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#opciones-globales" id="toc-opciones-globales" class="nav-link" data-scroll-target="#opciones-globales"><span class="header-section-number">6.3.1</span> Opciones globales</a></li>
   <li><a href="#idioma-de-los-documentos" id="toc-idioma-de-los-documentos" class="nav-link" data-scroll-target="#idioma-de-los-documentos"><span class="header-section-number">6.3.2</span> Idioma de los documentos</a></li>
+  <li><a href="#enlaces-a-otros-formatos" id="toc-enlaces-a-otros-formatos" class="nav-link" data-scroll-target="#enlaces-a-otros-formatos"><span class="header-section-number">6.3.3</span> Enlaces a otros formatos</a></li>
   </ul></li>
   <li><a href="#plantillas-y-herramientas" id="toc-plantillas-y-herramientas" class="nav-link" data-scroll-target="#plantillas-y-herramientas"><span class="header-section-number">6.4</span> Plantillas y herramientas</a></li>
   <li><a href="#personalización-de-los-libros" id="toc-personalización-de-los-libros" class="nav-link" data-scroll-target="#personalización-de-los-libros"><span class="header-section-number">6.5</span> Personalización de los libros</a></li>
@@ -628,7 +632,46 @@ it in the margin without a footnote number.]{.aside}</code></pre>
 </section>
 <section id="anotaciones-en-bloques-de-código" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="anotaciones-en-bloques-de-código"><span class="header-section-number">6.2</span> Anotaciones en bloques de código</h2>
-<p><a href="https://quarto.org/docs/authoring/code-annotation.html" class="uri">https://quarto.org/docs/authoring/code-annotation.html</a></p>
+<p>Una característica muy útil para la creación de documentació y tutoriales es la de anotar las líneas dentro de los bloques de código ejecutable. Veamos un ejemplo:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```r</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: demo-code-annotation</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span>                                      <span class="co"># &lt;1&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(                                        <span class="co"># &lt;2&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_ratio =</span> bill_depth_mm <span class="sc">/</span> bill_length_mm, <span class="co"># &lt;2&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_area  =</span> bill_depth_mm <span class="sc">*</span> bill_length_mm  <span class="co"># &lt;2&gt;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  )                                              <span class="co"># &lt;2&gt;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Take <span class="in">`penguins`</span>, and then,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>add new columns for the bill ratio and bill area.</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Que produce el siguiente resultado:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-9-1"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="annotated-cell-9-2"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-3" class="code-annotation-target"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a>penguins <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-4" class="code-annotation-target"><a href="#annotated-cell-9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="annotated-cell-9-5"><a href="#annotated-cell-9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_ratio =</span> bill_depth_mm <span class="sc">/</span> bill_length_mm,</span>
+<span id="annotated-cell-9-6"><a href="#annotated-cell-9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">bill_area  =</span> bill_depth_mm <span class="sc">*</span> bill_length_mm</span>
+<span id="annotated-cell-9-7"><a href="#annotated-cell-9-7" aria-hidden="true" tabindex="-1"></a>  )</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="3" data-code-annotation="1">Take <code>penguins</code>, and then,</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="4,5,6,7" data-code-annotation="2">add new columns for the bill ratio and bill area.</span>
+</dd>
+</dl>
+</div>
+</div>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/code-annotation.html">Guía para anotación de líneas en bloques de código</a></li>
+</ul>
 </section>
 <section id="configuración-del-proyecto" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="configuración-del-proyecto"><span class="header-section-number">6.3</span> Configuración del proyecto</h2>
@@ -643,18 +686,22 @@ it in the margin without a footnote number.]{.aside}</code></pre>
 <h3 data-number="6.3.2" class="anchored" data-anchor-id="idioma-de-los-documentos"><span class="header-section-number">6.3.2</span> Idioma de los documentos</h3>
 <p>Una opción de configuración muy interesante para nuestros documentos y proyectos es la de especificar el idioma de los mismos. Por defecto, los documentos de Quarto se generan en inglés. Si embargo, varias herramientas, incluyendo paquetes LaTeX para localización del contenido y división de palabraas, así como Pandoc y el propio Quarto pueden traducir muchas etiquetas automáticamente (“Figura”, “Tabla”, “Ecuación”, etc.) al idioma adecuado.</p>
 <p>Para ello, tenemos que proporcionar <a href="https://quarto.org/docs/authoring/language.html#lang-option">un nuevo valor para la opción <code>lang</code></a> en la cabecera de nuestro documento o en el archivo de configuración <code>_quarto.yml</code> de nuestro proyecto:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mi documento en castellano"</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> es    </span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Mi documento en castellano"</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lang</span><span class="kw">:</span><span class="at"> es    </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>También es posible ofrecer traducciones personalizadas para etiquetas y campos estándar del documento o proyecto, de forma que se ajuste perfectamente a nuestras directrices de estilo o las de nuestra organización. Para más detalles, consulta la siguiente guía:</p>
 <ul>
 <li><a href="https://quarto.org/docs/authoring/language.html">Configuración de idioma en documentos Quarto</a>.</li>
 </ul>
 <p>En particular, si vamos a proporcionar una larga lista de traducciones alternativas conviene codificarlas en un fichero independiente y pasarlo a las opciones de configuración del documento o proyecto:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">language</span><span class="kw">:</span><span class="at"> custom_translations.yml</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">language</span><span class="kw">:</span><span class="at"> custom_translations.yml</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Podemos llegar incluso al extremo de tener traducciones personalizadas para diferentes idiomas, que se usan en función del valor que pasemos a la opción de selección de idioma <code>lang</code>.</p>
 <p>Respecto al <strong>soporte multilenguaje simultáneo</strong> (el mismo documento en varios idiomas), dicha característica todavía no está soportada en Quarto. Sin embargo, un paquete de reciente creación en la comunidad ROpenSci llamado <a href="https://docs.ropensci.org/babeldown/articles/quarto.html"><code>babledown</code></a> (aún en fase expermental), permite gestionar estas versiones multidioma de forma simultánea (mostrando en un idioma enlaces al resto de idiomas disponibles). Más aún, el objetivo principal de este paquete es ofrecer una interfaz para el servicio de traducción automática DeepL, de forma que se traduzcan automáticamente los textos de nuestros documentos a otros idiomas.</p>
+</section>
+<section id="enlaces-a-otros-formatos" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="enlaces-a-otros-formatos"><span class="header-section-number">6.3.3</span> Enlaces a otros formatos</h3>
+<p><a href="https://quarto.org/docs/output-formats/html-multi-format.html" class="uri">https://quarto.org/docs/output-formats/html-multi-format.html</a></p>
 </section>
 </section>
 <section id="plantillas-y-herramientas" class="level2" data-number="6.4">
