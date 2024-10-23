@@ -182,7 +182,7 @@ lista de opciones de formato de salida y seleccionar uno de ellos, como muestra 
 
 ![Listado de opciones de configuración que aparecen al pulsar la flecha junto al botón *Render Book*](img/preview-select-book.png){#fig-preview-select-book width=80%}
 
-## Publicación del proyecto
+## Publicación del proyecto{#sec-pub-options}
 
 Existen diferentes [opciones de publicación] para poner nuestro libro o colección de documentos
 disponible para otros usuarios, incluyendo:

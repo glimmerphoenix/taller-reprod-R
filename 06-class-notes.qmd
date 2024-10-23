@@ -260,7 +260,7 @@ Para que esto suceda, tenemos que declarar que se genere la salida del docoument
 
 ```yaml
 title: Sample Page
-author: Norah Jones
+author: Sarah Connor
 date: last-modified
 toc: true
 format: 
@@ -287,10 +287,19 @@ book:
 ```
 
 
-## Plantillas y herramientas
+## Ejercicio: personalizar el estilo gráfico del documento
 
 Ahora, vamos a practicar con un ejemplo en el que se combinan varios aspectos que hemos estado tratando en este
-capítulo
+capítulo.
+
+1. Descarga este documento de ejemplo en tu equipo: [Ejemplo apuntes Tufte](https://github.com/glimmerphoenix/taller-reprod-R/raw/refs/heads/main/examples/tufte-doc/tufte.qmd.).
+2. Crea un nuevo proyecto en RStudio, indicando como directorio de trabajo aquel en el que has guardado el ejemplo.
+3. Previsualiza el documento en su versión HTML. Comprueba que hay un enlace para descargar también la versión en PDF.
+4. Modifica algunos de los ejemplos para entender mejor cómo funcionan las opciones de configuración de los bloques
+de código ejecutables y los estilos gráficos aplicables al contenido en formato Markdown.
+5. Modifica las dimensiones de la columna central (*document body*), para reducir su anchua 50 píxeles.
+
+**Referencias adicionales para el ejercicio práctico**
 
 - [Galería de ejemplo de plantillas de documentos en Quarto](https://github.com/quarto-dev/quarto-gallery/tree/main).
 - [Documento de ejemplo con los estilos gráficos de Tufte *handouts*](https://github.com/quarto-dev/quarto-gallery/blob/main/page-layout/tufte.qmd).
@@ -299,16 +308,226 @@ capítulo
 
 ## Personalización de los libros
 
-- <https://quarto.org/docs/books/book-output.html>
+Es importante entender la diferencia entre un proyecto configurado como [libro](https://quarto.org/docs/books/book-output.html) 
+y otro configurado como [website](https://quarto.org/docs/websites/). En el caso
+de un libro, se aplicarán las mismas opciones de formateo y diseño gráfico a todos los documentos 
+que forman parte del mismo, puesto que se combinan en un solo documento (esto queda más claro
+cuando el formato de salida es PDF, puesto que se genera un único archivo con todo el contenido).
+Sin embargo, cuando creamos un sitio web es posible aplicar opciones de diseño y configuración
+personalizadas a cada documento del sitio, puesto que se comportan de forma independiente (aunque es
+posible aplicar también opciones globales para todo el sitio web).
 
-- Importación y uso de plantillas y extensiones.
+En consecuencia, en un proyecto de tipo `book` cualquier opción de renderizado (incluso las específicas 
+de un formato de salida) deben especificarse en el archvio global `_quarto.yml`. Se pueden utilizar
+muchas de las [herramientas aplicables a los sitios web](https://quarto.org/docs/books/book-output.html#website-tools) 
+con Quarto (barras de navegación, encabezado y pie
+de página, barra de búsqueda textual, etc.). No obstante, todas estas opciones hay que especificarlas bajo
+la etiqueta `book` en el caso de un libro, no bajo la etiqueta `website`.
 
-## Publicación
+Una excepción a esta regla es la opción global `output-dir`, para seleccionar un directorio de salida diferentes
+donde almacenar los archivos HTML, PDF, etc. del libro ya renderizado. Esa opción se debe poner debajo de la etiqueta
+`project`:
 
-- Ejemplo de publicación con GitHub pages.
+```yaml
+project:
+  type: book
+  output-dir: docs
+```
 
-- <https://quarto.org/docs/publishing/>
-- <https://quarto.org/docs/publishing/github-pages.html>
+Por contra, la opción `output-file`, que cambia el nombre del fichero de salida generado 
+(por defecto es el título del documento), se pone debajo de la etiqueta `book`:
 
+```yaml
+book:
+  title: "El título de este libro es una cosa larguísima"
+  author: "Jane Doe"
+  output-file: "nombre-corto"
+```
 
+::: {.callout-caution}
+## Extensiones de los archivos de salida
+
+Cuando configuremos un nombre personalizado para el fichero de salida del libro con la opción
+`output-file` **no debemos añadir una extensión**, ya que ésta se añadirá automáticamente en función
+del tipo de fichero de salida generado.
+:::
+
+::: {.callout-tip}
+## Personalización en LaTeX
+
+Aunque no nos estamos centrando en la producción de salida LaTeX/PDF en este taller, aprovechamos
+este punto para resaltar que es posible también utilizar paquetes, *scripts* y otras
+herramientas LaTeX que ya tengamos desarrolladas previamente.
+
+El método más directo (aunque a bajo nivel) para introducir los cambios es crear todo el libro con
+Quarto y compilar la salida en formato `latex`.
+
+``` {.bash filename="Terminal"}
+quarto render --to latex
+```
+
+Esto nos dejará todo el código fuente de LaTeX dentro del subdirectorio `_book/book-latex` (o en el
+directorio de salida que hayamos configurado). Podemos acabar de editar esos ficheros y compilar con
+otra herramienta (e.g. un editor LaTeX o usando `make`) el documento final.
+
+Sin embargo, si los cambios se limitan a modificar las opciones de configuración estándar del documento
+en LaTeX, entonces podemos usar la extensa [lista de variables de configuración para LaTeX de Pandoc], con
+la que podremos indicar:
+
+- Opciones de clase (páginas a doble cara, tamaño de página).
+- La opción `documentclass` para cambiar la plantilla del documento base; normalmente, Quarto usa `scrreport`,
+`scrbook` o `scrartcl` (clases del paquete LaTeX [KOMA-Script](https://ctan.org/pkg/koma-script)).
+- La opción `geometry` para cambiar las dimensiones de la página, los márgenes, etc.
+- Fuentes y tipos de letra, color de la fuente, etc.
+- Enlaces: color, estilo, ubicación, etc.
+
+Por último, debemos tener en cuenta que si en alguno de los capítulos de nuestro libro insertamos
+notas en el margen, figuras al margen o cualquier otro elemento en los márgenes, entonces el área
+de texto de los demás capítulos se mantendrá más reducida (dejando espacio en blanco en el margen),
+para poder presentar adecuadamente esos elementos en el margen de las páginas que sí los contienen.
+Nuevamente, esto se debe a que en el libro PDF la maquetación es común a todo el documento.
+:::
+
+## Plantillas y extensiones de Quarto
+
+Por si no fuese suficiente con la larga lista de funcionalidades y opciones de configuración de Quarto
+estándar, se pueden instalar **extensiones** para ampliar todavía más su funcionalidad o modificar
+su comportamiento.
+
+- [Catálogo de extensiones disponibles para Quarto](https://quarto.org/docs/extensions/).
+
+Es importante saber que antes de utilizar una extensión debemos de instalarla localmente y, además,
+que las extensiones se instalan **para cada carpeta de proyeto** en la que tengamos un documento individual,
+website, libro, etc. Por tanto, cada proyecto puede tener su propio listado de extensiones de Quarto instaladas
+y diferente del de otros proyectos.
+
+Las extensiones se suelen publicar como proyectos en GitHub, por ejemplo la extensión 
+[quarto-ext/fontawesome](https://github.com/quarto-ext/fontawesome). Si pulsamos en el enlace anterior vemos que
+una extensión es un conjunto de ficheros en un repositorio. Al instalar la extensión, estos ficheros se 
+copiarán localmente en el directorio de nuestro proyecto, dentro de una carpeta de nombre `_extensions`. 
+
+Por ejemplo, supongamos que queremos instalar en nuestro proyecto `mi-projecto` dos nuevas extensiones creadas
+por `quarto-ext` en GitHub, que se llaman `fontawesome` y `video`. En una terminal del sistema, vamos al directorio
+de trabajo de nuestro proyecto (este paso previo es *importante*) y ejecutamos los comandos para instalarlas.
+
+``` {.bash filename="Terminal"}
+cd myblog
+quarto add quarto-ext/fontawesome
+quarto add quarto-ext/video
+```
+
+::: {.callout-tip}
+## Extensiones en documentos sin proyecto
+
+No es obligatorio que tengamos un proyecto creado para instalar extensiones y aplicarlas a documentos Quarto.
+Si tenemos uno o varios documentos en un directorio (aunque no sea un proyecto) y ejecutamos los comandos para
+instalar extensiones dentro de ese directorio, entonces cualquier documento situado en ese directorio puede
+acceder a dichas extensiones.
+:::
+
+Las extensiones están organizadas dentro de cuatro grandes tipos:
+
+- Códigos acortados o filtros: permiten usar una sintaxis más breve para operaciones complicadas o aplicar
+filtros de diversa índole para manejo de contenidos.
+- Artículos de revista: extensiones que ya contienen los archivos de estilo necesarios para generar artículos
+científicos según el formato requerido por diversas organizaciones y editoriales (véase [@sec-scientific-articles]).
+- Formatos personalizados: Plantillas que aplican formatos predefinidos a nuestros documentos.
+- `Reveal.js`: Plantillas y temas para la creació de diapositivas con Quarto utilizando esta biblioteca JavaScript.
+
+## Publicación del proyecto
+
+Si queremos publicar nuestro proyecto (documento, libro, sitio web), tenemos varias opciones de publicación,
+como ya vimos en la [@sec-pub-options]. De entre las opciones disponibles, una bastante directa y que
+no tiene coste es utilizar GitHub Pages.
+
+GitHub Pages es un método de publicación de documentación asociada a un proyecto de GitHub. Esencialmente,
+tenemos que seguir un procedimiento ya definido para subir los archivos ya compilados de nuestro proyecto
+a GitHub y configurar ciertos parámetros de nuestro proyecto en esa plataforma. Como resultado, el servicio
+GitHub Pages toma ese contenido y lo publica en un sitio web, asignándole una URL para que sea accesible mediante
+un navegador (igual que estos mismos apuntes).
+
+Aquí vamos a explicar el método para publicar nuestro contenido utilizando el comando `quarto publish`.
+
+### Método con `quarto-publish`
+
+::: {.callout-warning}
+## Antes de empezar a usar Git y GitHub con RStudio
+
+Comenzar a utilizar un Sistema de Control de Versiones (SCV) como Git y un servicio como GitHub
+para gestionar nuestros proyectos es una tarea factible pero no tan sencilla como puede parecer, sobre todo si no has recibido previamente formación sobre estas tecnologías
+o no has aprendido a usarlas por tu cuenta.
+
+Por tanto, hacemos una llamada a la cautela para afrontar el contenido de esta sección armados
+de mucha *paciencia*, ganas de aprender y sobre todo *tiempo* para seguir todos los pasos descritos
+en los diferentes capítulos de varios tutoriales.
+:::
+
+Para poder publicar nuestro proyecto con este método, primero hemos tenido que crear un proyecto nuevo
+en GitHub, clonarlo en nuestra máquina y crear un nuevo proyecto (con RStudio o MS Visual Studio) dentro
+del directorio del proyecto para que esté bajo control de versiones. Alternativamente, también podemos
+realizar este proceso a la inversa: crear primero todo el proyecto en nuestra máquina, para luego subirlo
+a GitHub.
+
+En cualquiera de los dos casos, el contenido de este taller no cubre la parte de poner nuestro proyecto
+en un SCV (Sistema de Control de Versiones) como Git, para después subirlo a un servicio como GitHub. No obstante,
+dejamos a continuación unos enlaces a un tutorial paso a paso que nos guiará por este proceso.
+
+1. Si no tenemos ya una cuenta de usuario/a en GitHub, debemos [registrar una nueva cuenta](https://happygitwithr.com/github-acct).
+2. Ahora, debemos [instalar Git en nuestra máquina](https://happygitwithr.com/install-git), si no estaba ya instalado previamente.
+3. Para no tener problemas después cuando interactuemos con GitHub, es preciso
+[configurar un método de autenticación](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github) para acceder a la plataforma con nuestro usuario. La forma más sencilla es
+mediante el navegador web y configurando [un sistema de autenticación de doble factor (2FA)](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication). La opción
+más cómoda es instalar la app de GitHub en tu móvil y seguir las instrucciones. Una vez que esté funcionando:
+    1. Abrimos la página web de GitHub en el navegador e ingresamos con nuestro usuario y contraseña.
+    2. Usamos la app de GitHub en el móvil para confirmar nuestra identidad.
+4. [Conectamos RStudio con Git y GitHub](https://happygitwithr.com/rstudio-git-github).
+5. Ahora ya podemos crear un nuevo proyecto en GitHub de varias formas:
+    - [Nuevo proyecto primero en GitHub](https://happygitwithr.com/new-github-first).
+    - [Proyecto que ya existe en la máquina local y lo copio en un nuevo repositorio clonado desde GitHub](https://happygitwithr.com/existing-github-first).
+    - [Proyecto que ya existe y lo subo a un repositorio de GitHub (sin clonarlo localmente)](https://happygitwithr.com/existing-github-last).
+
+Ahora ya podemos trabajar en nuestro proyecto, poniendo en práctica lo explicado hasta el momento en este taller
+para añadir secciones, bloques de código ejecutable, figuras, tablas, ecuaciones y demás elementos y opciones
+de configuración. En nuestra máquina, podemos previsualizar periódicamente el resultado (bontón *Render* en
+RStudio). Es conveniente que cada poco tiempo, [confirmemos los cambios en Git](http://destio.us.es/calvo/asignaturas/ge_esco/tutorialusargitgithubrstudio/UsarGitGithubconRStudio.html#haga-una-consolidaci%C3%B3n-o-confirmaci%C3%B3n-commit-y-vea-m%C3%A1s-historia).
+
+::: {.callout-warning}
+## Confirmación manual de cambios
+
+Al contrario que en otros servicios que controlan cambios en ficheros (como Google Docs o MS Office 365 en OneDrive), Git **no
+controla automáticamente** los cambios realizados en los archivos. Por eso, cada cierto tiempo, cuando hemos terminado cambios
+relacionados y antes de seguir cambiando muchas cosas más, debemos indicar a Git que queremos **confirmar el trabajo** hecho
+hasta ese punto. En el último enlace del párrafo anterior se explica cómo hacerlo desde RStudio (vídeo incluido).
+:::
+
+Finalmente, cuando ya tenemos una versión publicable de nuestro proyecto podemos seguir las siguientes instrucciones
+para publicar el proyecto con el comando `quarto publish` que automatiza varias fases del proceso.
+
+- [Publicar un proyecto Quarto con GitHub Pages y el comando `quarto publish`](https://quarto.org/docs/publishing/github-pages.html#publish-command).
+
+::: {.callout-warning}
+## Enviar los cambios de la rama `main` a GitHub
+
+Si has prestado atención al último tutorial, verás que la publicación de los contenidos se hace en
+una rama diferente de la principal de tu repositorio en GitHub, llamada `gh-pages`. A esa rama
+sólo se van a subir **los ficheros de salida** ya generados en los formatos que hayamos configurado
+en nuestro proyecto (HTML, PDF, etc.).
+
+Es muy importante darse cuenta de que los ficheros fuente de nuestro proyecto, con extensión `.qmd`,
+`_quarto.yml` etc. **no se han copiado al repositorio remoto** y, por tanto, todavía no tenemos una "copia
+de seguridad" de dichos archivos en GitHub.
+
+Para conseguir esto, desde RStudio (pestaña Git) podemos hacer una operación `push` que envía los 
+*commits* (cambios confirmados) desde nuestra máquina local al repositorio remoto. Alternativamente,
+también podemos abrir una terminal de sistema en RStudio y ejecutar (en el directorio raíz del proyecto)
+el siguiente comando:
+
+``` {.bash filename="Terminal"}
+git push origin main
+```
+
+Si todo va correctamente, aparecerán varios mensajes en pantalla informando del progreso de la subida y
+confirmando que el historial de cambios en nuestro repositorio local ya está *sincronizado* con el repositorio
+remoto alojado en GitHub.
+:::
 

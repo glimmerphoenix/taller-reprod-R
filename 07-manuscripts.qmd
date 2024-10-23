@@ -1,4 +1,4 @@
-# Artículos y publicaciones científicas
+# Artículos y publicaciones científicas{#sec-scientfic-articles}
 
 - [Formatos editoriales soportados](https://quarto.org/docs/journals/).
 - [Adjusting templates](https://quarto.org/docs/journals/templates.html).

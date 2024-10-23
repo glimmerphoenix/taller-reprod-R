@@ -102,7 +102,7 @@ en la revisión continua de los métodos y resultados (empezando por los propios
 
 ![Tira cómica que representa el modelo de revisión de publicaciones científicas. Fuente: [PhD comics](http://phdcomics.com/comics/archive.php?comicid=1531).](img/phd101212s.png){#fig-phd-comic-revs width=90%}
 
-La @fig-evol-research-fraud muestra un gráfico publicado en la prestigiosa revista Science Magazine [CITATION], 
+La @fig-evol-research-fraud muestra un gráfico publicado en la prestigiosa revista Science Magazine [@brainard2018massive], 
 que representa los datos sobre evolución del número de artículos de investigación retractados o retirados por 
 diveresas causas, entre 1997 y 2014. En este gráfico, podemos constatar cómo la mejora de las herramientas 
 y la mayor disponibilidad de recursos permite analizar y revisar un mayor volumen de publicaciones y análisis,
@@ -242,7 +242,7 @@ documento y los elementos y herramientas que entran en juego para conseguirlo.
 
 - **Quarto**: un software que permite crear documentación científica siguiendo los principios de 
 la programación literaria.
-- **Kintr y lenguaje de programación**: el paquete `knitr` se encarga de la conexión con un intérprete 
+- **Knitr y lenguaje de programación**: el paquete `knitr` se encarga de la conexión con un intérprete 
 de un lenguaje de programación (R, Python, Julia) que se pueda ejecutar en un entorno 
 [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop), para poder ejecutar
 fragmentos de código software integrados en el documento y generar como resultado contenido en formato
