@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -262,9 +282,9 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#visión-general" id="toc-visión-general" class="nav-link active" data-scroll-target="#visión-general"><span class="header-section-number">8.1</span> Visión general</a></li>
-  <li><a href="#publicación-del-código-fuente" id="toc-publicación-del-código-fuente" class="nav-link" data-scroll-target="#publicación-del-código-fuente"><span class="header-section-number">8.2</span> Publicación del código fuente</a></li>
+  <li><a href="#publicación-del-código-fuente-y-documentación-técnica" id="toc-publicación-del-código-fuente-y-documentación-técnica" class="nav-link" data-scroll-target="#publicación-del-código-fuente-y-documentación-técnica"><span class="header-section-number">8.2</span> Publicación del código fuente y documentación técnica</a></li>
   <li><a href="#publicación-de-conjuntos-de-datos" id="toc-publicación-de-conjuntos-de-datos" class="nav-link" data-scroll-target="#publicación-de-conjuntos-de-datos"><span class="header-section-number">8.3</span> Publicación de conjuntos de datos</a></li>
-  <li><a href="#gestión-de-referencias" id="toc-gestión-de-referencias" class="nav-link" data-scroll-target="#gestión-de-referencias"><span class="header-section-number">8.4</span> Gestión de referencias</a></li>
+  <li><a href="#gestión-de-referencias-y-publicación-en-abierto" id="toc-gestión-de-referencias-y-publicación-en-abierto" class="nav-link" data-scroll-target="#gestión-de-referencias-y-publicación-en-abierto"><span class="header-section-number">8.4</span> Gestión de referencias y publicación en abierto</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/08-FAIR.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/08-FAIR.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -293,43 +313,85 @@ ul.task-list li input[type="checkbox"] {
 <section id="visión-general" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="visión-general"><span class="header-section-number">8.1</span> Visión general</h2>
 <p>Desde hace años, dentro de la comunidad científica se ha desarrollado un movimiento imparable para favorecer el acceso a toda la información relacionada con los trabajos, experimentos y publicaciones científicas, de forma que se facilite su validación y reproducción/replicación por parte de otros investigadores/as o expertos/as interesados.</p>
-<p>Este movimiento se ha concentrado especialmente, en su fase inicial, en garantizar al menos el acceso a la materia prima necesaria para desarrollar muchos de estos proyectos: los datos. Los principios fundamentales que deben cumplirse para que los datos puedan ser indexados y reutilizados al máximo se denominan <strong>Principios FAIR</strong> y vienen recogidos, entre otras fuentes, en los <a href="https://horizoneuropencpportal.eu/sites/default/files/2022-09/ore-fair-data-guide.pdf">documentos de guía de la Comisión Europea</a> para los investigadores que participan en proyectos financiados por dicha organización. Estos principios FAIR son:</p>
+<p>Este movimiento se ha concentrado especialmente, en su fase inicial, en garantizar al menos el acceso a la materia prima necesaria para desarrollar muchos de estos proyectos: los datos. Los principios fundamentales que deben cumplirse para que los datos puedan ser indexados y reutilizados al máximo se denominan <strong>Principios FAIR</strong> y vienen recogidos, entre otras fuentes, en los <a href="https://horizoneuropencpportal.eu/sites/default/files/2022-09/ore-fair-data-guide.pdf">documentos de guía de la Comisión Europea</a> para los investigadores que participan en proyectos financiados por dicha organización. Estos principios FAIR fueron establecidos inicialmente por <span class="citation" data-cites="wilkinson2016fair">Wilkinson et&nbsp;al. (<a href="references.html#ref-wilkinson2016fair" role="doc-biblioref">2016</a>)</span> y son:</p>
 <ul>
-<li><p><strong>Findable</strong>:</p></li>
-<li><p><strong>Accessible</strong>:</p></li>
-<li><p><strong>Interoperable</strong>:</p></li>
-<li><p><strong>Reusable</strong>:</p></li>
+<li><p><strong>Findable</strong>: Los datos y metadatos (datos que describen a los datos, como su formato, contenido, significado, enlace con otros datos, etc.) deben recibir un identificador único global y persistente que permita localizarlos de forma directa. El estándar más utilizado hoy en día es el <a href="https://www.doi.org/">sistema DOI</a> (ISO 26324). Los metadatos deben incluir de forma clara y explícita el identificador del dato al que describen, y tanto datos como metadatos deben estar registrados o indexados en fuentes que permitan su búsqueda y recuperación.</p></li>
+<li><p><strong>Accessible</strong>: Datos y metadatos deben poder obtenerse mediante un protocolo de comunicación estándar y abierto. Los metadatos deben seguir permaneciendo accesibles aún cuando los datos ya no estén disponibles.</p></li>
+<li><p><strong>Interoperable</strong>: Los datos y metadatos deben usar formatos estándar y abiertos de representación del conocimiento, vocabularios que sigan principios FAIR y deben incluir referencias a otros datos y metadatos con los que estén relacionados.</p></li>
+<li><p><strong>Reusable</strong>: Los datos y metadatos están descritos de manera rica y precisa, con múltiples atributos relevantes que faciliten su utilización por otros usuarios/as.</p></li>
 </ul>
-<p>Es importante recalcar la trascendencia de publicar en abierto y siguiendo buenas prácticas de investigación revisable y reproducible/replicable. Por ejemplo, la Comisión Nacional Evaluadora de la Actividad Investigadora (CNEAI) ha publicado en 2023-2024 nuevos criterios para evaluación de las publicaciones válidas para poder ser evaluadas en la concesión de un sexenio de investigación.</p>
+<p>Es importante recalcar la trascendencia de publicar en abierto y siguiendo buenas prácticas de investigación revisable y reproducible/replicable. Por ejemplo, la Comisión Nacional Evaluadora de la Actividad Investigadora (CNEAI) ha publicado en 2023-2024 nuevos criterios para evaluación de las publicaciones válidas para poder ser evaluadas en la concesión de un sexenio de investigación. Así mismo, en todas las convocatorias recientes financiadas por los distintos ministerios del Gobierno de España se exige que los resultados de investigación, especialmente todas las publicaciones, <em>datasets</em>, software y procedimientos sean públicamente accesibles y cumplan con los principios FAIR.</p>
+<p>Sin embargo, todavía queda camino por recorrer. Un reciente estudio <span class="citation" data-cites="Kumar2024">(<a href="references.html#ref-Kumar2024" role="doc-biblioref">Kumar et&nbsp;al., 2024</a>)</span> analizó el grado de cumplimiento de los principios FAIR (el llamado FAIRness) de los resultados de investigación publicados por proyectos multi-actor financiados recientemente dentro del programa marco H2020 europeo y relacionados con el sector agroalimentario. Como principales conclusiones, menos de un 10% de los proyectos analizados lograron cumplir con los principios FAIR, aunque dichos principios se cumplían en mayor medida en los artículos de investigación publicados en revistas y conferencias, así como en libros.</p>
+<p>En general, otra de las conclusiones es que el sector agroalimentario y rural europeo se está conviertiendo en dependiente de los datos de manera cada vez más intensa y que la aplicación de los principos FAIR contribuye a mejorar la toma de decisiones y a explotar mejor los resultados de innovación derivados de estos proyectos. Sin embargo, también se constata que la comunidad de investigación para el desarrollo del sector agroalimentario y rural todavía tiene una experiencia limitada en la aplicación de estos principios.</p>
 </section>
-<section id="publicación-del-código-fuente" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="publicación-del-código-fuente"><span class="header-section-number">8.2</span> Publicación del código fuente</h2>
+<section id="publicación-del-código-fuente-y-documentación-técnica" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="publicación-del-código-fuente-y-documentación-técnica"><span class="header-section-number">8.2</span> Publicación del código fuente y documentación técnica</h2>
 <ul>
-<li><p>GitHub.</p></li>
-<li><p>GitLab.</p></li>
-<li><p>Zenodo (asigna un DOI a un repositorio público en GitHub o GitLab)</p></li>
+<li><p>Plataformas como GitHub y GitLab facilitan en gran medida la gestión y publicación de proyectos software dentro de iniciativas y proyectos de investigación, así como la publicación y mantenimiento de centros de documentación técnica digital sobre herramientas, procedimientos y buenas prácticas relacionas con la actividad de dichas iniciativas.</p></li>
+<li><p>Ejemplos del <a href="https://soilwise-he.eu/">proyecto SoilWise</a>, financiado dentro del programa HE de la Comunidad Europea.</p>
+<ul>
+<li><p><a href="https://github.com/soilwise-he">Espacio de co-creación digital de SoilWise en GitHub</a>. Se ha conseguido creando una organización (sin coste), de forma que se puedan crear repositorios en esta plataforma, agrupados bajo el paraguas del proyecto, para diferentes fines: listados de software de interés, documentación técnica, manuales de uso, arquitectura de la plataforma propuesta, etc.</p></li>
+<li><p><a href="https://soilwise-documentation.pages.dev/">Centro de documentación</a>. Aquí se usa la solución <a href="https://www.mkdocs.org/">MkDocs</a>, que funciona con el lenguaje Python (Quarto tiene grandes ventajas en este aspecto).</p></li>
+<li><p><a href="https://github.com/soilwise-he/harvesters">Repositorio con las herramientas para recolección de datos</a>, documentadas en la <a href="https://soilwise-he.github.io/SoilWise-documentation/technical_components/ingestion/">página que describe el proceso de obtención de datos</a> en la infraestructura del proyecto.</p></li>
+</ul></li>
+<li><p>Repositorios abiertos de datos y material de investigación como <a href="https://about.zenodo.org/">Zenodo</a> y <a href="http://figshare.com/">Figshare</a> pueden ayudar a publicitar y citar material de investigación. Por ejemplo, Zendo puede <a href="https://docs.github.com/es/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo">emitir un identificador persistente (DOI) para un repositorio de sofware en GitHub</a> apuntando a una versión en particular del software que se haya publicado y etiquetado desde dicho proyecto en GitHub. Esto permite incluirlo en una publicación científica para saber con certerza qué versió exacta del código software se ha utilizado para realizar el trabajo recogido en esa publicación.</p></li>
+</ul>
+<p>Como ejemplo, la <a href="#fig-PyMPDATA-Zenodo" class="quarto-xref">Figura&nbsp;<span>8.1</span></a> muestra la <a href="https://zenodo.org/records/13988934">página de Zenodo</a> correspondiente al software PyMPDATA, que apunta al repositorio original del software <a href="https://github.com/open-atmos/PyMPDATA/tree/v1.2.0?tab=readme-ov-file">alojado en GitHub</a>, mostrado a su vez en la <a href="#fig-PyMPDATA-GitHub" class="quarto-xref">Figura&nbsp;<span>8.2</span></a>. Podemos ver las referencias cruzadas de metadatos que mantienen la coherencia de conexión en ambos sentidos.</p>
+<div id="fig-PyMPDATA-Zenodo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PyMPDATA-Zenodo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/PyMPDATA-Zenodo.png" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PyMPDATA-Zenodo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8.1: Página del proyecto PyMPDATA (v1.2.0) en <a href="https://zenodo.org/records/13988934">Zenodo</a>
+</figcaption>
+</figure>
+</div>
+<div id="fig-PyMPDATA-GitHub" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-PyMPDATA-GitHub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/PyMPDATA-GitHub.png" class="img-fluid figure-img" style="width:95.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-PyMPDATA-GitHub-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figura&nbsp;8.2: Página del proyecto PyMPDATA (v1.2.0) en <a href="https://github.com/open-atmos/PyMPDATA/tree/v1.2.0?tab=readme-ov-file">GitHub</a>
+</figcaption>
+</figure>
+</div>
+<ul>
+<li><p>La página del proyecto en Zenodo apunta a una versión concreta del repositorio en GitHub, y mantiene un listado de todas las versiones del mismo proyecto anteriormente referenciadas. Cada nueva versión recibe un DOI diferente, para diferenciarlas unívocamente.</p></li>
+<li><p>La página de descripción del repositorio en GitHub exhibe, entre otras etiquetas, el DOI para esa versión en particular, el DOI al artículo científico publicado en el JOSS explicando este software, así como otras etiquetas para atribución de las fuentes de financiación del proyecto.</p></li>
 </ul>
 </section>
 <section id="publicación-de-conjuntos-de-datos" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="publicación-de-conjuntos-de-datos"><span class="header-section-number">8.3</span> Publicación de conjuntos de datos</h2>
 <ul>
-<li><p>Zenodo y repositorios similares.</p></li>
+<li><p><a href="https://about.zenodo.org/">Zenodo</a> es, probablemente junto con <a href="http://figshare.com/">Figshare</a>, uno de los repositorios de datos abiertos más conocidos y ampliamente utilizados en investigación, sobre todo en Europa, al ser un proyecto integrado en <a href="https://www.openaire.eu/">OpenAIRE</a>, una organiación sin ánimo de lucro creada por la Unión Europea para favorecer la ciencia abierta.</p></li>
 <li><p>Publicaciones científicas en acceso abierto (<em>open access</em>).</p></li>
 <li><p>Importante enlazar el DOI de un <em>dataset en un artículo, de forma que se puedan trazar (en sentido inverso) los DOIs de las publicaciones que emplean dicho </em>dataset*.</p></li>
 </ul>
 </section>
-<section id="gestión-de-referencias" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="gestión-de-referencias"><span class="header-section-number">8.4</span> Gestión de referencias</h2>
+<section id="gestión-de-referencias-y-publicación-en-abierto" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="gestión-de-referencias-y-publicación-en-abierto"><span class="header-section-number">8.4</span> Gestión de referencias y publicación en abierto</h2>
+<p>Además de la asignación de un DOI a artículos, conjuntos de datos, software y otros elementos de los trabajos de investigación, existen algunas herramientas adicionales que facilitan la identificación de los trabajos y la autribución de su autoría (muchas de ellas con soporte explícito en Quarto)</p>
 <ul>
-<li><p>DOI</p></li>
-<li><p>ORCID de los autores/as.</p></li>
-<li><p>Figshare</p></li>
-<li><p>Zenodo</p></li>
-<li><p>arXiv o repositorio similar para <em>preprints</em> en acceso abierto.</p></li>
-<li><p>PLOS</p></li>
+<li><p>El <a href="https://orcid.org/">ORCID</a> es un identificador gratuito, unívoco y persistente para individuos que se involucran en actividades de investigación, innovación y académicas. Permite identificar rápidamente la identidad de un autor/a en una publicación o trabajo científico o la persona encargada de publicar y mantener un recurso (<em>dataset</em>, repositorio de software, etc.). Además, el ORCID permite generar listado de todas las contribuciones realizadas por el individuo identificado.</p></li>
+<li><p>Existe una amplia <a href="https://en.wikipedia.org/wiki/List_of_preprint_repositories">lista de archivos de <em>preprints</em></a> que permiten la publicación de trabajos preliminares que no han pasado aún un proceso de revisión por pares para su publicación en una revista. Cada vez más editoriales aceptan (e incluso fomentan) la publicación de estos documentos para dejar constancia rápida de los avances de investigación, debido a los elevados tiempos que requiere el proceso de revisión y publicación en muchas revistas de prestigio.</p></li>
+<li><p><a href="https://plos.org/">PLOS</a> es una editorial Open Access sin ánimo de lucro, que edita y publica varias revistas digitales de elevado impacto y gran difusión en muchas áreas incluyendo, <a href="https://journals.plos.org/sustainabilitytransformation/">transformación y sostenibilidad</a>.</p></li>
+</ul>
+<p>Un número creciente de editoriales están adoptando igualmente principios de publicación abierta (Open Access), aunque normalmente repercutiendo un coste significativo en los autores o las instituciones a las que están afiliados para sufragar los gastos de publicación.</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/create-citeable-articles.html">Guía para crear artículos citables con Quarto</a>.</li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
+<div id="ref-Kumar2024" class="csl-entry" role="listitem">
+Kumar, P., Hendriks, T., Panoutsopoulos, H., &amp; Brewster, C. (2024). Investigating <span>FAIR</span> data principles compliance in horizon 2020 funded Agri-food and rural development multi-actor projects. <em>Agricultural Systems</em>, <em>214</em>, 103822. https://doi.org/<a href="https://doi.org/10.1016/j.agsy.2023.103822">https://doi.org/10.1016/j.agsy.2023.103822</a>
+</div>
+<div id="ref-wilkinson2016fair" class="csl-entry" role="listitem">
+Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., Silva Santos, L. B. da, Bourne, P. E., et&nbsp;al. (2016). The <span>FAIR</span> <span>G</span>uiding <span>P</span>rinciples for scientific data management and stewardship. <em>Scientific Data</em>, <em>3</em>(1), 1-9. https://doi.org/<a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
