@@ -17,6 +17,7 @@ format:
         margin-width: 350px
 execute: 
   echo: fenced
+  
 lang: es
 reference-location: margin
 citation-location: margin
@@ -30,9 +31,15 @@ maquetación visual de las páginas en Quarto, con el objetivo de producir un do
 inspirado en el estilo de entregas de Edward R. Tufte. Dicho estilo ya se implementó con éxito en los
 documentos con RMarkdown [@xie2018], la tecnología que ha precedido a Quarto. Este estilo es el que
 utilizaba Tufte en sus entregables y sus libros, y es conocido por su uso intensivo de notas al margen,
-la estrecha integración de los gráficos con el texto y una tipografía muy cuidada. Quarto[^1] soporta
+la estrecha integración de los gráficos con el texto y una tipografía muy cuidada. Quarto soporta
 muchas de las técnicas de diseño gráfico que se utilizan en el estilo de entregas Tufte, tanto para
 documentos HTML como en LaTeX/PDF.
+
+Here is a footnote reference,[^1] and another[^2].
+
+[^1]: Here is the footnote.
+
+[^2]: Here's one with multiple blocks.
 
 Veamos un ejemplo de las opciones básicas de debemos configurar en la cabecera de nuestro documento
 para utilizar este diseño en particular.
@@ -65,9 +72,9 @@ el mismo documento Quarto como fuente.
 2. Proporcionar una sintaxis sencilla para escribir elementos siguiendo el estilo Tufte, tales
 como notas y figuras al margen. Por ejemplo, si se quiere colocar una figura en el margen sólo
 hay que añadir la opción `fig-column: margin` en el bloque de código y Quarto se encargará
-del resto del trabajo[^2].
+del resto del trabajo[^3].
 
-[^2]: Nunca deberías tener que pensar en introducir configuraciones específicas para cada salida,
+[^3]: Nunca deberías tener que pensar en introducir configuraciones específicas para cada salida,
 como `\begin{marginfigure}` en LaTeX o `<span class="marginfigure">` en HTML; el código de LaTeX 
 o HTML para producir cada elemento gráfico internamente puede ser complicado de recordar, así que
 el usuario de Quarto no debería tener que bajar nunca a ese nivel.
