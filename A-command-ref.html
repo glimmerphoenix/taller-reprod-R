@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Apéndice A — Comandos de utilidad – Investigación reproducible con Quarto y R</title>
+<title>Apéndice A — Comandos y opciones de configuración – Investigación reproducible con Quarto y R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A-command-ref.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A-command-ref.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos de utilidad</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A-command-ref.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A-command-ref.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos y opciones de configuración</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -222,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-command-ref.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos de utilidad</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos y opciones de configuración</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -262,16 +262,18 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#comandos-quarto" id="toc-comandos-quarto" class="nav-link active" data-scroll-target="#comandos-quarto"><span class="header-section-number">A.1</span> Comandos Quarto</a></li>
-  <li><a href="#celdas-de-código-en-r" id="toc-celdas-de-código-en-r" class="nav-link" data-scroll-target="#celdas-de-código-en-r"><span class="header-section-number">A.2</span> Celdas de código en R</a></li>
+  <li><a href="#celdas-de-código" id="toc-celdas-de-código" class="nav-link" data-scroll-target="#celdas-de-código"><span class="header-section-number">A.2</span> Celdas de código</a></li>
+  <li><a href="#formatos-de-documentos-de-salida" id="toc-formatos-de-documentos-de-salida" class="nav-link" data-scroll-target="#formatos-de-documentos-de-salida"><span class="header-section-number">A.3</span> Formatos de documentos de salida</a></li>
+  <li><a href="#opciones-de-configuración-de-proyectos" id="toc-opciones-de-configuración-de-proyectos" class="nav-link" data-scroll-target="#opciones-de-configuración-de-proyectos"><span class="header-section-number">A.4</span> Opciones de configuración de proyectos</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/A-command-ref.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/A-command-ref.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A-command-ref.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A-command-ref.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos de utilidad</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A-command-ref.html">Apéndices</a></li><li class="breadcrumb-item"><a href="./A-command-ref.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos y opciones de configuración</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Apéndice A — Comandos de utilidad</h1>
+<h1 class="title">Apéndice A — Comandos y opciones de configuración</h1>
 </div>
 
 
@@ -290,9 +292,34 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="comandos-quarto" class="level2" data-number="A.1">
 <h2 data-number="A.1" class="anchored" data-anchor-id="comandos-quarto"><span class="header-section-number">A.1</span> Comandos Quarto</h2>
+<ul>
+<li><a href="https://rstudio.github.io/cheatsheets/html/quarto.html">Listado de comandos y opciones para publicar con Quarto</a>.</li>
+<li><a href="https://rstudio.github.io/cheatsheets/quarto.pdf"><em>Cheatsheet</em>: publicación de documentos con Quarto</a>(PDF).</li>
+</ul>
 </section>
-<section id="celdas-de-código-en-r" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="celdas-de-código-en-r"><span class="header-section-number">A.2</span> Celdas de código en R</h2>
+<section id="celdas-de-código" class="level2" data-number="A.2">
+<h2 data-number="A.2" class="anchored" data-anchor-id="celdas-de-código"><span class="header-section-number">A.2</span> Celdas de código</h2>
+<ul>
+<li><a href="https://quarto.org/docs/reference/cells/cells-knitr.html">Opciones de configuración para bloques de código</a>.</li>
+</ul>
+</section>
+<section id="formatos-de-documentos-de-salida" class="level2" data-number="A.3">
+<h2 data-number="A.3" class="anchored" data-anchor-id="formatos-de-documentos-de-salida"><span class="header-section-number">A.3</span> Formatos de documentos de salida</h2>
+<ul>
+<li><a href="https://quarto.org/docs/reference/formats/html.html">Opciones de configuración para documentos HTML</a>.</li>
+<li><a href="https://quarto.org/docs/reference/formats/pdf.html">Opciones de configuración para documentos en PDF</a>.</li>
+</ul>
+</section>
+<section id="opciones-de-configuración-de-proyectos" class="level2" data-number="A.4">
+<h2 data-number="A.4" class="anchored" data-anchor-id="opciones-de-configuración-de-proyectos"><span class="header-section-number">A.4</span> Opciones de configuración de proyectos</h2>
+<ul>
+<li><a href="https://quarto.org/docs/reference/projects/options.html">Opciones globales de configuración</a>.</li>
+<li><a href="https://quarto.org/docs/reference/projects/books.html">Opciones de configuración para libros</a>.</li>
+<li><a href="https://quarto.org/docs/reference/projects/manuscripts.html">Opciones de configuración para manuscritos</a>.</li>
+<li><a href="https://quarto.org/docs/reference/projects/websites.html">Opciones de configuración para websites</a>.</li>
+<li><a href="https://quarto.org/docs/reference/metadata/crossref.html">Configuración de referencias cruzadas</a>.</li>
+<li><a href="https://quarto.org/docs/reference/metadata/citation.html">Configuración de referencias bibliográficas</a>.</li>
+</ul>
 
 
 </section>

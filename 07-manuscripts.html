@@ -256,7 +256,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-command-ref.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos de utilidad</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Comandos y opciones de configuración</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -372,6 +372,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="figuras-y-gráficos-para-publicación" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="figuras-y-gráficos-para-publicación"><span class="header-section-number">7.2</span> Figuras y gráficos para publicación</h2>
 <p>Una ventaja importante de utilizar Quarto para crear nuestros artículos es la de poder integrar los resultados de la ejecución de nuestro código (gráficos, tablas, resultados de evaluación de modelos y algoritmos, etc.) directamente en nuestros documentos científicos. Esto mitiga en gran medida los inconvenientes ya mencionados al principio del taller para mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos usando la versión correcta del código sobre los datos apropiados.</p>
+<ul>
+<li><a href="https://github.com/hbctraining/publication_perfect?tab=readme-ov-file">Publication Perfect</a>: un tutorial con materiales online en abierto sobre cómo mejorar los elementos de nuestras publicaciones y artículos, creado por el grupo Harvard Chan Bioinformatics Core.</li>
+</ul>
+<p>Recordemos algunos de los paquetes en R que nos permiten crear gráficos y tablas ya preparados para su publicación:</p>
+<ul>
+<li><p><a href="https://hbiostat.org/r/hmisc/"><code>Hmisc</code></a>: incluye muchas funciones para descripción de datos y creación de gráficos y tablas resumen de datos y modelos, listos para publicar.</p>
+<ul>
+<li><a href="https://hbiostat.org/r/hmisc/examples">Ejemplos reproducibles con <code>Hmisc</code></a>. Se indica que los ejemplos son para R Markdown, pero en realidad funcionan también para Quarto (ya que se usa por defecto el mismo motor <code>knitr</code> para tratamiento y ejecución de los bloques de código.)</li>
+</ul></li>
+<li><p><a href="https://github.com/dcomtois/summarytools"><code>summarytools</code></a>: ofrece muchas funciones y herramientas para presentar resúmenes de tablas de datos y data frames, tanto en forma de tabla como en gráficas para EDA.</p>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html">Ejemplos de uso de <code>summarytools</code></a>.</li>
+</ul></li>
+<li><p><a href="https://rpkgs.datanovia.com/ggpubr/"><code>ggpubr</code></a>: paquete para ayudar a personalizar gráficos creados con <code>ggplot2</code>, de forma que queden listos para su inclusión en publicaciones científicas.</p>
+<ul>
+<li><a href="http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/">Colección de tutoriales y ejemplos para creación de gráficos con <code>ggpubr</code></a>.</li>
+</ul></li>
+<li><p><a href="https://thatdatatho.com/easily-create-descriptive-summary-statistic-tables-r-studio/">Listado y ejemplos de paquetes para crear tablas en publicaciones</a>.</p></li>
+</ul>
 </section>
 <section id="facilitar-la-cita-de-artículos" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="facilitar-la-cita-de-artículos"><span class="header-section-number">7.3</span> Facilitar la cita de artículos</h2>

@@ -464,7 +464,7 @@
     "href": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
     "title": "7  Artículos y publicaciones científicas",
     "section": "7.2 Figuras y gráficos para publicación",
-    "text": "7.2 Figuras y gráficos para publicación\nUna ventaja importante de utilizar Quarto para crear nuestros artículos es la de poder integrar los resultados de la ejecución de nuestro código (gráficos, tablas, resultados de evaluación de modelos y algoritmos, etc.) directamente en nuestros documentos científicos. Esto mitiga en gran medida los inconvenientes ya mencionados al principio del taller para mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos usando la versión correcta del código sobre los datos apropiados.",
+    "text": "7.2 Figuras y gráficos para publicación\nUna ventaja importante de utilizar Quarto para crear nuestros artículos es la de poder integrar los resultados de la ejecución de nuestro código (gráficos, tablas, resultados de evaluación de modelos y algoritmos, etc.) directamente en nuestros documentos científicos. Esto mitiga en gran medida los inconvenientes ya mencionados al principio del taller para mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos usando la versión correcta del código sobre los datos apropiados.\n\nPublication Perfect: un tutorial con materiales online en abierto sobre cómo mejorar los elementos de nuestras publicaciones y artículos, creado por el grupo Harvard Chan Bioinformatics Core.\n\nRecordemos algunos de los paquetes en R que nos permiten crear gráficos y tablas ya preparados para su publicación:\n\nHmisc: incluye muchas funciones para descripción de datos y creación de gráficos y tablas resumen de datos y modelos, listos para publicar.\n\nEjemplos reproducibles con Hmisc. Se indica que los ejemplos son para R Markdown, pero en realidad funcionan también para Quarto (ya que se usa por defecto el mismo motor knitr para tratamiento y ejecución de los bloques de código.)\n\nsummarytools: ofrece muchas funciones y herramientas para presentar resúmenes de tablas de datos y data frames, tanto en forma de tabla como en gráficas para EDA.\n\nEjemplos de uso de summarytools.\n\nggpubr: paquete para ayudar a personalizar gráficos creados con ggplot2, de forma que queden listos para su inclusión en publicaciones científicas.\n\nColección de tutoriales y ejemplos para creación de gráficos con ggpubr.\n\nListado y ejemplos de paquetes para crear tablas en publicaciones.",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
@@ -559,23 +559,56 @@
   {
     "objectID": "A-command-ref.html",
     "href": "A-command-ref.html",
-    "title": "Apéndice A — Comandos de utilidad",
+    "title": "Apéndice A — Comandos y opciones de configuración",
     "section": "",
     "text": "A.1 Comandos Quarto",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos de utilidad</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
     ]
   },
   {
-    "objectID": "A-command-ref.html#celdas-de-código-en-r",
-    "href": "A-command-ref.html#celdas-de-código-en-r",
-    "title": "Apéndice A — Comandos de utilidad",
-    "section": "A.2 Celdas de código en R",
-    "text": "A.2 Celdas de código en R",
+    "objectID": "A-command-ref.html#comandos-quarto",
+    "href": "A-command-ref.html#comandos-quarto",
+    "title": "Apéndice A — Comandos y opciones de configuración",
+    "section": "",
+    "text": "Listado de comandos y opciones para publicar con Quarto.\nCheatsheet: publicación de documentos con Quarto(PDF).",
     "crumbs": [
       "Apéndices",
-      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos de utilidad</span>"
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html#celdas-de-código",
+    "href": "A-command-ref.html#celdas-de-código",
+    "title": "Apéndice A — Comandos y opciones de configuración",
+    "section": "A.2 Celdas de código",
+    "text": "A.2 Celdas de código\n\nOpciones de configuración para bloques de código.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html#formatos-de-documentos-de-salida",
+    "href": "A-command-ref.html#formatos-de-documentos-de-salida",
+    "title": "Apéndice A — Comandos y opciones de configuración",
+    "section": "A.3 Formatos de documentos de salida",
+    "text": "A.3 Formatos de documentos de salida\n\nOpciones de configuración para documentos HTML.\nOpciones de configuración para documentos en PDF.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html#opciones-de-configuración-de-proyectos",
+    "href": "A-command-ref.html#opciones-de-configuración-de-proyectos",
+    "title": "Apéndice A — Comandos y opciones de configuración",
+    "section": "A.4 Opciones de configuración de proyectos",
+    "text": "A.4 Opciones de configuración de proyectos\n\nOpciones globales de configuración.\nOpciones de configuración para libros.\nOpciones de configuración para manuscritos.\nOpciones de configuración para websites.\nConfiguración de referencias cruzadas.\nConfiguración de referencias bibliográficas.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
     ]
   },
   {
@@ -583,7 +616,18 @@
     "href": "B-IDEs.html",
     "title": "Apéndice B — Entornos de desarrollo para Quarto",
     "section": "",
-    "text": "B.1 R Studio",
+    "text": "B.1 R Studio\nEs la IDE de referencia que hemos utilizado en el taller para explicar la creación y gestión de proyectos de documentación científica con Quarto y R.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Entornos de desarrollo para Quarto</span>"
+    ]
+  },
+  {
+    "objectID": "B-IDEs.html#r-studio",
+    "href": "B-IDEs.html#r-studio",
+    "title": "Apéndice B — Entornos de desarrollo para Quarto",
+    "section": "",
+    "text": "Introducción al uso de Quarto en RStudio.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Entornos de desarrollo para Quarto</span>"
@@ -594,7 +638,7 @@
     "href": "B-IDEs.html#visual-studio",
     "title": "Apéndice B — Entornos de desarrollo para Quarto",
     "section": "B.2 Visual Studio",
-    "text": "B.2 Visual Studio",
+    "text": "B.2 Visual Studio\nEs una IDE alternativa, creada por Microsoft, y con extensiones para dar soporte a múltiples lenguajes y plataformas de desarrollo.\nEn concreto, tiene una extensión para Quarto.\n\nExtensión de VS Code para Quarto.\nIntroducción al uso de Quarto con Microsoft VS Code.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>B</span>  <span class='chapter-title'>Entornos de desarrollo para Quarto</span>"
