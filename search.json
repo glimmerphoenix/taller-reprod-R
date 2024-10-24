@@ -497,7 +497,18 @@
     "href": "08-FAIR.html",
     "title": "8  Principios FAIR",
     "section": "",
-    "text": "8.1 Visión general",
+    "text": "8.1 Visión general\nDesde hace años, dentro de la comunidad científica se ha desarrollado un movimiento imparable para favorecer el acceso a toda la información relacionada con los trabajos, experimentos y publicaciones científicas, de forma que se facilite su validación y reproducción/replicación por parte de otros investigadores/as o expertos/as interesados.\nEste movimiento se ha concentrado especialmente, en su fase inicial, en garantizar al menos el acceso a la materia prima necesaria para desarrollar muchos de estos proyectos: los datos. Los principios fundamentales que deben cumplirse para que los datos puedan ser indexados y reutilizados al máximo se denominan Principios FAIR y vienen recogidos, entre otras fuentes, en los documentos de guía de la Comisión Europea para los investigadores que participan en proyectos financiados por dicha organización. Estos principios FAIR son:\nEs importante recalcar la trascendencia de publicar en abierto y siguiendo buenas prácticas de investigación revisable y reproducible/replicable. Por ejemplo, la Comisión Nacional Evaluadora de la Actividad Investigadora (CNEAI) ha publicado en 2023-2024 nuevos criterios para evaluación de las publicaciones válidas para poder ser evaluadas en la concesión de un sexenio de investigación.",
+    "crumbs": [
+      "Publicaciones científicas",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
+    ]
+  },
+  {
+    "objectID": "08-FAIR.html#visión-general",
+    "href": "08-FAIR.html#visión-general",
+    "title": "8  Principios FAIR",
+    "section": "",
+    "text": "Findable:\nAccessible:\nInteroperable:\nReusable:",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
@@ -508,7 +519,7 @@
     "href": "08-FAIR.html#publicación-del-código-fuente",
     "title": "8  Principios FAIR",
     "section": "8.2 Publicación del código fuente",
-    "text": "8.2 Publicación del código fuente",
+    "text": "8.2 Publicación del código fuente\n\nGitHub.\nGitLab.\nZenodo (asigna un DOI a un repositorio público en GitHub o GitLab)",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
@@ -519,7 +530,7 @@
     "href": "08-FAIR.html#publicación-de-conjuntos-de-datos",
     "title": "8  Principios FAIR",
     "section": "8.3 Publicación de conjuntos de datos",
-    "text": "8.3 Publicación de conjuntos de datos",
+    "text": "8.3 Publicación de conjuntos de datos\n\nZenodo y repositorios similares.\nPublicaciones científicas en acceso abierto (open access).\nImportante enlazar el DOI de un dataset en un artículo, de forma que se puedan trazar (en sentido inverso) los DOIs de las publicaciones que emplean dicho dataset*.",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
@@ -530,7 +541,7 @@
     "href": "08-FAIR.html#gestión-de-referencias",
     "title": "8  Principios FAIR",
     "section": "8.4 Gestión de referencias",
-    "text": "8.4 Gestión de referencias\nDOI\nFigshare\nZenodo\narXiv\netc.",
+    "text": "8.4 Gestión de referencias\n\nDOI\nORCID de los autores/as.\nFigshare\nZenodo\narXiv o repositorio similar para preprints en acceso abierto.\nPLOS",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Principios FAIR</span>"
@@ -561,7 +572,18 @@
     "href": "A-command-ref.html",
     "title": "Apéndice A — Comandos y opciones de configuración",
     "section": "",
-    "text": "A.1 Comandos Quarto",
+    "text": "A.1 Resumen de sintaxis de Quarto",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
+    ]
+  },
+  {
+    "objectID": "A-command-ref.html#resumen-de-sintaxis-de-quarto",
+    "href": "A-command-ref.html#resumen-de-sintaxis-de-quarto",
+    "title": "Apéndice A — Comandos y opciones de configuración",
+    "section": "",
+    "text": "Archivo de ejemplo sintáxis básica de Quarto.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
@@ -571,8 +593,8 @@
     "objectID": "A-command-ref.html#comandos-quarto",
     "href": "A-command-ref.html#comandos-quarto",
     "title": "Apéndice A — Comandos y opciones de configuración",
-    "section": "",
-    "text": "Listado de comandos y opciones para publicar con Quarto.\nCheatsheet: publicación de documentos con Quarto(PDF).",
+    "section": "A.2 Comandos Quarto",
+    "text": "A.2 Comandos Quarto\n\nListado de comandos y opciones para publicar con Quarto.\nCheatsheet: publicación de documentos con Quarto(PDF).",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
@@ -582,8 +604,8 @@
     "objectID": "A-command-ref.html#celdas-de-código",
     "href": "A-command-ref.html#celdas-de-código",
     "title": "Apéndice A — Comandos y opciones de configuración",
-    "section": "A.2 Celdas de código",
-    "text": "A.2 Celdas de código\n\nOpciones de configuración para bloques de código.",
+    "section": "A.3 Celdas de código",
+    "text": "A.3 Celdas de código\n\nOpciones de configuración para bloques de código.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
@@ -593,8 +615,8 @@
     "objectID": "A-command-ref.html#formatos-de-documentos-de-salida",
     "href": "A-command-ref.html#formatos-de-documentos-de-salida",
     "title": "Apéndice A — Comandos y opciones de configuración",
-    "section": "A.3 Formatos de documentos de salida",
-    "text": "A.3 Formatos de documentos de salida\n\nOpciones de configuración para documentos HTML.\nOpciones de configuración para documentos en PDF.",
+    "section": "A.4 Formatos de documentos de salida",
+    "text": "A.4 Formatos de documentos de salida\n\nOpciones de configuración para documentos HTML.\nOpciones de configuración para documentos en PDF.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
@@ -604,8 +626,8 @@
     "objectID": "A-command-ref.html#opciones-de-configuración-de-proyectos",
     "href": "A-command-ref.html#opciones-de-configuración-de-proyectos",
     "title": "Apéndice A — Comandos y opciones de configuración",
-    "section": "A.4 Opciones de configuración de proyectos",
-    "text": "A.4 Opciones de configuración de proyectos\n\nOpciones globales de configuración.\nOpciones de configuración para libros.\nOpciones de configuración para manuscritos.\nOpciones de configuración para websites.\nConfiguración de referencias cruzadas.\nConfiguración de referencias bibliográficas.",
+    "section": "A.5 Opciones de configuración de proyectos",
+    "text": "A.5 Opciones de configuración de proyectos\n\nOpciones globales de configuración.\nOpciones de configuración para libros.\nOpciones de configuración para manuscritos.\nOpciones de configuración para websites.\nConfiguración de referencias cruzadas.\nConfiguración de referencias bibliográficas.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>A</span>  <span class='chapter-title'>Comandos y opciones de configuración</span>"
@@ -682,7 +704,7 @@
     "href": "D-pdf-latex.html",
     "title": "Apéndice D — Documentos PDF con LaTeX",
     "section": "",
-    "text": "D.1 Salida en formato PDF",
+    "text": "D.1 Salida en formato PDF\nTBD",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
@@ -693,7 +715,7 @@
     "href": "D-pdf-latex.html#acerca-de-latex",
     "title": "Apéndice D — Documentos PDF con LaTeX",
     "section": "D.2 Acerca de LaTeX",
-    "text": "D.2 Acerca de LaTeX",
+    "text": "D.2 Acerca de LaTeX\nTBD",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
@@ -704,7 +726,7 @@
     "href": "D-pdf-latex.html#ejemplos-prácticos",
     "title": "Apéndice D — Documentos PDF con LaTeX",
     "section": "D.3 Ejemplos prácticos",
-    "text": "D.3 Ejemplos prácticos",
+    "text": "D.3 Ejemplos prácticos\nTBD",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
