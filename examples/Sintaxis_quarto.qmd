@@ -1,0 +1,199 @@
+---
+title: "Sintaxis_quarto"
+date: "2024-10-16"
+author: "María Jesús Algar Díaz"
+format: 
+  html:
+    theme: default
+    default-image-extension: png
+    fig-cap-location: bottom
+execute:
+  echo: false
+  output: true
+  error: false
+  warning: false
+lang: es
+editor: visual
+---
+
+Títulos y encabezados
+
+# Título de nivel 1
+
+Ejemplo de título o sección de nivel 1
+
+## Título de nivel 2
+
+Ejemplo de título o sección de nivel 2
+
+# Cómo dar énfasis al texto
+
+Podemos poner una palabra en **negrita** o en *cursiva*
+
+# Continuamos resaltando texto
+
+Podemos resaltar bloques de texto o código con la siguiente sintáxis: `::: {.callout-tipoBloque}` `Texto` `:::`
+
+Varios ejemplos:
+
+::: callout-note
+Ejemplo de bloque de nota.
+:::
+
+::: {.callout-tip appearance="simple"}
+Ejemplo de bloque tipo *consejo* con apariencia simple.
+:::
+
+::: {.callout-warning appearance="minimal"}
+Ejemplo de bloque tipo *advertencia* con apariencia mínimal.
+:::
+
+::: {.callout-important collapse="true"}
+Ejemplo de bloque tipo *importancia* colapsado.
+:::
+
+::: {#cau-Ejemcaution .callout-caution icon="false"}
+Ejemplo de bloque tipo precaución sin icono y con etiqueta.
+:::
+
+Podemos referenciar bloques de texto que lleven una etiqueta @cau-Ejemcaution. Las etiquetas deben empezar por los prefijos: `#nte-`, `#tip-`, `#wrn-`, `#imp`, `#cau-`.
+
+# Ejemplo de listas no ordenadas
+
+-   Lista de la compra:
+    -   Lacteos:
+        -   12 briks de leche
+        -   Pack 12 yogures
+    -   Fruta:
+        -   1kg peras
+        -   1kg manzanas
+    -   Cereales
+
+# Ejemplo de listas ordenadas
+
+1.  Prepara los ingredientes.
+2.  Pon en un bol los huevos y la mantequilla
+3.  Bate bien la mezcla
+4.  Añade un yogur
+
+# Ejemplo de tabla
+
+| Apellidos         | Nombre  | Nota |
+|:------------------|:--------|:----:|
+| Bernal Delgado    | Juan    | 5.75 |
+| García Ortega     | Miguel  | 7.5  |
+| Rodríguez Sánchez | María   | 6.4  |
+| Zapata Valencia   | Violeta | 8.1  |
+
+: Caption de tabla
+
+Cambiamos el aspecto de la tabla e incluimos etiqueta para referencias
+
+| Apellidos         | Nombre  | Nota |
+|:------------------|:--------|:----:|
+| Bernal Delgado    | Juan    | 5.75 |
+| García Ortega     | Miguel  | 7.5  |
+| Rodríguez Sánchez | María   | 6.4  |
+| Zapata Valencia   | Violeta | 8.1  |
+
+: Colorear en gris el fondo de la fila y resaltar la fila {#tbl-etiqueta .striped .hover}
+
+# Cómo incluir fórmulas matemátias
+
+En línea $(a+b)^2 = a^2 + 2ab + b^2$
+
+No en línea 
+$$
+(a+b)^2 = a^2 + 2ab + b^2 \\
+(a-b)^2 = a^2 - 2ab + b^2 \\
+(a+b)(a-b) = a^2 - b^2
+$$
+
+Podemos numerar las ecuaciones:
+$$ E = mc^{2} $$ {#eq-energy}
+
+
+# Cómo incluir una imagen
+
+En línea ![Logo Quarto](imagenes/Logo_quarto.png)
+
+No en línea ![Proceso de creación](imagenes/proceso.png)
+
+# Cómo incluir una figura
+
+Misma sintaxtis que para incluir una imagen. Además, podemos escalar, alinear y añadir un pie de figura.
+
+Original.
+
+![Flor rosa](imagenes/flor.png)
+
+Escalado de imagen y alineación a la izquierda.
+
+![Flor rosa](imagenes/flor.png){width="300" fig-align="left"}
+
+Escalado en dos dimensiones y alineada a la derecha.
+
+![Flor rosa](imagenes/flor.png){width="400" height="400" fig-align="right"}
+
+Si no se especifica el formato de la imagen y el documento de salida es HTML, Quarto busca una imagen con el nombre indicado y extesión PNG. Si la salida es PDF, la buscará con extesión PDF. Podemos modificarlo en el encabezdo del documento.
+
+## Matrices de figuras
+
+::: {layout-ncol="2," layout-nrow="2"}
+![Flor rosa](imagenes/flor.png) ![Flor rosa](imagenes/flor.png){width="300" fig-align="left"}
+
+![Logo Quarto](imagenes/Logo_quarto.png) ![Logo Quarto](imagenes/Logo_quarto.png){width="300" fig-align="left"}
+:::
+
+Otro ejemplo de matriz de figuras
+
+::: {layout="[[1,1], [1]]"}
+![Flor rosa](imagenes/flor.png) 
+
+![Flor rosa](imagenes/flor.png){width="300" fig-align="left"} 
+
+![Logo Quarto](imagenes/Logo_quarto.png)
+:::
+
+## Como referenciar figuras
+
+Para referenciar una figura hay que ponerle una etiqueta: `{#fig-etiqueta}`. Se referencia en el texto con la siguiente sintáxis: `@fig-etiqueta`
+
+::: {layout-ncol="2"}
+![Flor rosa](imagenes/flor.png){#fig-flor}
+
+![Flor rosa](imagenes/flor.png){#fig-flor-escal width="400"}
+:::
+
+La figura @fig-flor no está escalada mientras que la figura @fig-flor-escal está escalada a lo ancho.
+
+# Trabajando con código
+
+Incluimos un chuck de código y configuramos las opciones que queramos
+
+```{r etiqueta1, echo=TRUE, warning=FALSE, fig.cap="Histograma", fig.width=50, fig.height=80, fig.align='center'}
+x = rnorm(1000)
+hist(x)
+```
+
+También podemos incluir opciones globales para todos los chuck de código. En las opcoines generales hemos puesto que no se muestre el código, solo el resultado que genera:
+
+```{r}
+x = rnorm(500)
+hist(x)
+```
+
+Otro ejemplo de código
+```{r}
+#| label: fig-example-cars
+#| fig-cap: "Gráfico de correlación lineal positiva entre el kilometraje en ciudad y en carretera de diferentes modelos de coches."
+#| echo: true
+library(ggplot2)
+
+
+ggplot(mpg, aes(x = hwy, y = cty, color = cyl)) +
+  geom_point(alpha = 0.5, size = 2) +
+  scale_color_viridis_c() +
+  theme_minimal()
+```
+
