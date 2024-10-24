@@ -2,13 +2,22 @@
 
 ## Requisitos previos {#sec-pkg-requirements}
 
-## `rticles`
+Para ejecutar los ejemplos incluidos en este taller, se necesita tener instalado
+R y una IDE de desarrollo para este lenguaje, como por ejemplo RStudio o Microsoft
+VS Code. 
 
-Shiny
+Adicionalmente, se necesitan los siguientes paquetes de R:
 
-IOSlides, otras...
+- `tidyverse`.
+- `palmerpenguins`.
 
-Otros
+Para generar documentos de salida en formato PDF se necesita tener
+instalada en el sistema una distribución LaTeX. Quarto ya incluye algunos comandos
+para facilitar la instalación de TinyTex, así como para comprobar que este u otro
+motor de compilación de LaTeX están disponibles en el sistema.
+
+- [Instalación de TinyTex con Quarto](https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex).
+- [Comprobación de herramientas TeX/LaTeX instaladas](https://quarto.org/docs/output-formats/pdf-engine.html#managing-tex).
 
 ## Atribución de imágenes e iconos
 
