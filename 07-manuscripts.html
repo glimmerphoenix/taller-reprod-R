@@ -295,10 +295,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#figuras-y-gráficos-para-publicación" id="toc-figuras-y-gráficos-para-publicación" class="nav-link active" data-scroll-target="#figuras-y-gráficos-para-publicación"><span class="header-section-number">7.1</span> Figuras y gráficos para publicación</a></li>
-  <li><a href="#ejemplos-y-recomendaciones" id="toc-ejemplos-y-recomendaciones" class="nav-link" data-scroll-target="#ejemplos-y-recomendaciones"><span class="header-section-number">7.2</span> Ejemplos y recomendaciones</a>
+  <li><a href="#la-opción-keep-tex-true" id="toc-la-opción-keep-tex-true" class="nav-link active" data-scroll-target="#la-opción-keep-tex-true"><span class="header-section-number">7.1</span> La opción <code>keep-tex</code>: true</a></li>
+  <li><a href="#figuras-y-gráficos-para-publicación" id="toc-figuras-y-gráficos-para-publicación" class="nav-link" data-scroll-target="#figuras-y-gráficos-para-publicación"><span class="header-section-number">7.2</span> Figuras y gráficos para publicación</a></li>
+  <li><a href="#facilitar-la-cita-de-artículos" id="toc-facilitar-la-cita-de-artículos" class="nav-link" data-scroll-target="#facilitar-la-cita-de-artículos"><span class="header-section-number">7.3</span> Facilitar la cita de artículos</a></li>
+  <li><a href="#ejemplo-de-uso-de-plantillas-de-artículos-científicos" id="toc-ejemplo-de-uso-de-plantillas-de-artículos-científicos" class="nav-link" data-scroll-target="#ejemplo-de-uso-de-plantillas-de-artículos-científicos"><span class="header-section-number">7.4</span> Ejemplo de uso de plantillas de artículos científicos</a>
   <ul class="collapse">
-  <li><a href="#plantilla-para-artículos-en-revistas-elsevier" id="toc-plantilla-para-artículos-en-revistas-elsevier" class="nav-link" data-scroll-target="#plantilla-para-artículos-en-revistas-elsevier"><span class="header-section-number">7.2.1</span> Plantilla para artículos en revistas Elsevier</a></li>
+  <li><a href="#plantilla-para-revistas-de-elsevier" id="toc-plantilla-para-revistas-de-elsevier" class="nav-link" data-scroll-target="#plantilla-para-revistas-de-elsevier"><span class="header-section-number">7.4.1</span> Plantilla para revistas de Elsevier</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/07-manuscripts.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/07-manuscripts.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
@@ -325,21 +327,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>En este capítulo vemos otra característica importante de Quarto, como es la capacidad para crear formatos de documentos extendiendo los formatos básicos de archivo de salida como <code>html</code>, <code>pdf</code> o <code>docx</code>. Uno de los usos principales que contempla esta capacidad de Quarto es el de producir documentos que cumplan los requisitos solicitados por las editoriales científicas para publicación de artículos de investigación en las revistas que editan.</p>
+<p>Un aspecto importante es que debemos recordar que Quarto, como mínimo, siempre intenta producir salida en formatos HTML y PDF, por lo que las plantillas deberían contemplar estos dos escenarios. Además, el uso de entornos <em>span</em> y <em>div</em> para las diferentes secciones permite aplicar las herramientas de diseño y estilo solicitadas por cada plantilla editorial tanto para HTML (con CSS) como para PDF (con entornos y macros de LaTeX). Otro aspecto adicional importante es que estas plantillas pretenden unificar la codificación de la información sobre autores/as y sus filiaciones, de forma que se escriba esta información una sola vez para reutilizarla en diferentes formatos. Por último, Quarto también es capaz de gestionar los requisitos de estilos de citas bibliográficas impuestos por las editoriales científicas y revistas para sus publicaciones.</p>
 <ul>
-<li><p><a href="https://quarto.org/docs/journals/">Formatos editoriales soportados</a>.</p></li>
-<li><p><a href="https://quarto.org/docs/journals/templates.html">Ajuste de las plantillas</a>.</p></li>
-<li><p><a href="https://quarto.org/docs/journals/formats.html" class="uri">https://quarto.org/docs/journals/formats.html</a></p></li>
-<li><p><a href="https://github.com/quarto-journals">Listado de plantillas para publicaciones científicas en Quarto</a>.</p></li>
+<li><a href="https://quarto.org/docs/journals/">Listado de formatos editoriales soportados en Quarto</a>.</li>
+<li><a href="https://github.com/quarto-journals">Otro listado de formatos editoriales soportados en Quarto</a>.</li>
 </ul>
-<section id="figuras-y-gráficos-para-publicación" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="figuras-y-gráficos-para-publicación"><span class="header-section-number">7.1</span> Figuras y gráficos para publicación</h2>
+<p>En ocasiones, será necesario añadir código adicional para realizar ajustes finos en las plantillas de los documentos, de forma que podamos ajustarnos a los requisitos impuestos por la editorial para esa publicación. El siguiente tutorial ofrece información sobre los diferentes puntos en los que podemos insertar código adicional para realizar estos ajustes finos.</p>
+<ul>
+<li><a href="https://quarto.org/docs/journals/templates.html">Ajuste de las plantillas</a>.</li>
+</ul>
+<p>Finalmente, en caso de que no exista una plantilla para el formato que necesitamos siempre es posible crear nuestro propio formato de artículo.</p>
+<ul>
+<li><a href="https://quarto.org/docs/journals/formats.html">Creación de nuestro propio formato de artículo</a>.</li>
+</ul>
+<p>El paso inicial consiste en crear un nuevo directorio de proyecto y ejecutar dentro del mismo el comando para descargar la plantilla estándar (sin personalizar aún) para crear formatos de publicaciones científicas en Quarto. Supongamos que el directorio de proyecto se llama <code>jourA</code>. Cuidado, porque en este ejemplo el símbolo <code>$</code> no se debe introducir en la terminal; sólo lo estamos usando para diferenciar la entrada de usuario de la respuesta que devuelve la terminal al ejecutar el comando.</p>
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Terminal</strong></pre>
+</div>
+<div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> cd jourA</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> quarto create extension journal</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="ex">?</span> Extension Name › jourA</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Creating</span> extension at /home/jfelipe/quarto/dev/jourA:</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created README.md</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created template.qmd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/jourA.lua</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/styles.css</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/_extension.yml</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created _extensions/jourA/header.tex</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> Created bibliography.bib</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Se crean varios archivos, incluyendo:</p>
+<ul>
+<li><p><code>_extensions/jourA/_extension.yml</code>, que define los formatos de salida disponibles en esta plantilla de artículo. Por ejemplo, si definimos un formato de salida <code>html</code> y otro <code>pdf</code> en esta plantilla, estos estarán disponibles en el documento Quarto como <code>jourA-html</code> y <code>jourA-pdf</code> cuando un documento Quarto utilice nuestra plantilla.</p></li>
+<li><p><code>template.pdf</code>, que es el documento de ejemplo que se genera para demostrar al usuario la estructura y opciones disponibles y que empiece a trabajar sobre el mismo.</p></li>
+</ul>
+<section id="la-opción-keep-tex-true" class="level2 callout-info" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="la-opción-keep-tex-true"><span class="header-section-number">7.1</span> La opción <code>keep-tex</code>: true</h2>
+<p>Si revisas los ejemplos ofrecidos en la guía para creación de plantillas de publicación, verás como en las opciones de formatos de salida del fichero <code>template.qmd</code>, dentro de la salida PDF se suele incluir la opción <code>keep-tex: true</code>. Esta opción fuerza a que no se elimine el fichero LaTeX (con extensión <code>.tex</code>) que se crea como paso previo para compilar el documento final en PDF. El motivo es permitir que el usuario pueda, si así lo necesita, modificar el fichero LaTeX directamente y compilarlo de forma manual.</p>
+<p>No obstante, hay que recordar que si se vuelve a pulsar el botón de <em>Render</em> para el formato PDF en RStudio, o bien se ejecuta <code>quarto render --to pdf</code> en la línea de comandos, dicho fichero con extensión <code>.tex</code><strong>se sobreescribe</strong> y perderiamos los cambios que hayamos realizado. En consecuencia, es mejor copiarlo en otra ubicación antes de realizar los ajustes manuales o bien crear una nueva rama (si usamos control de versiones) para ajustar el fichero en la misma sin que exista el riesgo de sobreescribir los cambios realizados.</p>
 </section>
-<section id="ejemplos-y-recomendaciones" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="ejemplos-y-recomendaciones"><span class="header-section-number">7.2</span> Ejemplos y recomendaciones</h2>
-<section id="plantilla-para-artículos-en-revistas-elsevier" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="plantilla-para-artículos-en-revistas-elsevier"><span class="header-section-number">7.2.1</span> Plantilla para artículos en revistas Elsevier</h3>
-<p>:: {.callout-warning} ## Requisito: tener instalado LaTeX</p>
-<p>En este apartado se muestra cómo generar un <em>draft</em> de un artículo para enviar a una revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda que previamente debes tener instalada una distribución de LaTeX en tu equipo (como TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio. :::</p>
+<section id="figuras-y-gráficos-para-publicación" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="figuras-y-gráficos-para-publicación"><span class="header-section-number">7.2</span> Figuras y gráficos para publicación</h2>
+<p>Una ventaja importante de utilizar Quarto para crear nuestros artículos es la de poder integrar los resultados de la ejecución de nuestro código (gráficos, tablas, resultados de evaluación de modelos y algoritmos, etc.) directamente en nuestros documentos científicos. Esto mitiga en gran medida los inconvenientes ya mencionados al principio del taller para mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos usando la versión correcta del código sobre los datos apropiados.</p>
+</section>
+<section id="facilitar-la-cita-de-artículos" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="facilitar-la-cita-de-artículos"><span class="header-section-number">7.3</span> Facilitar la cita de artículos</h2>
+<p>En un contexto del mundo académico e investigador en el que el volumen de trabajos y artículos publicados ha crecido exponencialmente en los medios digitales, es muy importante facilitar al máximo el trabajo de otros investigadores/as cuando quieren citar nuestras publicaciones. Por otra parte, existen muchos servicios de referencia de citas y bases de datos que ayudan a los investigadores/as a encontrar materiales que deben revisar.</p>
+<p>Podemos incluir metadatos en nuestro documento para facilitar la automatización total o parcial de este proceso de indexación de publicaciones y citas de nuestro trabajo.</p>
+<p>El siguiente tutorial muestra varios ejemplos de los campos de metadatos para facilitar las citas que podemos incluir en la cabecera del documento, incluyendo información sobre la revista o publicación que recoge el artículo (como el DOI), así como formatos específicos compatibles con motores de indexación de bibliografía científica como Google Scholar.</p>
+<ul>
+<li><a href="https://quarto.org/docs/authoring/create-citeable-articles.html">Guía para creación de artículos citables en Quarto</a>.</li>
+</ul>
+<p>Por defecto, cuando incluyamos esta información en la cabecera del documento Quarto debe crear un apéndice con la información de cita en texto plano y en BibTeX.</p>
+</section>
+<section id="ejemplo-de-uso-de-plantillas-de-artículos-científicos" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="ejemplo-de-uso-de-plantillas-de-artículos-científicos"><span class="header-section-number">7.4</span> Ejemplo de uso de plantillas de artículos científicos</h2>
+<section id="plantilla-para-revistas-de-elsevier" class="level3" data-number="7.4.1">
+<h3 data-number="7.4.1" class="anchored" data-anchor-id="plantilla-para-revistas-de-elsevier"><span class="header-section-number">7.4.1</span> Plantilla para revistas de Elsevier</h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Requisito previo: tener instalado LaTeX
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En este apartado se muestra cómo generar un <em>draft</em> de un artículo para enviar a una revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda que previamente debes tener instalada una distribución de LaTeX en tu equipo (como TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio.</p>
+</div>
+</div>
 <p>En este caso, los pasos a seguir son bastante sencillos:</p>
 <ol type="1">
 <li>Creamos un nuevo directorio para guardar nuestro proyecto, por ejemplo, una carpeta con el nombre <code>ejemplo-elsevier</code>.</li>
@@ -349,8 +409,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb1" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ejemplo-elsevier</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template quarto-journals/elsevier</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ejemplo-elsevier</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> use template quarto-journals/elsevier</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Creamos un nuevo proyecto en RStudio sobre el directorio ya existente en el que hemos descargado los archivos de la plantilla.</li>
@@ -361,23 +421,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb2" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-journals/elsevier</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add quarto-journals/elsevier</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Por último, si queremos generar el artículo <em>draft</em> en formato PDF desde la línea de comandos, ejecutamos:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Terminal</strong></pre>
 </div>
-<div class="sourceCode" id="cb3" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render article.qmd <span class="at">--to</span> elsevier-pdf</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4" data-filename="Terminal"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render article.qmd <span class="at">--to</span> elsevier-pdf</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Fíjate bien en la opción de formato de salida que se especifica en el archivo <code>.qmd</code> para generar el artículo <em>draft</em>:</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>ejemplo-elsevier.qmd</strong></pre>
 </div>
-<div class="sourceCode" id="cb4" data-filename="ejemplo-elsevier.qmd"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">elsevier-pdf</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5" data-filename="ejemplo-elsevier.qmd"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">elsevier-pdf</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">keep-tex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

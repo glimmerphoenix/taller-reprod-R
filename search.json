@@ -453,18 +453,40 @@
     "href": "07-manuscripts.html",
     "title": "7  Artículos y publicaciones científicas",
     "section": "",
-    "text": "7.1 Figuras y gráficos para publicación",
+    "text": "7.1 La opción keep-tex: true\nSi revisas los ejemplos ofrecidos en la guía para creación de plantillas de publicación, verás como en las opciones de formatos de salida del fichero template.qmd, dentro de la salida PDF se suele incluir la opción keep-tex: true. Esta opción fuerza a que no se elimine el fichero LaTeX (con extensión .tex) que se crea como paso previo para compilar el documento final en PDF. El motivo es permitir que el usuario pueda, si así lo necesita, modificar el fichero LaTeX directamente y compilarlo de forma manual.\nNo obstante, hay que recordar que si se vuelve a pulsar el botón de Render para el formato PDF en RStudio, o bien se ejecuta quarto render --to pdf en la línea de comandos, dicho fichero con extensión .texse sobreescribe y perderiamos los cambios que hayamos realizado. En consecuencia, es mejor copiarlo en otra ubicación antes de realizar los ajustes manuales o bien crear una nueva rama (si usamos control de versiones) para ajustar el fichero en la misma sin que exista el riesgo de sobreescribir los cambios realizados.",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
     ]
   },
   {
-    "objectID": "07-manuscripts.html#ejemplos-y-recomendaciones",
-    "href": "07-manuscripts.html#ejemplos-y-recomendaciones",
+    "objectID": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
+    "href": "07-manuscripts.html#figuras-y-gráficos-para-publicación",
     "title": "7  Artículos y publicaciones científicas",
-    "section": "7.2 Ejemplos y recomendaciones",
-    "text": "7.2 Ejemplos y recomendaciones\n\n7.2.1 Plantilla para artículos en revistas Elsevier\n:: {.callout-warning} ## Requisito: tener instalado LaTeX\nEn este apartado se muestra cómo generar un draft de un artículo para enviar a una revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda que previamente debes tener instalada una distribución de LaTeX en tu equipo (como TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio. :::\nEn este caso, los pasos a seguir son bastante sencillos:\n\nCreamos un nuevo directorio para guardar nuestro proyecto, por ejemplo, una carpeta con el nombre ejemplo-elsevier.\nEn la terminal (por ejemplo en RStudio, pestaña en el panel inferior izquierdo), entramos en la carpeta recién creada y ejecutamos un comando para descargar la plantilla y empezar a usarla:\n\n\n\nTerminal\n\ncd ejemplo-elsevier\nquarto use template quarto-journals/elsevier\n\n\nCreamos un nuevo proyecto en RStudio sobre el directorio ya existente en el que hemos descargado los archivos de la plantilla.\nAbrimos el archivo ejemplo-elsevier.qmd y pulsamos el botón Render para generar el la salida en PDF.\n\nSi ya teníamos creado previamente nuestro proyecto con un documento genérico de Quarto no tenemos que empezar desde cero. Basta con abrir una terminal dentro del directorio del proyecto y ejecutar:\n\n\nTerminal\n\nquarto add quarto-journals/elsevier\n\nPor último, si queremos generar el artículo draft en formato PDF desde la línea de comandos, ejecutamos:\n\n\nTerminal\n\nquarto render article.qmd --to elsevier-pdf\n\nFíjate bien en la opción de formato de salida que se especifica en el archivo .qmd para generar el artículo draft:\n\n\nejemplo-elsevier.qmd\n\nformat:\n  elsevier-pdf:\n    keep-tex: true",
+    "section": "7.2 Figuras y gráficos para publicación",
+    "text": "7.2 Figuras y gráficos para publicación\nUna ventaja importante de utilizar Quarto para crear nuestros artículos es la de poder integrar los resultados de la ejecución de nuestro código (gráficos, tablas, resultados de evaluación de modelos y algoritmos, etc.) directamente en nuestros documentos científicos. Esto mitiga en gran medida los inconvenientes ya mencionados al principio del taller para mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos usando la versión correcta del código sobre los datos apropiados.",
+    "crumbs": [
+      "Publicaciones científicas",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#facilitar-la-cita-de-artículos",
+    "href": "07-manuscripts.html#facilitar-la-cita-de-artículos",
+    "title": "7  Artículos y publicaciones científicas",
+    "section": "7.3 Facilitar la cita de artículos",
+    "text": "7.3 Facilitar la cita de artículos\nEn un contexto del mundo académico e investigador en el que el volumen de trabajos y artículos publicados ha crecido exponencialmente en los medios digitales, es muy importante facilitar al máximo el trabajo de otros investigadores/as cuando quieren citar nuestras publicaciones. Por otra parte, existen muchos servicios de referencia de citas y bases de datos que ayudan a los investigadores/as a encontrar materiales que deben revisar.\nPodemos incluir metadatos en nuestro documento para facilitar la automatización total o parcial de este proceso de indexación de publicaciones y citas de nuestro trabajo.\nEl siguiente tutorial muestra varios ejemplos de los campos de metadatos para facilitar las citas que podemos incluir en la cabecera del documento, incluyendo información sobre la revista o publicación que recoge el artículo (como el DOI), así como formatos específicos compatibles con motores de indexación de bibliografía científica como Google Scholar.\n\nGuía para creación de artículos citables en Quarto.\n\nPor defecto, cuando incluyamos esta información en la cabecera del documento Quarto debe crear un apéndice con la información de cita en texto plano y en BibTeX.",
+    "crumbs": [
+      "Publicaciones científicas",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
+    ]
+  },
+  {
+    "objectID": "07-manuscripts.html#ejemplo-de-uso-de-plantillas-de-artículos-científicos",
+    "href": "07-manuscripts.html#ejemplo-de-uso-de-plantillas-de-artículos-científicos",
+    "title": "7  Artículos y publicaciones científicas",
+    "section": "7.4 Ejemplo de uso de plantillas de artículos científicos",
+    "text": "7.4 Ejemplo de uso de plantillas de artículos científicos\n\n7.4.1 Plantilla para revistas de Elsevier\n\n\n\n\n\n\nRequisito previo: tener instalado LaTeX\n\n\n\nEn este apartado se muestra cómo generar un draft de un artículo para enviar a una revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda que previamente debes tener instalada una distribución de LaTeX en tu equipo (como TeX Live) o bien instalar la distribución mínima TinyTeX en RStudio.\n\n\nEn este caso, los pasos a seguir son bastante sencillos:\n\nCreamos un nuevo directorio para guardar nuestro proyecto, por ejemplo, una carpeta con el nombre ejemplo-elsevier.\nEn la terminal (por ejemplo en RStudio, pestaña en el panel inferior izquierdo), entramos en la carpeta recién creada y ejecutamos un comando para descargar la plantilla y empezar a usarla:\n\n\n\nTerminal\n\ncd ejemplo-elsevier\nquarto use template quarto-journals/elsevier\n\n\nCreamos un nuevo proyecto en RStudio sobre el directorio ya existente en el que hemos descargado los archivos de la plantilla.\nAbrimos el archivo ejemplo-elsevier.qmd y pulsamos el botón Render para generar el la salida en PDF.\n\nSi ya teníamos creado previamente nuestro proyecto con un documento genérico de Quarto no tenemos que empezar desde cero. Basta con abrir una terminal dentro del directorio del proyecto y ejecutar:\n\n\nTerminal\n\nquarto add quarto-journals/elsevier\n\nPor último, si queremos generar el artículo draft en formato PDF desde la línea de comandos, ejecutamos:\n\n\nTerminal\n\nquarto render article.qmd --to elsevier-pdf\n\nFíjate bien en la opción de formato de salida que se especifica en el archivo .qmd para generar el artículo draft:\n\n\nejemplo-elsevier.qmd\n\nformat:\n  elsevier-pdf:\n    keep-tex: true",
     "crumbs": [
       "Publicaciones científicas",
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Artículos y publicaciones científicas</span>"
