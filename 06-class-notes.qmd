@@ -430,7 +430,7 @@ Las extensiones están organizadas dentro de cuatro grandes tipos:
 - Códigos acortados o filtros: permiten usar una sintaxis más breve para operaciones complicadas o aplicar
 filtros de diversa índole para manejo de contenidos.
 - Artículos de revista: extensiones que ya contienen los archivos de estilo necesarios para generar artículos
-científicos según el formato requerido por diversas organizaciones y editoriales (véase [@sec-scientific-articles]).
+científicos según el formato requerido por diversas organizaciones y editoriales (véase [@sec-scientfic-articles]).
 - Formatos personalizados: Plantillas que aplican formatos predefinidos a nuestros documentos.
 - `Reveal.js`: Plantillas y temas para la creació de diapositivas con Quarto utilizando esta biblioteca JavaScript.
 
