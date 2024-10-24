@@ -95,6 +95,34 @@ Esto mitiga en gran medida los inconvenientes ya mencionados al principio del ta
 mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos
 usando la versión correcta del código sobre los datos apropiados.
 
+- [Publication Perfect](https://github.com/hbctraining/publication_perfect?tab=readme-ov-file): un tutorial
+con materiales online en abierto sobre cómo mejorar los elementos de nuestras publicaciones
+y artículos, creado por el grupo  Harvard Chan Bioinformatics Core.
+
+Recordemos algunos de los paquetes en R que nos permiten crear gráficos y tablas ya
+preparados para su publicación:
+
+- [`Hmisc`](https://hbiostat.org/r/hmisc/): incluye muchas funciones para descripción de
+datos y creación de gráficos y tablas resumen de datos y modelos, listos para publicar.
+
+  - [Ejemplos reproducibles con `Hmisc`](https://hbiostat.org/r/hmisc/examples). Se indica
+  que los ejemplos son para R Markdown, pero en realidad funcionan también para Quarto (ya
+  que se usa por defecto el mismo motor `knitr` para tratamiento y ejecución de los bloques
+  de código.)
+  
+- [`summarytools`](https://github.com/dcomtois/summarytools): ofrece muchas funciones
+y herramientas para presentar resúmenes de tablas de datos y data frames, tanto en forma
+de tabla como en gráficas para EDA.
+
+  - [Ejemplos de uso de `summarytools`](https://cran.r-project.org/web/packages/summarytools/vignettes/introduction.html).
+
+- [`ggpubr`](https://rpkgs.datanovia.com/ggpubr/): paquete para ayudar a personalizar
+gráficos creados con `ggplot2`, de forma que queden listos para su inclusión en publicaciones
+científicas.
+
+  - [Colección de tutoriales y ejemplos para creación de gráficos con `ggpubr`](http://www.sthda.com/english/articles/24-ggpubr-publication-ready-plots/).
+
+- [Listado y ejemplos de paquetes para crear tablas en publicaciones](https://thatdatatho.com/easily-create-descriptive-summary-statistic-tables-r-studio/).
 
 ## Facilitar la cita de artículos
 
