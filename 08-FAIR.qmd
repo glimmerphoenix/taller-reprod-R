@@ -2,24 +2,64 @@
 
 ## Visión general
 
+Desde hace años, dentro de la comunidad científica se ha desarrollado un movimiento
+imparable para favorecer el acceso a toda la información relacionada con los trabajos,
+experimentos y publicaciones científicas, de forma que se facilite su validación
+y reproducción/replicación por parte de otros investigadores/as o expertos/as interesados.
+
+Este movimiento se ha concentrado especialmente, en su fase inicial, en garantizar al menos
+el acceso a la materia prima necesaria para desarrollar muchos de estos proyectos: los
+datos. Los principios fundamentales que deben cumplirse para que los datos puedan ser
+indexados y reutilizados al máximo se denominan **Principios FAIR** y vienen recogidos,
+entre otras fuentes, en los [documentos de guía de la Comisión Europea](https://horizoneuropencpportal.eu/sites/default/files/2022-09/ore-fair-data-guide.pdf) 
+para los investigadores que participan en proyectos financiados por dicha organización.
+Estos principios FAIR son:
+
+- **Findable**:
+
+- **Accessible**:
+
+- **Interoperable**:
+
+- **Reusable**:
+
+Es importante recalcar la trascendencia de publicar en abierto y siguiendo buenas
+prácticas de investigación revisable y reproducible/replicable. Por ejemplo, 
+la Comisión Nacional Evaluadora de la Actividad Investigadora (CNEAI) ha publicado
+en 2023-2024 nuevos criterios para evaluación de las publicaciones válidas para
+poder ser evaluadas en la concesión de un sexenio de investigación.
 
 ## Publicación del código fuente
+
+- GitHub.
+
+- GitLab.
+
+- Zenodo (asigna un DOI a un repositorio público en GitHub o GitLab)
 
 
 ## Publicación de conjuntos de datos
 
+- Zenodo y repositorios similares.
+
+- Publicaciones científicas en acceso abierto (*open access*).
+
+- Importante enlazar el DOI de un *dataset en un artículo, de forma que se puedan trazar
+(en sentido inverso) los DOIs de las publicaciones que emplean dicho *dataset*.
 
 ## Gestión de referencias
 
-DOI
+- DOI
 
-Figshare
+- ORCID de los autores/as.
 
-Zenodo
+- Figshare
 
-arXiv
+- Zenodo
 
-etc.
+- arXiv o repositorio similar para *preprints* en acceso abierto.
+
+- PLOS
 
 
 
