@@ -2,5 +2,18 @@
 
 ## R Studio
 
+Es la IDE de referencia que hemos utilizado en el taller para explicar la creación
+y gestión de proyectos de documentación científica con Quarto y R.
+
+- [Introducción al uso de Quarto en RStudio](https://quarto.org/docs/get-started/hello/rstudio.html).
 
 ## Visual Studio
+
+Es una IDE alternativa, creada por Microsoft, y con extensiones para dar soporte a múltiples
+lenguajes y plataformas de desarrollo.
+
+En concreto, tiene una extensión para Quarto.
+
+- [Extensión de VS Code para Quarto](https://marketplace.visualstudio.com/items?itemName=quarto.quarto).
+
+- [Introducción al uso de Quarto con Microsoft VS Code](https://quarto.org/docs/get-started/hello/vscode.html).
