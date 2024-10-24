@@ -1,6 +1,24 @@
-# Comandos de utilidad
+# Comandos y opciones de configuración
 
 ## Comandos Quarto
 
+- [Listado de comandos y opciones para publicar con Quarto](https://rstudio.github.io/cheatsheets/html/quarto.html).
+- [*Cheatsheet*: publicación de documentos con Quarto](https://rstudio.github.io/cheatsheets/quarto.pdf)(PDF).
 
-## Celdas de código en R
+## Celdas de código
+
+- [Opciones de configuración para bloques de código](https://quarto.org/docs/reference/cells/cells-knitr.html).
+
+## Formatos de documentos de salida
+
+- [Opciones de configuración para documentos HTML](https://quarto.org/docs/reference/formats/html.html).
+- [Opciones de configuración para documentos en PDF](https://quarto.org/docs/reference/formats/pdf.html). 
+
+## Opciones de configuración de proyectos
+
+- [Opciones globales de configuración](https://quarto.org/docs/reference/projects/options.html).
+- [Opciones de configuración para libros](https://quarto.org/docs/reference/projects/books.html).
+- [Opciones de configuración para manuscritos](https://quarto.org/docs/reference/projects/manuscripts.html).
+- [Opciones de configuración para websites](https://quarto.org/docs/reference/projects/websites.html).
+- [Configuración de referencias cruzadas](https://quarto.org/docs/reference/metadata/crossref.html).
+- [Configuración de referencias bibliográficas](https://quarto.org/docs/reference/metadata/citation.html).
