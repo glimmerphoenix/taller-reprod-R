@@ -1,22 +1,129 @@
 # Artículos y publicaciones científicas {#sec-scientfic-articles}
 
-- [Formatos editoriales soportados](https://quarto.org/docs/journals/).
+En este capítulo vemos otra característica importante de Quarto, como es
+la capacidad para crear formatos de documentos extendiendo los formatos
+básicos de archivo de salida como `html`, `pdf` o `docx`. Uno de los usos
+principales que contempla esta capacidad de Quarto es el de producir
+documentos que cumplan los requisitos solicitados por las editoriales
+científicas para publicación de artículos de investigación en las revistas
+que editan.
+
+Un aspecto importante es que debemos recordar que Quarto, como mínimo, siempre
+intenta producir salida en formatos HTML y PDF, por lo que las plantillas deberían
+contemplar estos dos escenarios. Además, el uso de entornos *span* y *div* para
+las diferentes secciones permite aplicar las herramientas de diseño y estilo solicitadas
+por cada plantilla editorial tanto para HTML (con CSS) como para PDF (con entornos
+y macros de LaTeX). Otro aspecto adicional importante es que estas plantillas
+pretenden unificar la codificación de la información sobre autores/as y sus filiaciones,
+de forma que se escriba esta información una sola vez para reutilizarla en diferentes 
+formatos. Por último, Quarto también es capaz de gestionar los requisitos de estilos
+de citas bibliográficas impuestos por las editoriales científicas y revistas para 
+sus publicaciones.
+
+- [Listado de formatos editoriales soportados en Quarto](https://quarto.org/docs/journals/).
+- [Otro listado de formatos editoriales soportados en Quarto](https://github.com/quarto-journals).
+
+En ocasiones, será necesario añadir código adicional para realizar ajustes finos en las
+plantillas de los documentos, de forma que podamos ajustarnos a los requisitos impuestos
+por la editorial para esa publicación. El siguiente tutorial ofrece información sobre
+los diferentes puntos en los que podemos insertar código adicional para realizar estos
+ajustes finos.
+
 - [Ajuste de las plantillas](https://quarto.org/docs/journals/templates.html).
 
-- <https://quarto.org/docs/journals/formats.html>
+Finalmente, en caso de que no exista una plantilla para el formato que necesitamos siempre es
+posible crear nuestro propio formato de artículo.
 
-- [Listado de plantillas para publicaciones científicas en Quarto](https://github.com/quarto-journals).
+- [Creación de nuestro propio formato de artículo](https://quarto.org/docs/journals/formats.html).
 
+El paso inicial consiste en crear un nuevo directorio de proyecto y ejecutar dentro del mismo
+el comando para descargar la plantilla estándar (sin personalizar aún) para crear formatos de publicaciones
+científicas en Quarto. Supongamos que el directorio de proyecto se llama `jourA`. 
+Cuidado, porque en este ejemplo el símbolo `$` no se debe introducir en la
+terminal; sólo lo estamos usando para diferenciar la entrada de usuario de la respuesta que devuelve
+la terminal al ejecutar el comando.
+
+``` {.bash filename="Terminal"}
+$ cd jourA
+$ quarto create extension journal
+ ? Extension Name › jourA
+
+Creating extension at /home/jfelipe/quarto/dev/jourA:
+  - Created README.md
+  - Created template.qmd
+  - Created _extensions/jourA/jourA.lua
+  - Created _extensions/jourA/styles.css
+  - Created _extensions/jourA/_extension.yml
+  - Created _extensions/jourA/header.tex
+  - Created bibliography.bib
+```
+
+Se crean varios archivos, incluyendo:
+
+- `_extensions/jourA/_extension.yml`, que define los formatos de salida disponibles en esta
+plantilla de artículo. Por ejemplo, si definimos un formato de salida `html` y otro `pdf` en
+esta plantilla, estos estarán disponibles en el documento Quarto como `jourA-html` y 
+`jourA-pdf` cuando un documento Quarto utilice nuestra plantilla.
+
+- `template.pdf`, que es el documento de ejemplo que se genera para demostrar al usuario la
+estructura y opciones disponibles y que empiece a trabajar sobre el mismo.
+
+::: {.callout-info}
+## La opción `keep-tex`: true
+
+Si revisas los ejemplos ofrecidos en la guía para creación de plantillas de publicación, verás
+como en las opciones de formatos de salida del fichero `template.qmd`, dentro de la salida PDF
+se suele incluir la opción `keep-tex: true`. Esta opción fuerza a que no se elimine el fichero
+LaTeX (con extensión `.tex`) que se crea como paso previo para compilar el documento final en
+PDF. El motivo es permitir que el usuario pueda, si así lo necesita, modificar el fichero
+LaTeX directamente y compilarlo de forma manual.
+
+No obstante, hay que recordar que si se vuelve a pulsar el botón de *Render* para el formato PDF
+en RStudio, o bien se ejecuta `quarto render --to pdf` en la línea de comandos, dicho fichero
+con extensión `.tex`**se sobreescribe** y perderiamos los cambios que hayamos realizado. En consecuencia,
+es mejor copiarlo en otra ubicación antes de realizar los ajustes manuales o bien crear una nueva
+rama (si usamos control de versiones) para ajustar el fichero en la misma sin que exista el riesgo
+de sobreescribir los cambios realizados.
+:::
 
 ## Figuras y gráficos para publicación
 
+Una ventaja importante de utilizar Quarto para crear nuestros artículos es la de poder
+integrar los resultados de la ejecución de nuestro código (gráficos, tablas, resultados
+de evaluación de modelos y algoritmos, etc.) directamente en nuestros documentos científicos.
+Esto mitiga en gran medida los inconvenientes ya mencionados al principio del taller para
+mantener actualizados todos los elementos, permitiendo que nos aseguremos de que estamos
+usando la versión correcta del código sobre los datos apropiados.
 
-## Ejemplos y recomendaciones
 
-### Plantilla para artículos en revistas Elsevier
+## Facilitar la cita de artículos
+
+En un contexto del mundo académico e investigador en el que el volumen de trabajos y
+artículos publicados ha crecido exponencialmente en los medios digitales, es muy
+importante facilitar al máximo el trabajo de otros investigadores/as cuando quieren
+citar nuestras publicaciones. Por otra parte, existen muchos servicios de referencia
+de citas y bases de datos que ayudan a los investigadores/as a encontrar materiales
+que deben revisar.
+
+Podemos incluir metadatos en nuestro documento para facilitar la automatización total
+o parcial de este proceso de indexación de publicaciones y citas de nuestro trabajo.
+
+El siguiente tutorial muestra varios ejemplos de los campos de metadatos para facilitar
+las citas que podemos incluir en la cabecera del documento, incluyendo información sobre
+la revista o publicación que recoge el artículo (como el DOI), así como formatos específicos
+compatibles con motores de indexación de bibliografía científica como Google Scholar.
+
+- [Guía para creación de artículos citables en Quarto](https://quarto.org/docs/authoring/create-citeable-articles.html).
+
+Por defecto, cuando incluyamos esta información en la cabecera del documento Quarto debe
+crear un apéndice con la información de cita en texto plano y en BibTeX.
+
+## Ejemplo de uso de plantillas de artículos científicos
+
+### Plantilla para revistas de Elsevier
 
 ::: {.callout-warning}
-## Requisito: tener instalado LaTeX
+## Requisito previo: tener instalado LaTeX
 
 En este apartado se muestra cómo generar un *draft* de un artículo para enviar a una
 revista científica de la editorial Elsevier. Para que este proceso funcione, recuerda
