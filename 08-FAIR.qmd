@@ -13,53 +13,131 @@ datos. Los principios fundamentales que deben cumplirse para que los datos pueda
 indexados y reutilizados al máximo se denominan **Principios FAIR** y vienen recogidos,
 entre otras fuentes, en los [documentos de guía de la Comisión Europea](https://horizoneuropencpportal.eu/sites/default/files/2022-09/ore-fair-data-guide.pdf) 
 para los investigadores que participan en proyectos financiados por dicha organización.
-Estos principios FAIR son:
+Estos principios FAIR fueron establecidos inicialmente por
+@wilkinson2016fair y son:
 
-- **Findable**:
+- **Findable**: Los datos y metadatos (datos que describen a los datos, como su formato, contenido, significado, enlace con otros datos, etc.) deben recibir un identificador único global y persistente que permita localizarlos de forma directa. El estándar más utilizado hoy en día es el [sistema DOI](https://www.doi.org/) (ISO 26324). Los metadatos deben incluir de forma
+clara y explícita el identificador del dato al que describen, y tanto datos como metadatos deben estar registrados o indexados en fuentes que permitan su búsqueda y recuperación.
 
-- **Accessible**:
+- **Accessible**: Datos y metadatos deben poder obtenerse mediante un protocolo de comunicación estándar y abierto. Los metadatos deben seguir permaneciendo accesibles aún cuando los datos ya no estén disponibles.
 
-- **Interoperable**:
+- **Interoperable**: Los datos y metadatos deben usar formatos estándar y abiertos de representación del conocimiento, vocabularios que sigan principios FAIR y deben incluir referencias a otros datos y metadatos con los que estén relacionados.
 
-- **Reusable**:
+- **Reusable**: Los datos y metadatos están descritos de manera rica y precisa, con múltiples atributos relevantes que faciliten su utilización por otros usuarios/as.
 
 Es importante recalcar la trascendencia de publicar en abierto y siguiendo buenas
 prácticas de investigación revisable y reproducible/replicable. Por ejemplo, 
 la Comisión Nacional Evaluadora de la Actividad Investigadora (CNEAI) ha publicado
 en 2023-2024 nuevos criterios para evaluación de las publicaciones válidas para
-poder ser evaluadas en la concesión de un sexenio de investigación.
+poder ser evaluadas en la concesión de un sexenio de investigación. Así mismo, en todas
+las convocatorias recientes financiadas por los distintos ministerios del Gobierno de España
+se exige que los resultados de investigación, especialmente todas las publicaciones, *datasets*,
+software y procedimientos sean públicamente accesibles y cumplan con los principios FAIR.
 
-## Publicación del código fuente
+Sin embargo, todavía queda camino por recorrer. Un reciente estudio [@Kumar2024] analizó
+el grado de cumplimiento de los principios FAIR (el llamado FAIRness) de los resultados
+de investigación publicados por proyectos multi-actor financiados recientemente dentro del
+programa marco H2020 europeo y relacionados con el sector agroalimentario. Como
+principales conclusiones, menos de un 10% de los proyectos analizados lograron cumplir con los
+principios FAIR, aunque dichos principios se cumplían en mayor medida en los artículos de
+investigación publicados en revistas y conferencias, así como en libros.
 
-- GitHub.
+En general, otra de las conclusiones es que el sector agroalimentario y rural europeo se está conviertiendo
+en dependiente de los datos de manera cada vez más intensa y que la aplicación de los principos
+FAIR contribuye a mejorar la toma de decisiones y a explotar mejor los resultados de innovación
+derivados de estos proyectos. Sin embargo, también se constata que la comunidad de investigación
+para el desarrollo del sector agroalimentario y rural todavía tiene una experiencia limitada
+en la aplicación de estos principios.
 
-- GitLab.
+## Publicación del código fuente y documentación técnica
 
-- Zenodo (asigna un DOI a un repositorio público en GitHub o GitLab)
+- Plataformas como GitHub y GitLab facilitan en gran medida la gestión y publicación de proyectos
+software dentro de iniciativas y proyectos de investigación, así como la publicación y mantenimiento
+de centros de documentación técnica digital sobre herramientas, procedimientos y buenas prácticas
+relacionas con la actividad de dichas iniciativas.
+
+- Ejemplos del [proyecto SoilWise](https://soilwise-he.eu/), financiado dentro del programa HE de la
+Comunidad Europea.
+
+  - [Espacio de co-creación digital de SoilWise en GitHub](https://github.com/soilwise-he). Se ha conseguido
+  creando una organización (sin coste), de forma que se puedan crear repositorios en esta plataforma, agrupados
+  bajo el paraguas del proyecto, para diferentes fines: listados de software de interés, documentación técnica,
+  manuales de uso, arquitectura de la plataforma propuesta, etc.
+
+  - [Centro de documentación](https://soilwise-documentation.pages.dev/). Aquí se usa la 
+  solución [MkDocs](https://www.mkdocs.org/), que funciona
+  con el lenguaje Python (Quarto tiene grandes ventajas en este aspecto).
+
+  - [Repositorio con las herramientas para recolección de datos](https://github.com/soilwise-he/harvesters), 
+  documentadas en la 
+  [página que describe el proceso de obtención de datos](https://soilwise-he.github.io/SoilWise-documentation/technical_components/ingestion/)
+  en la infraestructura del proyecto.
+
+- Repositorios abiertos de datos y material de investigación como [Zenodo](https://about.zenodo.org/)
+y [Figshare](http://figshare.com/) pueden ayudar a publicitar y citar material de investigación. Por ejemplo,
+Zendo puede [emitir un identificador persistente (DOI) para un repositorio de sofware en GitHub](https://docs.github.com/es/repositories/archiving-a-github-repository/referencing-and-citing-content#issuing-a-persistent-identifier-for-your-repository-with-zenodo)
+apuntando a una versión en particular del software que se haya publicado y etiquetado desde dicho proyecto
+en GitHub. Esto permite incluirlo en una publicación científica para saber con certerza qué versió exacta del código
+software se ha utilizado para realizar el trabajo recogido en esa publicación.
+
+Como ejemplo, la [@fig-PyMPDATA-Zenodo] muestra la [página de Zenodo](https://zenodo.org/records/13988934) 
+correspondiente al software PyMPDATA, que apunta al repositorio original del software 
+[alojado en GitHub](https://github.com/open-atmos/PyMPDATA/tree/v1.2.0?tab=readme-ov-file), mostrado
+a su vez en la [@fig-PyMPDATA-GitHub]. Podemos ver
+las referencias cruzadas de metadatos que mantienen la coherencia de conexión en ambos sentidos.
+
+![Página del proyecto PyMPDATA (v1.2.0) en [Zenodo](https://zenodo.org/records/13988934)](img/PyMPDATA-Zenodo.png){#fig-PyMPDATA-Zenodo width=95%}
+
+![Página del proyecto PyMPDATA (v1.2.0) en [GitHub](https://github.com/open-atmos/PyMPDATA/tree/v1.2.0?tab=readme-ov-file)](img/PyMPDATA-GitHub.png){#fig-PyMPDATA-GitHub width=95%}
+
+- La página del proyecto en Zenodo apunta a una versión concreta del repositorio en GitHub, y mantiene un listado de todas
+las versiones del mismo proyecto anteriormente referenciadas. Cada nueva versión recibe un DOI diferente,
+para diferenciarlas unívocamente.
+
+- La página de descripción del repositorio en GitHub exhibe, entre otras etiquetas, el DOI para esa versión
+en particular, el DOI al artículo científico publicado en el JOSS explicando este software, así como otras
+etiquetas para atribución de las fuentes de financiación del proyecto.
 
 
 ## Publicación de conjuntos de datos
 
-- Zenodo y repositorios similares.
+- [Zenodo](https://about.zenodo.org/) es, probablemente junto con [Figshare](http://figshare.com/), uno de
+los repositorios de datos abiertos más conocidos y ampliamente utilizados en investigación, sobre todo en Europa,
+al ser un proyecto integrado en [OpenAIRE](https://www.openaire.eu/), una organiación sin ánimo de lucro
+creada por la Unión Europea para favorecer la ciencia abierta.
 
 - Publicaciones científicas en acceso abierto (*open access*).
 
 - Importante enlazar el DOI de un *dataset en un artículo, de forma que se puedan trazar
 (en sentido inverso) los DOIs de las publicaciones que emplean dicho *dataset*.
 
-## Gestión de referencias
+## Gestión de referencias y publicación en abierto
 
-- DOI
+Además de la asignación de un DOI a artículos, conjuntos de datos, software y otros elementos
+de los trabajos de investigación, existen algunas herramientas adicionales que facilitan la
+identificación de los trabajos y la autribución de su autoría (muchas de ellas con soporte
+explícito en Quarto)
 
-- ORCID de los autores/as.
+- El [ORCID](https://orcid.org/) es un identificador gratuito, unívoco y persistente para individuos
+que se involucran en actividades de investigación, innovación y académicas. Permite identificar
+rápidamente la identidad de un autor/a en una publicación o trabajo científico o la persona encargada
+de publicar y mantener un recurso (*dataset*, repositorio de software, etc.). Además, el ORCID
+permite generar listado de todas las contribuciones realizadas por el individuo identificado.
 
-- Figshare
+- Existe una amplia [lista de archivos de *preprints*](https://en.wikipedia.org/wiki/List_of_preprint_repositories)
+que permiten la publicación de trabajos preliminares que no han pasado aún un proceso de revisión por
+pares para su publicación en una revista. Cada vez más editoriales aceptan (e incluso fomentan) la publicación
+de estos documentos para dejar constancia rápida de los avances de investigación, debido a los elevados
+tiempos que requiere el proceso de revisión y publicación en muchas revistas de prestigio.
 
-- Zenodo
+- [PLOS](https://plos.org/) es una editorial Open Access sin ánimo de lucro, que edita y publica varias
+revistas digitales de elevado impacto y gran difusión en muchas áreas incluyendo, 
+[transformación y sostenibilidad](https://journals.plos.org/sustainabilitytransformation/).
 
-- arXiv o repositorio similar para *preprints* en acceso abierto.
+Un número creciente de editoriales están adoptando igualmente principios de publicación abierta (Open Access),
+aunque normalmente repercutiendo un coste significativo en los autores o las instituciones a las que están
+afiliados para sufragar los gastos de publicación.
 
-- PLOS
-
+- [Guía para crear artículos citables con Quarto](https://quarto.org/docs/authoring/create-citeable-articles.html).
 
 
