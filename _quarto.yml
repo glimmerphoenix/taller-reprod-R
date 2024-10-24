@@ -10,7 +10,6 @@ book:
   author:
     - "Felipe Ortega"
     - "María Jesús Algar"
-    - "Emilio López Cano"
   date: "2024/10/24"
   chapters:
     - index.qmd
