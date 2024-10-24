@@ -1,5 +1,9 @@
 # Comandos y opciones de configuración
 
+## Resumen de sintaxis de Quarto
+
+- [Archivo de ejemplo sintáxis básica de Quarto](https://github.com/glimmerphoenix/taller-reprod-R/blob/main/examples/Sintaxis_quarto.qmd).
+
 ## Comandos Quarto
 
 - [Listado de comandos y opciones para publicar con Quarto](https://rstudio.github.io/cheatsheets/html/quarto.html).
