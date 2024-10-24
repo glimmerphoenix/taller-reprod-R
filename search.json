@@ -649,18 +649,18 @@
     "href": "C-packages.html",
     "title": "Apéndice C — Paquetes R y atribuciones",
     "section": "",
-    "text": "C.1 Requisitos previos",
+    "text": "C.1 Requisitos previos\nPara ejecutar los ejemplos incluidos en este taller, se necesita tener instalado R y una IDE de desarrollo para este lenguaje, como por ejemplo RStudio o Microsoft VS Code.\nAdicionalmente, se necesitan los siguientes paquetes de R:\nPara generar documentos de salida en formato PDF se necesita tener instalada en el sistema una distribución LaTeX. Quarto ya incluye algunos comandos para facilitar la instalación de TinyTex, así como para comprobar que este u otro motor de compilación de LaTeX están disponibles en el sistema.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
     ]
   },
   {
-    "objectID": "C-packages.html#rticles",
-    "href": "C-packages.html#rticles",
+    "objectID": "C-packages.html#sec-pkg-requirements",
+    "href": "C-packages.html#sec-pkg-requirements",
     "title": "Apéndice C — Paquetes R y atribuciones",
-    "section": "C.2 rticles",
-    "text": "C.2 rticles\nShiny\nIOSlides, otras…\nOtros",
+    "section": "",
+    "text": "tidyverse.\npalmerpenguins.\n\n\n\nInstalación de TinyTex con Quarto.\nComprobación de herramientas TeX/LaTeX instaladas.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
@@ -670,8 +670,8 @@
     "objectID": "C-packages.html#atribución-de-imágenes-e-iconos",
     "href": "C-packages.html#atribución-de-imágenes-e-iconos",
     "title": "Apéndice C — Paquetes R y atribuciones",
-    "section": "C.3 Atribución de imágenes e iconos",
-    "text": "C.3 Atribución de imágenes e iconos\n\nR logo by The R Foundation.\nPython file icons created by Flat Icons - Flaticon.\nHtml icons created by Freepik - Flaticon.\nMicrosoft word icons created by Pixel perfect - Flaticon.\nPdf icons created by Dimitry Miroliubov - Flaticon.",
+    "section": "C.2 Atribución de imágenes e iconos",
+    "text": "C.2 Atribución de imágenes e iconos\n\nR logo by The R Foundation.\nPython file icons created by Flat Icons - Flaticon.\nHtml icons created by Freepik - Flaticon.\nMicrosoft word icons created by Pixel perfect - Flaticon.\nPdf icons created by Dimitry Miroliubov - Flaticon.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
