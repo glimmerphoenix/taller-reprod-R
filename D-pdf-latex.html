@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -41,6 +75,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/all.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/fontawesome6-1.2.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,6 +105,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -262,8 +327,11 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#salida-en-formato-pdf" id="toc-salida-en-formato-pdf" class="nav-link active" data-scroll-target="#salida-en-formato-pdf"><span class="header-section-number">D.1</span> Salida en formato PDF</a></li>
-  <li><a href="#acerca-de-latex" id="toc-acerca-de-latex" class="nav-link" data-scroll-target="#acerca-de-latex"><span class="header-section-number">D.2</span> Acerca de LaTeX</a></li>
-  <li><a href="#ejemplos-prácticos" id="toc-ejemplos-prácticos" class="nav-link" data-scroll-target="#ejemplos-prácticos"><span class="header-section-number">D.3</span> Ejemplos prácticos</a></li>
+  <li><a href="#acerca-de-latex" id="toc-acerca-de-latex" class="nav-link" data-scroll-target="#acerca-de-latex"><span class="header-section-number">D.2</span> Acerca de LaTeX</a>
+  <ul class="collapse">
+  <li><a href="#referencias-de-introducción-a-latex" id="toc-referencias-de-introducción-a-latex" class="nav-link" data-scroll-target="#referencias-de-introducción-a-latex"><span class="header-section-number">D.2.1</span> Referencias de introducción a LaTeX</a></li>
+  </ul></li>
+  <li><a href="#ejemplo-práctico" id="toc-ejemplo-práctico" class="nav-link" data-scroll-target="#ejemplo-práctico"><span class="header-section-number">D.3</span> Ejemplo práctico</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/D-pdf-latex.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/D-pdf-latex.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
@@ -291,17 +359,59 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="salida-en-formato-pdf" class="level2" data-number="D.1">
 <h2 data-number="D.1" class="anchored" data-anchor-id="salida-en-formato-pdf"><span class="header-section-number">D.1</span> Salida en formato PDF</h2>
-<p>TBD</p>
+<p>Como ya hemos explicado, seleccionando el formato:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>podemos indicar que se genere una salida de nuestro documento o proyecto con Quarto en formato PDF. Para ello, Quarto se apoya directamente en Pandoc y en la existencia de una distribución LaTeX en nuestro equipo para compilar el archivo con extensión <code>.tex</code> que se genera.</p>
 </section>
 <section id="acerca-de-latex" class="level2" data-number="D.2">
 <h2 data-number="D.2" class="anchored" data-anchor-id="acerca-de-latex"><span class="header-section-number">D.2</span> Acerca de LaTeX</h2>
-<p>TBD</p>
+<p><a href="https://es.wikipedia.org/wiki/LaTeX">LaTeX</a> (con esa grafía) es un software de maquetación de documentos de alta calidad creado originalmente por L. Lamport sobre TeX, un sistema de tipografía ideado por el profesor Donald E. Knuth.</p>
+<p>Para poder compilar un archivo LaTeX con extensión <code>.tex</code> necesitamos tener instalada una distribución LaTeX, como <a href="http://www.miktex.org/">MiKTeX</a>, <a href="http://www.tug.org/texlive/">TeX Live</a> o <a href="https://quarto.org/docs/output-formats/pdf-engine.html">TinyTeX</a> que es una versión reducida de TeX Live que únicamente incluye los paquetes más empleados habitualmente y ocupa unos 100 MB de espacio de almacenamiento.</p>
+<ul>
+<li><a href="https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex">Instrucciones de instalación de TinyTeX para Quarto</a>.</li>
+</ul>
+<p>Dentro de cada distribución de LaTeX hay diferentes motores de compilación (<em>compilation engines</em>), que son programas que toman los ficheros con extensión <code>.tex</code> y generan un documento final maquetado. Algunos de ellos son <code>pdflatex</code>, <code>xelatex</code> o <code>luatex</code>. Por defecto, Quarto usa el motor <code>xelatex</code>, una opción moderna que incluye soporte nativo para UTF-8, múltiples tipografías en formato OTF (basta con que estén instaladas como fuentes en nuestro equipo) y muchas otras ventajas.</p>
+<p>Por último, para manejar las referencias bibliográficas se necesita un gestor de bibliografía. La opción clásica era BibTeX (los archivos <code>.bib</code> de referencias están codificados en un formato compatible con este gestor). Sin embargo, en la actualidad se recomienda el uso del paquete <a href="https://ctan.javinator9889.com/macros/latex/contrib/biblatex/doc/biblatex.pdf">BibLaTeX</a>, mucho más potente, robusto y que ofrece un soporte multilenguaje óptimo para la generación de referencias bibliográficas según las normas aplicables a cada idioma. Para usarlo en nuestra salida en PDF de un proyecto Quarto, indicamos la siguiente opción:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">pdf</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">cite-method</span><span class="kw">:</span><span class="at"> biblatex</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="referencias-de-introducción-a-latex" class="level3" data-number="D.2.1">
+<h3 data-number="D.2.1" class="anchored" data-anchor-id="referencias-de-introducción-a-latex"><span class="header-section-number">D.2.1</span> Referencias de introducción a LaTeX</h3>
+<ul>
+<li><a href="https://es.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes">Learn LaTeX in 30 minutes</a>. Este manual lo ha creado el equipo de <a href="https://www.overleaf.com/">Overleaf</a>, un servicio web para edición colaborativa de documentos en LaTeX.</li>
+<li><a href="https://tug.ctan.org/info/lshort/english/lshort.pdf">The Not So Short Introduction to LaTeX2<span class="math inline">\(\varepsilon\)</span></a>.</li>
+</ul>
 </section>
-<section id="ejemplos-prácticos" class="level2" data-number="D.3">
-<h2 data-number="D.3" class="anchored" data-anchor-id="ejemplos-prácticos"><span class="header-section-number">D.3</span> Ejemplos prácticos</h2>
-<p>TBD</p>
+</section>
+<section id="ejemplo-práctico" class="level2" data-number="D.3">
+<h2 data-number="D.3" class="anchored" data-anchor-id="ejemplo-práctico"><span class="header-section-number">D.3</span> Ejemplo práctico</h2>
+<ul>
+<li><p>Los apuntes de este taller están creados con Quarto y se genera salida tanto en formato HTML como en PDF. El documento PDF se puede descargar pulsando sobre el icono <i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i> junto al título del libro en la parte superior izquierda de la pantalla.</p>
+<ul>
+<li><p>El archivo <a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/_quarto.yml"><code>_quarto.yml</code></a> incluye varias opciones bajo el apartado <code>format:</code>, dentro de la opción <code>pdf:</code>. Entre ellas tenemos:</p>
+<ul>
+<li><code>documentclass:</code> permite indicar la plantilla de documento principal. Algunas opciones son <code>scrartcl</code>, <code>scrreprt</code> o <code>scrbook</code>, correspondientes a las clases KOMA-Script <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, <code>memoir</code> para libros y tesis <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, o la clase básica <code>book</code>. Existen muchos otros paquetes LaTeX que ofrecen plantillas más especializadas para tesis, trabajos y otros tipos de documentos.</li>
+</ul>
+<ul>
+<li><p><code>classoptions:</code> son las opciones que se pasan para configurar la plantilla principal, dentro del comando LaTeX <code>\documentclass</code>.</p></li>
+<li><p><code>hyperrefoptions:</code> permite insertar opciones para modificar el comportamiento del paquete <code>hyperref</code>, que controla todos los tipos de enlaces (incluyendo a bibliografía y referencias cruzadas) del documento.</p></li>
+<li><p><code>include-in-header:</code> abre la posibilidad de insertar comandos LaTeX adicionales para cargar otros paquetes o ajustar otros parámetros de configuración.</p></li>
+</ul></li>
+<li><p>Dentro del apartado <code>book:</code> de la configuración, la opción <code>downloads: [pdf]</code> provoca que se añada el icono <i class="fa-regular fa-file-pdf" aria-label="file-pdf"></i> junto al título del libro como enlace de descarga de la versión en PDF.</p></li>
+<li><p>Para las referencias bibliográficas, las opciones de alto nivel <code>bibliography:</code> y <code>csl:</code> permiten indicar un archivo de referencias bibliográficas en formato BibTeX y un estilo de formateo de las referencias. Esta información es aplicable también a la salida en PDF.</p></li>
+</ul></li>
+</ul>
+<p>Pandoc explica en el apartado de su documentación dedicado a <a href="https://pandoc.org/MANUAL.html#creating-a-pdf">crear documentos PDF</a> muchas de las opciones soportadas. La <a href="https://pandoc.org/MANUAL.html#variables-for-latex">lista completa de variables de configuración para LaTeX</a> también está disponibles. Todas ellas están directamente soportadas en Quarto.</p>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><a href="https://webs.um.es/jal/docs/05-Koma.pdf">Guía rápida de KOMA-Script</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://ctan.fisiquimicamente.com/macros/latex/contrib/memoir/memman.pdf">Manual de la clase <code>memoir</code></a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->

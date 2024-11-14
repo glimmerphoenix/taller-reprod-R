@@ -20,27 +20,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-  margin-bottom: 0em;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -276,8 +256,15 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link active" data-scroll-target="#quarto"><span class="header-section-number">9.1</span> Quarto</a></li>
+  <li><a href="#principios-fair-y-ciencia-abierta" id="toc-principios-fair-y-ciencia-abierta" class="nav-link" data-scroll-target="#principios-fair-y-ciencia-abierta"><span class="header-section-number">9.2</span> Principios FAIR y ciencia abierta</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/09-add-resources.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/09-add-resources.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -301,15 +288,34 @@ div.csl-indent {
 </header>
 
 
-<p>Listado de recursos adicionales de interés.</p>
-<p>See <span class="citation" data-cites="knuth84">Knuth (<a href="references.html#ref-knuth84" role="doc-biblioref">1984</a>)</span> for additional discussion of literate programming.</p>
+<section id="quarto" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="quarto"><span class="header-section-number">9.1</span> Quarto</h2>
+<ul>
+<li><p>Getting started: <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a>.</p></li>
+<li><p>Guía completa (online): <a href="https://quarto.org/docs/guide/" class="uri">https://quarto.org/docs/guide/</a>.</p></li>
+<li><p>Referencia de funciones y opciones (online): <a href="https://quarto.org/docs/reference/" class="uri">https://quarto.org/docs/reference/</a>.</p></li>
+<li><p>Galería de proyectos de ejemplo: <a href="https://quarto.org/docs/gallery/" class="uri">https://quarto.org/docs/gallery/</a>.</p></li>
+</ul>
+</section>
+<section id="principios-fair-y-ciencia-abierta" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="principios-fair-y-ciencia-abierta"><span class="header-section-number">9.2</span> Principios FAIR y ciencia abierta</h2>
+<ul>
+<li><p>Artículo sobre principios FAIR: <a href="https://www.nature.com/articles/sdata201618" class="uri">https://www.nature.com/articles/sdata201618</a>.</p></li>
+<li><p>Mandato sobre gestión de datos científicos en el Programa Horizonte Europa (CE): <a href="https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm" class="uri">https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm</a>.</p>
+<ul>
+<li><p>Todos los proyectos HE deben publicar al comienzo del plan de trabajo un Data Management Plan (DMP), explicando con gran detalle cómo se van a obtener, procesar, analizar y gestionar los datos utilizados y generados en las actividades del proyecto.</p>
+<ul>
+<li><a href="https://dmptool.org/">DMP TOOL</a>: Herramienta online para crear DMPs de forma estructurada.</li>
+</ul></li>
+<li><p><em>“How to make your data FAIR”</em>: <a href="https://www.openaire.eu/how-to-make-your-data-fair" class="uri">https://www.openaire.eu/how-to-make-your-data-fair</a>.</p></li>
+<li><p><a href="https://www.data.cam.ac.uk/data-management-guide/creating-your-data/data-management-plan">Data Management Plan</a> (University) of Cambridge.</p></li>
+</ul></li>
+<li><p>Comunidad ROpenSci: <a href="https://ropensci.org/es/" class="uri">https://ropensci.org/es/</a>.</p></li>
+<li><p>Comunidad ROpenSpain: <a href="https://ropenspain.es/" class="uri">https://ropenspain.es/</a>.</p></li>
+</ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" data-line-spacing="2" role="list" style="display: none">
-<div id="ref-knuth84" class="csl-entry" role="listitem">
-Knuth, D. E. (1984). Literate Programming. <em>Comput. J.</em>, <em>27</em>(2), 97-111. <a href="https://doi.org/10.1093/comjnl/27.2.97">https://doi.org/10.1093/comjnl/27.2.97</a>
-</div>
-</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -749,4 +755,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/09-add-resources.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/09-add-resources.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/blob/main/09-add-resources.qmd" class="toc-action"><i class="bi bi-github"></i>Ver el código</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/edit/main/09-add-resources.qmd" class="toc-action"><i class="bi empty"></i>Editar esta página</a></li><li><a href="https://github.com/glimmerphoenix/taller-reprod-R/issues/new" class="toc-action"><i class="bi empty"></i>Informar de un problema</a></li></ul></div></div></div></footer></body></html>

@@ -552,7 +552,27 @@
     "href": "09-add-resources.html",
     "title": "9  Recursos adicionales",
     "section": "",
-    "text": "Listado de recursos adicionales de interés.\nSee Knuth (1984) for additional discussion of literate programming.\n\n\n\n\nKnuth, D. E. (1984). Literate Programming. Comput. J., 27(2), 97-111. https://doi.org/10.1093/comjnl/27.2.97",
+    "text": "9.1 Quarto",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Recursos adicionales</span>"
+    ]
+  },
+  {
+    "objectID": "09-add-resources.html#quarto",
+    "href": "09-add-resources.html#quarto",
+    "title": "9  Recursos adicionales",
+    "section": "",
+    "text": "Getting started: https://quarto.org/docs/get-started/.\nGuía completa (online): https://quarto.org/docs/guide/.\nReferencia de funciones y opciones (online): https://quarto.org/docs/reference/.\nGalería de proyectos de ejemplo: https://quarto.org/docs/gallery/.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Recursos adicionales</span>"
+    ]
+  },
+  {
+    "objectID": "09-add-resources.html#principios-fair-y-ciencia-abierta",
+    "href": "09-add-resources.html#principios-fair-y-ciencia-abierta",
+    "title": "9  Recursos adicionales",
+    "section": "9.2 Principios FAIR y ciencia abierta",
+    "text": "9.2 Principios FAIR y ciencia abierta\n\nArtículo sobre principios FAIR: https://www.nature.com/articles/sdata201618.\nMandato sobre gestión de datos científicos en el Programa Horizonte Europa (CE): https://www.openaire.eu/how-to-comply-with-horizon-europe-mandate-for-rdm.\n\nTodos los proyectos HE deben publicar al comienzo del plan de trabajo un Data Management Plan (DMP), explicando con gran detalle cómo se van a obtener, procesar, analizar y gestionar los datos utilizados y generados en las actividades del proyecto.\n\nDMP TOOL: Herramienta online para crear DMPs de forma estructurada.\n\n“How to make your data FAIR”: https://www.openaire.eu/how-to-make-your-data-fair.\nData Management Plan (University) of Cambridge.\n\nComunidad ROpenSci: https://ropensci.org/es/.\nComunidad ROpenSpain: https://ropenspain.es/.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Recursos adicionales</span>"
     ]
@@ -671,7 +691,7 @@
     "href": "C-packages.html",
     "title": "Apéndice C — Paquetes R y atribuciones",
     "section": "",
-    "text": "C.1 Requisitos previos\nPara ejecutar los ejemplos incluidos en este taller, se necesita tener instalado R y una IDE de desarrollo para este lenguaje, como por ejemplo RStudio o Microsoft VS Code.\nAdicionalmente, se necesitan los siguientes paquetes de R:\nPara generar documentos de salida en formato PDF se necesita tener instalada en el sistema una distribución LaTeX. Quarto ya incluye algunos comandos para facilitar la instalación de TinyTex, así como para comprobar que este u otro motor de compilación de LaTeX están disponibles en el sistema.",
+    "text": "C.1 Requisitos previos\nPara ejecutar los ejemplos incluidos en este taller, se necesita tener instalado R y una IDE de desarrollo para este lenguaje, como por ejemplo RStudio o Microsoft VS Code.\nTambién tenemos que instalar el software Quarto, que es independiente de R y de la IDE de desarrollo que utilicemos.\nAdicionalmente, se necesitan los siguientes paquetes de R:\nPara generar documentos de salida en formato PDF se necesita tener instalada en el sistema una distribución LaTeX. Quarto ya incluye algunos comandos para facilitar la instalación de TinyTex, así como para comprobar que este u otro motor de compilación de LaTeX están disponibles en el sistema.",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>C</span>  <span class='chapter-title'>Paquetes R y atribuciones</span>"
@@ -704,7 +724,18 @@
     "href": "D-pdf-latex.html",
     "title": "Apéndice D — Documentos PDF con LaTeX",
     "section": "",
-    "text": "D.1 Salida en formato PDF\nTBD",
+    "text": "D.1 Salida en formato PDF\nComo ya hemos explicado, seleccionando el formato:\npodemos indicar que se genere una salida de nuestro documento o proyecto con Quarto en formato PDF. Para ello, Quarto se apoya directamente en Pandoc y en la existencia de una distribución LaTeX en nuestro equipo para compilar el archivo con extensión .tex que se genera.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html#salida-en-formato-pdf",
+    "href": "D-pdf-latex.html#salida-en-formato-pdf",
+    "title": "Apéndice D — Documentos PDF con LaTeX",
+    "section": "",
+    "text": "format:\n  pdf:",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
@@ -715,18 +746,29 @@
     "href": "D-pdf-latex.html#acerca-de-latex",
     "title": "Apéndice D — Documentos PDF con LaTeX",
     "section": "D.2 Acerca de LaTeX",
-    "text": "D.2 Acerca de LaTeX\nTBD",
+    "text": "D.2 Acerca de LaTeX\nLaTeX (con esa grafía) es un software de maquetación de documentos de alta calidad creado originalmente por L. Lamport sobre TeX, un sistema de tipografía ideado por el profesor Donald E. Knuth.\nPara poder compilar un archivo LaTeX con extensión .tex necesitamos tener instalada una distribución LaTeX, como MiKTeX, TeX Live o TinyTeX que es una versión reducida de TeX Live que únicamente incluye los paquetes más empleados habitualmente y ocupa unos 100 MB de espacio de almacenamiento.\n\nInstrucciones de instalación de TinyTeX para Quarto.\n\nDentro de cada distribución de LaTeX hay diferentes motores de compilación (compilation engines), que son programas que toman los ficheros con extensión .tex y generan un documento final maquetado. Algunos de ellos son pdflatex, xelatex o luatex. Por defecto, Quarto usa el motor xelatex, una opción moderna que incluye soporte nativo para UTF-8, múltiples tipografías en formato OTF (basta con que estén instaladas como fuentes en nuestro equipo) y muchas otras ventajas.\nPor último, para manejar las referencias bibliográficas se necesita un gestor de bibliografía. La opción clásica era BibTeX (los archivos .bib de referencias están codificados en un formato compatible con este gestor). Sin embargo, en la actualidad se recomienda el uso del paquete BibLaTeX, mucho más potente, robusto y que ofrece un soporte multilenguaje óptimo para la generación de referencias bibliográficas según las normas aplicables a cada idioma. Para usarlo en nuestra salida en PDF de un proyecto Quarto, indicamos la siguiente opción:\nformat:\n  pdf: \n    cite-method: biblatex\n\nD.2.1 Referencias de introducción a LaTeX\n\nLearn LaTeX in 30 minutes. Este manual lo ha creado el equipo de Overleaf, un servicio web para edición colaborativa de documentos en LaTeX.\nThe Not So Short Introduction to LaTeX2\\(\\varepsilon\\).",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
     ]
   },
   {
-    "objectID": "D-pdf-latex.html#ejemplos-prácticos",
-    "href": "D-pdf-latex.html#ejemplos-prácticos",
+    "objectID": "D-pdf-latex.html#ejemplo-práctico",
+    "href": "D-pdf-latex.html#ejemplo-práctico",
     "title": "Apéndice D — Documentos PDF con LaTeX",
-    "section": "D.3 Ejemplos prácticos",
-    "text": "D.3 Ejemplos prácticos\nTBD",
+    "section": "D.3 Ejemplo práctico",
+    "text": "D.3 Ejemplo práctico\n\nLos apuntes de este taller están creados con Quarto y se genera salida tanto en formato HTML como en PDF. El documento PDF se puede descargar pulsando sobre el icono  junto al título del libro en la parte superior izquierda de la pantalla.\n\nEl archivo _quarto.yml incluye varias opciones bajo el apartado format:, dentro de la opción pdf:. Entre ellas tenemos:\n\ndocumentclass: permite indicar la plantilla de documento principal. Algunas opciones son scrartcl, scrreprt o scrbook, correspondientes a las clases KOMA-Script 1, memoir para libros y tesis 2, o la clase básica book. Existen muchos otros paquetes LaTeX que ofrecen plantillas más especializadas para tesis, trabajos y otros tipos de documentos.\n\n\nclassoptions: son las opciones que se pasan para configurar la plantilla principal, dentro del comando LaTeX \\documentclass.\nhyperrefoptions: permite insertar opciones para modificar el comportamiento del paquete hyperref, que controla todos los tipos de enlaces (incluyendo a bibliografía y referencias cruzadas) del documento.\ninclude-in-header: abre la posibilidad de insertar comandos LaTeX adicionales para cargar otros paquetes o ajustar otros parámetros de configuración.\n\nDentro del apartado book: de la configuración, la opción downloads: [pdf] provoca que se añada el icono  junto al título del libro como enlace de descarga de la versión en PDF.\nPara las referencias bibliográficas, las opciones de alto nivel bibliography: y csl: permiten indicar un archivo de referencias bibliográficas en formato BibTeX y un estilo de formateo de las referencias. Esta información es aplicable también a la salida en PDF.\n\n\nPandoc explica en el apartado de su documentación dedicado a crear documentos PDF muchas de las opciones soportadas. La lista completa de variables de configuración para LaTeX también está disponibles. Todas ellas están directamente soportadas en Quarto.",
+    "crumbs": [
+      "Apéndices",
+      "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
+    ]
+  },
+  {
+    "objectID": "D-pdf-latex.html#footnotes",
+    "href": "D-pdf-latex.html#footnotes",
+    "title": "Apéndice D — Documentos PDF con LaTeX",
+    "section": "",
+    "text": "Guía rápida de KOMA-Script.↩︎\nManual de la clase memoir.↩︎",
     "crumbs": [
       "Apéndices",
       "<span class='chapter-number'>D</span>  <span class='chapter-title'>Documentos PDF con LaTeX</span>"
