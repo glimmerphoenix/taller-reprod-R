@@ -2,8 +2,97 @@
 
 ## Salida en formato PDF
 
+Como ya hemos explicado, seleccionando el formato: 
+
+```yaml
+format:
+  pdf:
+```
+
+podemos indicar que se genere una salida de nuestro documento o proyecto con Quarto 
+en formato PDF. Para ello, Quarto se apoya directamente en Pandoc y en la existencia
+de una distribución LaTeX en nuestro equipo para compilar el archivo con extensión 
+`.tex` que se genera.
 
 ## Acerca de LaTeX
 
+[LaTeX](https://es.wikipedia.org/wiki/LaTeX) (con esa grafía) es un software de maquetación de documentos
+de alta calidad creado originalmente por L. Lamport sobre TeX, un sistema de tipografía
+ideado por el profesor Donald E. Knuth.
 
-## Ejemplos prácticos
+Para poder compilar un archivo LaTeX con extensión `.tex` necesitamos tener instalada una distribución
+LaTeX, como [MiKTeX](http://www.miktex.org/), [TeX Live](http://www.tug.org/texlive/) o 
+[TinyTeX](https://quarto.org/docs/output-formats/pdf-engine.html) que es una versión reducida
+de TeX Live que únicamente incluye los paquetes más empleados habitualmente y ocupa unos
+100 MB de espacio de almacenamiento.
+
+- [Instrucciones de instalación de TinyTeX para Quarto](https://quarto.org/docs/output-formats/pdf-engine.html#installing-tex).
+
+Dentro de cada distribución de LaTeX hay diferentes motores de compilación (*compilation engines*), que
+son programas que toman los ficheros con extensión `.tex` y generan un documento final maquetado. Algunos
+de ellos son `pdflatex`, `xelatex` o `luatex`. Por defecto, Quarto usa el motor `xelatex`, una opción moderna
+que incluye soporte nativo para UTF-8, múltiples tipografías en formato OTF (basta con que estén instaladas
+como fuentes en nuestro equipo) y muchas otras ventajas.
+
+Por último, para manejar las referencias bibliográficas se necesita un gestor de bibliografía.
+La opción clásica era BibTeX (los archivos `.bib` de referencias están codificados en un formato
+compatible con este gestor). Sin embargo, en la actualidad se recomienda el uso del paquete
+[BibLaTeX](https://ctan.javinator9889.com/macros/latex/contrib/biblatex/doc/biblatex.pdf), mucho
+más potente, robusto y que ofrece un soporte multilenguaje óptimo para la generación de referencias
+bibliográficas según las normas aplicables a cada idioma. Para usarlo en nuestra salida en PDF
+de un proyecto Quarto, indicamos la siguiente opción:
+
+```yaml
+format:
+  pdf: 
+    cite-method: biblatex
+```
+
+### Referencias de introducción a LaTeX
+
+- [Learn LaTeX in 30 minutes](https://es.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes). Este manual lo ha creado
+el equipo de [Overleaf](https://www.overleaf.com/), un servicio web para edición colaborativa de documentos en
+LaTeX.
+- [The Not So Short Introduction to LaTeX2$\varepsilon$](https://tug.ctan.org/info/lshort/english/lshort.pdf).
+
+## Ejemplo práctico
+
+- Los apuntes de este taller están creados con Quarto y se genera salida tanto en formato
+HTML como en PDF. El documento PDF se puede descargar pulsando sobre el icono  {{< fa regular file-pdf >}} 
+junto al título del libro en la parte superior izquierda de la pantalla.
+
+    - El archivo [`_quarto.yml`](https://github.com/glimmerphoenix/taller-reprod-R/blob/main/_quarto.yml)
+    incluye varias opciones bajo el apartado `format:`, dentro de la opción `pdf:`. Entre ellas
+    tenemos:
+
+        - `documentclass:` permite indicar la plantilla de documento principal. Algunas opciones
+        son `scrartcl`, `scrreprt` o `scrbook`, correspondientes a las clases KOMA-Script [^1], 
+        `memoir` para libros y tesis [^2], o la clase básica `book`. Existen muchos otros paquetes
+        LaTeX que ofrecen plantillas más especializadas para tesis, trabajos y otros tipos de
+        documentos.
+
+        [^1]: [Guía rápida de KOMA-Script](https://webs.um.es/jal/docs/05-Koma.pdf).
+        [^2]: [Manual de la clase `memoir`](https://ctan.fisiquimicamente.com/macros/latex/contrib/memoir/memman.pdf).
+
+        - `classoptions:` son las opciones que se pasan para configurar la plantilla principal, dentro
+        del comando LaTeX ```\documentclass```.
+
+        - `hyperrefoptions:` permite insertar opciones para modificar el comportamiento del paquete
+        `hyperref`, que controla todos los tipos de enlaces (incluyendo a bibliografía y referencias cruzadas)
+        del documento.
+
+        - `include-in-header:` abre la posibilidad de insertar comandos LaTeX adicionales para cargar otros
+        paquetes o ajustar otros parámetros de configuración.
+
+    - Dentro del apartado `book:` de la configuración, la opción `downloads: [pdf]` provoca que
+    se añada el icono {{< fa regular file-pdf >}} junto al título del libro como enlace de descarga
+    de la versión en PDF.
+
+    - Para las referencias bibliográficas, las opciones de alto nivel `bibliography:` y `csl:` permiten
+    indicar un archivo de referencias bibliográficas en formato BibTeX y un estilo de formateo de las
+    referencias. Esta información es aplicable también a la salida en PDF.
+
+Pandoc explica en el apartado de su documentación dedicado a [crear documentos PDF](https://pandoc.org/MANUAL.html#creating-a-pdf)
+muchas de las opciones soportadas. La [lista completa de variables de configuración para LaTeX](https://pandoc.org/MANUAL.html#variables-for-latex)
+también está disponibles. Todas ellas están directamente soportadas en Quarto.
+
