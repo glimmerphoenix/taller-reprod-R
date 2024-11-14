@@ -6,6 +6,9 @@ Para ejecutar los ejemplos incluidos en este taller, se necesita tener instalado
 R y una IDE de desarrollo para este lenguaje, como por ejemplo RStudio o Microsoft
 VS Code. 
 
+También tenemos que instalar el software [Quarto](https://quarto.org/docs/download/),
+que es independiente de R y de la IDE de desarrollo que utilicemos.
+
 Adicionalmente, se necesitan los siguientes paquetes de R:
 
 - `tidyverse`.
