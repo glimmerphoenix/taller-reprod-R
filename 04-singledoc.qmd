@@ -99,7 +99,7 @@ también soporta otros lenguajes de programación como Python, Julia u Observabl
 Podemos cambiar el lenguaje de programación de cada *chunk* indicando su nombre
 al comienzo, como por ejemplo:
 
-````{{pyton}}
+````{{python}}
 # Código en Python
 ````
 Sin embargo, para que pueda funcionar necesitaremos realizar algunas tareas adicionales de configuración.
