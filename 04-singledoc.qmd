@@ -354,7 +354,7 @@ para mejorar la accesibilidad del contenido).
 - `fig-dpi`: Ajuste de la resolución de la figura (en puntos por pulgada).
 
 El [tutorial sobre fragmentos de código ejecutables](https://quarto.org/docs/get-started/computations/rstudio.html) de
-la documentación oficial presenta más información y ejemplos sobre cómo utilizar esta potente característica de Quarto.l
+la documentación oficial presenta más información y ejemplos sobre cómo utilizar esta potente característica de Quarto.
 
 ## Herramientas para el autor
 
